@@ -6,3 +6,5 @@
 	and obviously, prize money does not translate to real-life prize earnings!</li>
 	<li>Instead of using jQuery's fade effects, I used CSS animations for faster performance and thus requiring less capacity on memory.</li>
 </ul>
+
+<footer>&copy; 2016. Kai Shiao. All rights reserved.</footer>

@@ -1,0 +1,16 @@
+@import '../header-and-footer.css';
+@import '../reset.css';
+@import 'in-game-effects.css';
+
+table{
+	border-collapse: collapse;
+	cursor: pointer;
+	font-size: 80%;
+	margin: 30px auto 20px auto;
+}
+
+td{
+	border: 3px solid rgb(0,0,0); 
+	height: 80px;
+	width: 80px;
+}

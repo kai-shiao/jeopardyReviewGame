@@ -1,0 +1,12 @@
+body{
+	background-color: rgb(0,0,255);
+	color: rgb(255,215,0);
+	font-family: "Maiandra GD", cursive;
+	font-weight: bold;
+	text-align: center;
+}
+
+div#wrapper{
+	margin: 0px auto;
+	width: 1020px;
+}

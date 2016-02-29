@@ -1,0 +1,241 @@
+.hidden{
+	display: none;
+}
+
+@-webkit-keyframes fadeFromView{
+	from {opacity: 1;} 
+	to {opacity: 0;}
+}
+
+@-moz-keyframes fadeFromView{
+	from {opacity: 1;} 
+	to {opacity: 0;}
+}
+
+@keyframes fadeFromView{
+	from {opacity: 1;} 
+	to {opacity: 0;}
+}
+
+.fadeFromView{
+	-webkit-animation: fadeFromView 3s 1;
+	-moz-animation: fadeFromView 3s 1;
+	animation: fadeFromView 3s 1;
+}
+
+@-webkit-keyframes fadeIntoView{
+	0% {opacity: 0;} 
+	100% {opacity: 1;}
+}
+
+@-moz-keyframes fadeIntoView{
+	0% {opacity: 0;} 
+	100% {opacity: 1;}
+}
+
+@keyframes fadeIntoView{
+	0% {opacity: 0;} 
+	100% {opacity: 1;}
+}
+
+.fadeIntoView{
+	-webkit-animation: fadeIntoView 3s 1;
+	-moz-animation: fadeIntoView 3s 1;
+	animation: fadeIntoView 3s 1;
+}
+
+#dailyDouble{
+	height: 60px;
+	top: 200px;
+}
+
+#nameBox{
+	height: 150px;
+	left: 420px;
+	top: 250px;
+	width: 500px;
+}
+
+#ruleBox{
+	height: 300px;
+	left: 370px;
+	top: 200px;
+	width: 600px;
+}
+
+#alreadySelectedWarning{
+	height: 100px;
+	top: 300px;
+}
+
+#biddingRules{
+	height: 150px;
+	left: 420px;
+	top: 200px;
+	width: 500px;	
+}
+
+#bidBox{
+	height: 225px;
+	left: 420px;
+	top: 200px;
+	width: 500px;	
+}
+
+#dailyDouble, #alreadySelectedWarning{
+	left: 500px;
+	width: 200px;
+}
+
+#dailyDouble, #nameBox, #ruleBox, #alreadySelectedWarning{
+	border-radius: 10px;	
+}
+
+#nameBox, #ruleBox, #alreadySelectedWarning, #dailyDouble, #biddingRules, #bidBox, .magnified, #answer{
+	background-color: rgb(0,0,255);
+	border: 5px solid rgb(0,0,0);
+	color: rgb(255,215,0); 
+	position: absolute;
+}
+
+#nameBox, .magnified, #answer{
+	font-size: 100%;
+}
+
+#alreadySelectedWarning, .magnified, #answer{
+	padding: 5px;
+}
+
+.magnified, #answer{
+	height: 300px;
+	top: 200px;
+	width: 300px;	
+}
+
+.magnified{
+	left: 400px;
+}
+
+#answer{
+	right: 310px;
+}
+
+#ruleBox>span:first-child, #alreadySelectedWarning>span:first-child, #biddingRules>span:first-child, .magnified>span:first-child
+,#answer>span:first-child{
+	float: right;
+	margin-bottom: 20px;
+	margin-right: 3px;
+}
+
+#ruleBox>span:first-child:hover, #alreadySelectedWarning>span:first-child:hover, #biddingRules>span:first-child:hover, .magnified>span:first-child:hover 
+,#answer>span:first-child:hover{
+	color: rgb(255,0,0);
+	cursor: pointer;
+}
+
+#dailyDouble>h1, #biddingRules>h1, #ruleBox>h1{
+	font-size: 150%;
+}
+
+ul:first-of-type{
+	text-align: left;
+}
+
+div#ruleBox>ul:first-of-type{
+	margin-left: 25px;
+	width: 500px;
+}
+
+div#biddingRules>ul:first-of-type{
+	width: 450px;
+}
+
+li{
+	font-size: 80%;	
+}
+
+/*Inside the magnified screen, the <p> elements used to hold the clue or the category are assigned and selected using classes 
+as opposed to using advanced pseudo-classes as using p:first-of-type OR p:nth-child(2) would prevent CSS from distinguishing
+the <p> elements used to display clue content from the <p> elements used to display category content. More importantly, this means
+that the different CSS rules would not be applied.
+*/
+.magnified>p.clue{
+	margin-top: 40px;
+}
+
+.magnified>p.category{
+	margin-top: 120px;
+}
+
+#answer>span:last-of-type{
+	margin-left: 3px;
+}
+
+#answer>p:first-of-type{
+	margin-top: 20px;
+}
+
+#answer>p:nth-of-type(n+2){
+	margin-top: 5px;
+}
+
+#answer>ul>li>span:first-child{
+	margin-left: 3px;
+}
+
+#answer>p:nth-of-type(2), #answer>p:nth-of-type(5),#answer>ul>li:nth-child(2)>span,#answer>ul>li:nth-child(3)>span{
+	color: rgb(0,0,0);
+}
+
+input, button{
+	border: 3px solid rgb(0,0,0);
+	border-radius: 3px;
+	font-family: "Maiandra GD", cursive;
+	font-weight: bold;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+button{
+	cursor: pointer;
+	display: block;
+}
+
+#answer>input{
+	margin-top: 5px;
+	width: 200px;
+}
+
+#answer>button{
+	margin-left: 75px;
+	margin-top: 10px;
+}
+
+#nameBox>p{
+	margin: 10px auto;
+}
+
+#nameBox>input{
+	margin-left: -10px;
+	text-align: center;
+	width: 180px;
+}
+
+#nameBox>button{
+	margin-left: 75px;
+	margin-top: 10px;
+}
+
+#bidBox>p{
+	margin: 10px auto;
+}
+
+#bidBox>button{
+	margin-left: 200px;
+	margin-top: 10px;
+	width: 100px;
+}
+
+#alreadySelectedWarning>p{
+	margin-top: 20px;
+}

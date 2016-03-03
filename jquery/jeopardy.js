@@ -451,15 +451,15 @@ function welcomeTheContestant(){
 	$('#nameBox').find('button').on('click',saveContestantName);
 	
 	//Perform checks to see if the previous player's data variables & their corresponding values may still be saved in HTML5 localStorage.
-	localStorage.getItem('totalPrize',0);
-	localStorage.getItem('totalCorrect',0);
-	localStorage.getItem('totalWinningPercentage',0);		
+	var totalPrizeCheck=localStorage.getItem('totalPrize');
+	var totalCorrectCheck=localStorage.getItem('totalCorrect');
+	var totalWinningPercentageCheck=localStorage.getItem('totalWinningPercentage');		
     
 	//Jeopardy!(first round) game stats
-	localStorage.getItem('jeopardyTotalPrize',0);
-	localStorage.getItem('jeopardyCorrect',0);
-	localStorage.getItem('jeopardyWinningPercentage',0);
-	localStorage.getItem('jeopardyAnswered',0);
+	var jeopardyTotalPrizeCheck=localStorage.getItem('jeopardyTotalPrize');
+	var jeopardyCorrectCheck=localStorage.getItem('jeopardyCorrect');
+	var jeopardyWinningPercentageCheck=localStorage.getItem('jeopardyWinningPercentage');
+	var jeopardyAnsweredCheck=localStorage.getItem('jeopardyAnswered');
 
 	//Double Jeopardy!(second round) game stats
 	localStorage.getItem('doubleJeopardyTotalPrize',0);

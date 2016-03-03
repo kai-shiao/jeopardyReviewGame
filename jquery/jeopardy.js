@@ -466,8 +466,14 @@ function welcomeTheContestant(){
 	];
 	
 	for (var $i=0;$<$statsList.length;$i++){
+		localStorage.removeItem($statsList[$i]);
+    }
+
+	for (var $i=0;$<$statsList.length;$i++){
 		localStorage.setItem($statsList[$i],0);
     }
+	
+	console.info('JEOPARDY! TOTAL PRIZE: '+localStorage.getItem('jeopardyTotalPrize'));
 	
 	/*Initialize an array that will hold Boolean values indicating current status (TRUE or FALSE) for all clues; 'TRUE' indicates 'answered', while
 	'FALSE' indicates unanswered.*/

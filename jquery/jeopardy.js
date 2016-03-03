@@ -452,7 +452,9 @@ function welcomeTheContestant(){
 	$('#nameBox').find('input').on('click',addFocus);
 	$('#nameBox').find('button').on('click',saveContestantName);
 									  
-	//Initialize variables for the player's stats with initial value of 0 & then save them into localStorage.	
+	//Initialize variables for the player's stats with initial value of 0 & then save them into localStorage.
+	//Already existing variables will be set to 0.
+	
 	var $statsList=['totalPrize','totalCorrect','totalWinningPercentage',
 					'jeopardyTotalPrize','jeopardyCorrect','jeopardyWinningPercentage','jeopardyAnswered',
 					'doubleJeopardyTotalPrize','doubleJeopardyCorrect','doubleJeopardyWinningPercentage','doubleJeopardyAnswered',

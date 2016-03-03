@@ -463,11 +463,11 @@ function welcomeTheContestant(){
 
 	//Double Jeopardy!(second round) game stats
 	var doubleJeopardyTotalPrizeCheck=localStorage.getItem('doubleJeopardyTotalPrize');
-	localStorage.getItem('doubleJeopardyCorrect');
-	localStorage.getItem('doubleJeopardyWinningPercentage');
+	var doubleJeopardyCorrect=localStorage.getItem('doubleJeopardyCorrect');
+	var doubleJeopardyWinningPercentage=localStorage.getItem('doubleJeopardyWinningPercentage');
 	
 	//Final Jeopardy!
-	localStorage.setItem('finalJeopardyTotalPrize',0);
+	var finalJeopardyTotalPrize=localStorage.getItem('finalJeopardyTotalPrize');
 
 	//Initialize variables for the player's stats and name; then save them into localStorage.
 	

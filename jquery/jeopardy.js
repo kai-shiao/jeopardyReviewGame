@@ -464,18 +464,11 @@ function welcomeTheContestant(){
 					'doubleJeopardyTotalPrize','doubleJeopardyCorrect','doubleJeopardyWinningPercentage','doubleJeopardyAnswered',
 					'finalJeopardyTotalPrize'
 	];
-	
-	var $j=0;
-	while ($j<$statsList.length){
-		localStorage.removeItem($statsList[$j]);
-		$j++;
-    }
-	
-	var $i=0;
-	while ($i<$statsList.length){
+		
+	for (var $i=0;$i<$statsList.length;$i++){
 		localStorage.setItem($statsList[$i],0);
-		$i++;
-    }
+		console.log(localStorage.getItem($statsList[$i]));
+	}
 	
 	console.info('JEOPARDY! TOTAL PRIZE: '+localStorage.getItem('jeopardyTotalPrize'));
 	

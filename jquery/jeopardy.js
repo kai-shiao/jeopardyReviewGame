@@ -323,7 +323,7 @@ function gameplay(e){
 	}
 	
 	function checkDoubleJeopardyGameProgress(){
-		console.log('reached progress function.');
+		console.log('Reached progress function.');
 		var $i=5;
 		var $count=0;
 		console.log($jeopardyClueStatus.length);
@@ -354,7 +354,7 @@ function gameplay(e){
 			    $htmlMarkup+='<li>PRIZE WINNINGS:'+$jeopardyTotalPrize+'<li>CORRECT:'+$jeopardyCorrect+'</li><li>WINNING PERCENTAGE:'+$jeopardyWinningPercentage+'%</li></ul>';
 				$htmlMarkup+='<h1>JEOPARDY!(FIRST ROUND)STATS</h1><ul><li>PRIZE WINNINGS:'+$jeopardyTotalPrize+'</li><li>CORRECT:'+$jeopardyCorrect+'</li></ul>';
 				$htmlMarkup+='<li>WINNING PERCENTAGE:'+$jeopardyWinningPercentage+'</li>';
-				$htmlMarkup+='<a>PROCEED TO DOUBLE JEOPARDY!</a><div>';
+				$htmlMarkup+='<a href="doublejeopardy.html">PROCEED TO DOUBLE JEOPARDY!</a><div>';
 			
 			/*Note: Since overall game stats will have the same values as those of Jeopardy! stats, there is no need to call variables representing overall
 			game stats. Instead, just use each of the Jeopardy! variables twice when providing the stat summary.*/

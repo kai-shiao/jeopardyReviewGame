@@ -465,12 +465,16 @@ function welcomeTheContestant(){
 					'finalJeopardyTotalPrize'
 	];
 	
-	for (var $i=0;$<$statsList.length;$i++){
-		localStorage.removeItem($statsList[$i]);
+	var $j=0;
+	while ($j<$statsList.length){
+		localStorage.removeItem($statsList[$j]);
+		$j++;
     }
-
-	for (var $i=0;$<$statsList.length;$i++){
+	
+	var $i=0;
+	while ($i<$statsList.length){
 		localStorage.setItem($statsList[$i],0);
+		$i++;
     }
 	
 	console.info('JEOPARDY! TOTAL PRIZE: '+localStorage.getItem('jeopardyTotalPrize'));

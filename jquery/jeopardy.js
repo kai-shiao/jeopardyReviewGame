@@ -363,7 +363,7 @@ function gameplay(e){
 		}
 		
 		var completionStamp=new Date();
-		console.info('completed game progress checking function; date & time stamp'+completionStamp);
+		console.info('completed game progress checking function; date & time stamp: '+completionStamp);
 	}
 	
 	function alreadySelectedWarning(){

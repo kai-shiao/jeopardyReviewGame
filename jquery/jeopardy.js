@@ -155,6 +155,7 @@ function gameplay(e){
 	
 	function startCountingTime(){
 		$startTime=new Date(); //Initialize a date object and start counting from the moment the clue is displayed.
+		console.info('Start time:'+$startTime);
 	}
 
 	function disappear(){
@@ -360,7 +361,9 @@ function gameplay(e){
 			
 			$('body').append($htmlMarkup);
 		}
-		console.info('completed game progress checking function.');
+		
+		var completionStamp=new Date();
+		console.info('completed game progress checking function; date & time stamp'+completionStamp);
 	}
 	
 	function alreadySelectedWarning(){

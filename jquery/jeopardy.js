@@ -275,7 +275,8 @@ function gameplay(e){
 			console.log($jeopardyTotalPrize);
 			$newScore=$jeopardyTotalPrize+$cluePrize;
 			localStorage.setItem('jeopardyTotalPrize',$newScore); 							//Save the player's new score.
-						
+			console.info('New score:'+$newScore);
+			
 			var $updatedAnsweredCount=localStorage.getItem('jeopardyAnswered');
 			$updatedAnsweredCount++;										//Update total number of questions answered.
 			localStorage.setItem('jeopardyAnswered',$updatedAnsweredCount);

@@ -462,9 +462,9 @@ function welcomeTheContestant(){
 	var jeopardyAnsweredCheck=localStorage.getItem('jeopardyAnswered');
 
 	//Double Jeopardy!(second round) game stats
-	localStorage.getItem('doubleJeopardyTotalPrize',0);
-	localStorage.getItem('doubleJeopardyCorrect',0);
-	localStorage.getItem('doubleJeopardyWinningPercentage',0);
+	var doubleJeopardyTotalPrizeCheck=localStorage.getItem('doubleJeopardyTotalPrize');
+	localStorage.getItem('doubleJeopardyCorrect');
+	localStorage.getItem('doubleJeopardyWinningPercentage');
 	
 	//Final Jeopardy!
 	localStorage.setItem('finalJeopardyTotalPrize',0);

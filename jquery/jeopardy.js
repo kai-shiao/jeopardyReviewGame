@@ -449,85 +449,20 @@ function welcomeTheContestant(){
 		
 	$('#nameBox').find('input').on('click',addFocus);
 	$('#nameBox').find('button').on('click',saveContestantName);
-	
-	//Perform checks to see if the previous player's data variables & their corresponding values may still be saved in HTML5 localStorage.
-	//Overall game states
-	var $totalPrizeCheck=localStorage.getItem('totalPrize');
-	var $totalCorrectCheck=localStorage.getItem('totalCorrect');
-	var $totalWinningPercentageCheck=localStorage.getItem('totalWinningPercentage');		
-    
-	//Jeopardy!(first round) game stats
-	var $jeopardyTotalPrizeCheck=localStorage.getItem('jeopardyTotalPrize');
-	var $jeopardyCorrectCheck=localStorage.getItem('jeopardyCorrect');
-	var $jeopardyWinningPercentageCheck=localStorage.getItem('jeopardyWinningPercentage');
-	var $jeopardyAnsweredCheck=localStorage.getItem('jeopardyAnswered');
-
-	//Double Jeopardy!(second round) game stats
-	var $doubleJeopardyTotalPrizeCheck=localStorage.getItem('doubleJeopardyTotalPrize');
-	var $doubleJeopardyCorrectCheck=localStorage.getItem('doubleJeopardyCorrect');
-	var $doubleJeopardyWinningPercentageCheck=localStorage.getItem('doubleJeopardyWinningPercentage');
-	var $doubleJeopardyAnsweredCheck=localStorage.getItem('doubleJeopardyAnswered');
-	
-	//Final Jeopardy!
-	var $finalJeopardyTotalPrizeCheck=localStorage.getItem('finalJeopardyTotalPrize');
-	
-	var $statsToBeChecked=[$totalPrizeCheck, $totalCorrectCheck, $totalWinningPercentageCheck,
-						   $jeopardyTotalPrizeCheck, $jeopardyCorrectCheck, $jeopardyWinningPercentageCheck, $jeopardyAnsweredCheck,
-						   $doubleJeopardyTotalPrizeCheck, $doubleJeopardyCorrectCheck, $doubleJeopardyWinningPercentageCheck, $doubleJeopardyAnsweredCheck, 
-						   $finalJeopardyTotalPrizeCheck
-	];
-						  
-	var $statsToBeCreated=['totalPrize','totalCorrect','totalWinningPercentage',
-						  'jeopardyTotalPrize','jeopardyCorrect','jeopardyWinningPercentage','jeopardyAnswered',
-						  'doubleJeopardyTotalPrize','doubleJeopardyCorrect','doubleJeopardyWinningPercentage','doubleJeopardyAnswered',
-						  'finalJeopardyTotalPrize'
+									  
+	//Initialize variables for the player's stats with initial value of 0 & then save them into localStorage.	
+	var $statsList=['totalPrize','totalCorrect','totalWinningPercentage',
+					'jeopardyTotalPrize','jeopardyCorrect','jeopardyWinningPercentage','jeopardyAnswered',
+					'doubleJeopardyTotalPrize','doubleJeopardyCorrect','doubleJeopardyWinningPercentage','doubleJeopardyAnswered',
+					'finalJeopardyTotalPrize'
 	];
 	
-	var $i=0;
-	var $j=0;
+	for (var $i=0;$<$statsList.length;$i++){
+		localStorage.setItem($statsList[$i],0);
+    }
 	
-	for (var $i=0;$i<$statsToBeChecked.length;$i++){
-		if ($statsToBeChecked[$i]){
-			localStorage.removeItem($statsToBeChecked[$i]); //Remove all existing items to ensure localStorage data will start with a new, fresh slate.
-		}
-	}
-	
-	while ($i<$statsToBeChecked.length && $j<$statsToBeCreated.length){
-		if (!$statsToBeChecked[$i]){
-			localStorage.setItem($statsToBeCreated[$j],0); //If it doesn't exist, then set a new variable whose value is 0.
-		} else {
-			localStorage.setItem();
-		}
-		$i++;
-		$j++;
-	}
-	
-	//Initialize variables for the player's stats and name; then save them into localStorage.
-	
-	//Overall game stats
-	localStorage.setItem('totalPrize',0);
-	localStorage.setItem('totalCorrect',0);
-	localStorage.setItem('totalWinningPercentage',0);		
-    
-	//Jeopardy!(first round) game stats
-	localStorage.setItem('jeopardyTotalPrize',0);
-	localStorage.setItem('jeopardyCorrect',0);
-	localStorage.setItem('jeopardyWinningPercentage',0);
-	localStorage.setItem('jeopardyAnswered',0);
-
-	//Double Jeopardy!(second round) game stats
-	localStorage.setItem('doubleJeopardyTotalPrize',0);
-	localStorage.setItem('doubleJeopardyCorrect',0);
-	localStorage.setItem('doubleJeopardyWinningPercentage',0);
-	localStorage.setItem('doubleJeopardyAnswered',0);
-	
-	//Final Jeopardy!
-	localStorage.setItem('finalJeopardyTotalPrize',0);
-	
-	/*
-	Initialize an array that will hold Boolean values indicating current status (TRUE or FALSE) for all clues; 'TRUE' indicates 'answered', while
-	'FALSE' indicates unanswered.
-	*/
+	/*Initialize an array that will hold Boolean values indicating current status (TRUE or FALSE) for all clues; 'TRUE' indicates 'answered', while
+	'FALSE' indicates unanswered.*/
 	var $jeopardyClueStatus=[]; 
 	var $i=0;
 	  
@@ -545,9 +480,6 @@ function welcomeTheContestant(){
 	
 	//HTML5 localStorage can only store strings, so $jeopardyClueStatus must be formatted into a string.
 	localStorage['jeopardyClueStatus']=JSON.stringify($jeopardyClueStatus); 
-	
-	console.info('JEOPARDY! TOTAL PRIZE WINNINGS:'+localStorage.getItem('jeopardyTotalPrize'));
-	console.info('JEOPARDY! TOTAL CORRECT:'+localStorage.getItem('jeopardyCorrect'));
 }
 
 (function(){

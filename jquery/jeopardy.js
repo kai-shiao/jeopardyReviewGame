@@ -135,11 +135,11 @@ function gameplay(e){
 			$1000gildedAgeClue+=' BOTH THE IRON ORE FROM MINES AND THE FINISHED STEEL TO ITS INTENDED MARKETS.';			
 		
 		var $clues=[$category0,$category1,$category2,$category3,$category4,
-					$200antebellumClue, $200declarationOfIndependenceClue, $200usConstitutionClue, $400coldWarClue, $200gildedAgeClue,
-					$400antebellumClue, $400declarationOfIndependenceClue, $400usConstitutionClue, $800coldWarClue, $400gildedAgeClue,
-					$600antebellumClue, $600declarationOfIndependenceClue, $600usConstitutionClue, $1200coldWarClue, $600gildedAgeClue,
-					$800antebellumClue, $800declarationOfIndependenceClue, $800usConstitutionClue, $1600coldWarClue, $800gildedAgeClue,
-					$1000antebellumClue, $1000declarationOfIndependenceClue, $1000usConstitutionClue, $2000coldWarClue, $1000gildedAgeClue
+					$200antebellumClue, $200declarationOfIndependenceClue, $200usConstitutionClue, $200colonialAmericaClue, $200gildedAgeClue,
+					$400antebellumClue, $400declarationOfIndependenceClue, $400usConstitutionClue, $400colonialAmericaClue, $400gildedAgeClue,
+					$600antebellumClue, $600declarationOfIndependenceClue, $600usConstitutionClue, $600colonialAmericaClue, $600gildedAgeClue,
+					$800antebellumClue, $800declarationOfIndependenceClue, $800usConstitutionClue, $800colonialAmericaClue, $800gildedAgeClue,
+					$1000antebellumClue, $1000declarationOfIndependenceClue, $1000usConstitutionClue, $1000colonialAmericaClue, $1000gildedAgeClue
 		];
 		
 		$eventTarget.html('<p>'+$clues[$eventTargetID]+'</p>');			
@@ -322,6 +322,7 @@ function gameplay(e){
 	}
 	
 	function checkDoubleJeopardyGameProgress(){
+		console.log('reached progress function.');
 		var $i=5;
 		var $count=0;
 		console.log($jeopardyClueStatus.length);
@@ -385,7 +386,7 @@ function gameplay(e){
 			starting from the time the clue is displayed.
 			*/
 			answerAndScore();
-			setTimeout(checkDoubleJeopardyGameProgress,3000);
+			setTimeout(checkDoubleJeopardyGameProgress,10000);
 		}
 	} else { //Daily double tiles
 		if ($jeopardyClueStatus[$eventTargetID]==='TRUE'){

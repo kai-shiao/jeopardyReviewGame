@@ -395,9 +395,9 @@ function gameplay(e){
 			dailyDouble();
 			setTimeout(showClue,10000);
 			setTimeout(startCountingTime,10000);
-			setTimeout(disappear,10000);
+			setTimeout(disappear,20000);
 			setTimeout(answerAndScore,10000);
-			setTimeout(checkDoubleJeopardyGameProgress,13000);
+			setTimeout(checkDoubleJeopardyGameProgress,23000);
 		}
 	}
 }

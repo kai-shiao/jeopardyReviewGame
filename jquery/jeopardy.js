@@ -450,6 +450,25 @@ function welcomeTheContestant(){
 	$('#nameBox').find('input').on('click',addFocus);
 	$('#nameBox').find('button').on('click',saveContestantName);
 	
+	//Perform checks to see if the previous player's data variables & their corresponding values may still be saved in HTML5 localStorage.
+	localStorage.getItem('totalPrize',0);
+	localStorage.getItem('totalCorrect',0);
+	localStorage.getItem('totalWinningPercentage',0);		
+    
+	//Jeopardy!(first round) game stats
+	localStorage.getItem('jeopardyTotalPrize',0);
+	localStorage.getItem('jeopardyCorrect',0);
+	localStorage.getItem('jeopardyWinningPercentage',0);
+	localStorage.getItem('jeopardyAnswered',0);
+
+	//Double Jeopardy!(second round) game stats
+	localStorage.getItem('doubleJeopardyTotalPrize',0);
+	localStorage.getItem('doubleJeopardyCorrect',0);
+	localStorage.getItem('doubleJeopardyWinningPercentage',0);
+	
+	//Final Jeopardy!
+	localStorage.setItem('finalJeopardyTotalPrize',0);
+
 	//Initialize variables for the player's stats and name; then save them into localStorage.
 	
 	//Overall game stats
@@ -467,6 +486,7 @@ function welcomeTheContestant(){
 	localStorage.setItem('doubleJeopardyTotalPrize',0);
 	localStorage.setItem('doubleJeopardyCorrect',0);
 	localStorage.setItem('doubleJeopardyWinningPercentage',0);
+	localStorage.setItem('doubleJeopardyAnswered',0);
 	
 	//Final Jeopardy!
 	localStorage.setItem('finalJeopardyTotalPrize',0);

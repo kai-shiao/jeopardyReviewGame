@@ -431,8 +431,9 @@ function welcomeTheContestant(){
 					$ruleBox+='<li>FOR ANSWERS REQUIRING A PERSON\'S NAME, ONLY ENTER THE LAST NAME, NOT THE FULL NAME.</li><li>DO NOT CLEAR BROWSER WHILE'; 
 					$ruleBox+=' PLAYING AS THE WEB APPLICATION WILL DELETE <span>ALL</span> IN-GAME DATA AND, AS A RESULT, THE PLAYER WILL HAVE TO START';
 					$ruleBox+=' FROM SCRATCH.</li><li>ENSURE NO SPACES BETWEEN COMMAS AND NO DASHES BETWEEN WORDS.</li><li>IN COURT CASES, ENSURE THAT ONLY';
-					$ruleBox+=' \'V.\' IS USED; DO NOT USE \'VERSUS\' OR \'VS.\'</li></ul></div>';
-				
+					$ruleBox+=' \'V.\' IS USED; DO NOT USE \'VERSUS\' OR \'VS.\'</li><li>ANSWERS INVOLVING THE WORD \'AND\' MUST BE SPELLED OUT USING THE';
+				    $ruleBox+='ENTIRE WORD; OTHERWISE, THE ANSWER WILL BE MARKED AS INCORRECT.</li></ul></div>';
+					
 				$('body').append($ruleBox);
 				$('#ruleBox').addClass('fadeIntoView');
 					

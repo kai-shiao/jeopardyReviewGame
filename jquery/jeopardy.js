@@ -32,7 +32,7 @@ function gameplay(e){
 
 		function proceedToBid(){
 			$('#biddingRules').removeClass('fadeIntoView').addClass('fadeFromView').remove();
-			$('body').append('<div id="bidBox"><p>PLACE BID:</p><input type="text"><button>SUBMIT BID</button></div>');
+			$('body').append('<div id="bidBox"><p>PLACE DAILY DOUBLE WAGER:</p><input type="text"><button>SUBMIT</button></div>');
 			$('#bidBox').addClass('fadeIntoView');
 			
 			function addFocus(){

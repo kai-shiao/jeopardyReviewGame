@@ -489,7 +489,9 @@ function welcomeTheContestant(){
 	}
 	
 	console.info($jeopardyClueStatus); //Check to see the result of the while-loop.
-	console.info(localStorage.getItem('contestant'));
+	console.info(localStorage.getItem('contestant')); 
+	//Check to see if localStorage's contestant variable value is cleared before the contestant is asked to provide his/her name.
+	
 	//HTML5 localStorage can only store strings, so $jeopardyClueStatus must be formatted into a string.
 	localStorage['jeopardyClueStatus']=JSON.stringify($jeopardyClueStatus); 
 }

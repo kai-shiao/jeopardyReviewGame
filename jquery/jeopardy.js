@@ -408,6 +408,8 @@ function gameplay(e){
 
 function welcomeTheContestant(){
 	$('table').addClass('hidden');
+	localStorage.setItem('contestant',''); //Clear localStorage's 'contestant' item right before prompting the contestant to enter his/her name.
+	
 	$('body').append('<div id="nameBox"><p>WHAT IS YOUR NAME?</p><input type="text"><button>SAVE & THEN PROCEED TO GAME NOTES & RULES</button></div>');
     $('#nameBox').addClass('fadeIntoView');
 	
@@ -458,7 +460,6 @@ function welcomeTheContestant(){
 									  
 	//Initialize variables for the player's stats with initial value of 0 & then save them into localStorage.
 	//Already existing variables will be set to 0.
-	
 	var $statsList=['totalPrize','totalCorrect','totalWinningPercentage',
 					'jeopardyTotalPrize','jeopardyCorrect','jeopardyWinningPercentage','jeopardyAnswered',
 					'doubleJeopardyTotalPrize','doubleJeopardyCorrect','doubleJeopardyWinningPercentage','doubleJeopardyAnswered',
@@ -488,7 +489,7 @@ function welcomeTheContestant(){
 	}
 	
 	console.info($jeopardyClueStatus); //Check to see the result of the while-loop.
-	
+	console.info(localStorage.getItem('contestant'));
 	//HTML5 localStorage can only store strings, so $jeopardyClueStatus must be formatted into a string.
 	localStorage['jeopardyClueStatus']=JSON.stringify($jeopardyClueStatus); 
 }

@@ -444,7 +444,6 @@ function welcomeTheContestant(){
 				$('#ruleBox').addClass('fadeIntoView');
 					
 				function removeRuleBox(){
-					//Remove the rule box and show the game table so the contestant can start playing.
 					$('#ruleBox').removeClass('fadeIntoView').addClass('fadeFromView').remove();
 					$('table').removeClass('hidden').addClass('fadeIntoView');
 					$('footer').html('&copy; 2016. WESTON HILL. ALL RIGHTS RESERVED.');

@@ -2,8 +2,7 @@
 	var $finalJeopardyPrize;
 	var $correctAnswer='SALUTARY NEGLLECT';
 	var $startTime=new Date();
-	var 
-	var $totalPrize;
+	var $totalPrize=Number(localStorage.getItem('totalPrize'));
 	var $wagerValue;
 	
 	$('section').eq(0).addClass('hidden'); //Hide the section element containing the clue, answer field, & the 'Submit' button for now.
@@ -18,7 +17,6 @@
 	function saveBid(){
 		$wagerValue=Number($('#wagerBox').find('input').val());
 		var $notice;
-		var $valueType=typeof $wager;
 		
 		if ($totalPrize<0 && ($wagerValue<0 || $wagerValue>(-$totalPrize))){
 			$notice='<p>SINCE YOUR CURRENT TOTAL PRIZE WINNINGS ARE BELOW $0, PLEASE ENTER A VALUE EQUAL TO OR GREATER';
@@ -42,7 +40,7 @@
 				$('#wagerBox').addClass('fadeFromView').remove(); //Fade the wager box & remove it from the DOM. 	
 			}
 			setTimeout(fadeAndRemove,2000);
-			$('section').eq(0).removeClass('hidden').addClass('fadeIntoView'); //Wager 
+			$('section').eq(0).removeClass('hidden').addClass('fadeIntoView'); //Bring the clue, answer input field, and submit button into view.
 		}
 	}
 	

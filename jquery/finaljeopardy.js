@@ -2,9 +2,12 @@
 	var $finalJeopardyPrize;
 	var $correctAnswer='SALUTARY NEGLLECT';
 	var $startTime=new Date();
-	var $totalPrize=;
+	var 
+	var $totalPrize;
 	var $wagerValue;
 	
+	$('section').eq(0).addClass('hidden'); //Hide the section element containing the clue, answer field, & the 'Submit' button for now.
+
 	$('body').append('<div id="wagerBox"><p>PLACE YOUR FINAL JEOPARDY! WAGER:</p><input type="text"><button>SUBMIT</button></div>');
 	$('#wagerBox').addClass('fadeIntoView');
 	
@@ -14,25 +17,33 @@
 	
 	function saveBid(){
 		$wagerValue=Number($('#wagerBox').find('input').val());
+		var $notice;
+		var $valueType=typeof $wager;
 		
 		if ($totalPrize<0 && ($wagerValue<0 || $wagerValue>(-$totalPrize))){
-			var $notice='<p>SINCE YOUR CURRENT TOTAL PRIZE WINNINGS ARE BELOW $0, PLEASE ENTER A VALUE EQUAL TO OR GREATER';
-			    $notice+=' THAN 0 BUT NOT MORE THAN THE POSITIVE EQUIVALENT OF YOUR CURRENT TOTAL PRIZE WINNINGS.</p>';
-			$('#wageBox').append($notice);
-		} else if ($totalPrize>0 && $wagerValue>$totalPrize){
-			var $notice='<p>SINCE YOUR CURRENT TOTAL PRIZE WINNINGS ARE ABOVE $0, PLEASE ENTER A VALUE THAT IS AT MOST EQUAL TO';
-			    $notice+=' BUT NOT MORE THAN THIS AMOUNT.</p>';
-			$('#wageBox').append($notice);	
-		} else if ($totalPrize>0 && $wagerValue<0){
-			var $notice='<p>SINCE YOUR CURRENT TOTAL PRIZE WINNINGS ARE ABOVE $0, PLEASE ENTER A VALUE THAT IS AT MOST EQUAL TO';
-			    $notice+=' BUT NOT MORE THAN THIS AMOUNT.</p>';
-			$('#wageBox').append($notice);	
-		} else {
-			var $notice='<p>FINAL JEOPARDY! WAGER ACCEPTED!</p>';
+			$notice='<p>SINCE YOUR CURRENT TOTAL PRIZE WINNINGS ARE BELOW $0, PLEASE ENTER A VALUE EQUAL TO OR GREATER';
+			$notice+=' THAN 0 BUT NOT MORE THAN THE POSITIVE EQUIVALENT OF YOUR CURRENT TOTAL PRIZE WINNINGS.</p>';
 			$('#wagerBox').append($notice);
+		} else if ($totalPrize>0 && $wagerValue>$totalPrize){
+			$notice='<p>SINCE YOUR CURRENT TOTAL PRIZE WINNINGS ARE ABOVE $0, PLEASE ENTER A VALUE THAT IS AT MOST EQUAL TO';
+			$notice+=' BUT NOT MORE THAN THIS AMOUNT.</p>';
+			$('#wagerBox').append($notice);
+		} else if ($totalPrize>0 && $wagerValue<0){
+			$notice='<p>SINCE YOUR CURRENT TOTAL PRIZE WINNINGS ARE ABOVE $0, PLEASE WAGER ONLY POSITIVE AMOUNTS.';
+			$('#wagerBox').append($notice);
+		} else if ($wagerValue>$totalPrize){
+			$notice='<p>SINCE YOUR CURRENT TOTAL PRIZE WINNINGS ARE ABOVE $0, PLEASE WAGER ONLY POSITIVE AMOUNTS.';
+			$('#wagerBox').append($notice);
+		} else {
+			$notice='<p>FINAL JEOPARDY! WAGER ACCEPTED!</p>';
+			$('#wagerBox').append($notice);
+
+			function fadeAndRemove(){
+				$('#wagerBox').addClass('fadeFromView').remove(); //Fade the wager box & remove it from the DOM. 	
+			}
+			setTimeout(fadeAndRemove,2000);
+			$('section').eq(0).removeClass('hidden').addClass('fadeIntoView'); //Wager 
 		}
-		
-		$('body').find('p').eq(0).removeClass('hidden').addClass('fadeIntoView'); //Fade the Final Jeopardy! question into view.
 	}
 	
 	function markAndScore(){

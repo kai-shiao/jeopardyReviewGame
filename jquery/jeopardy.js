@@ -16,23 +16,33 @@ function gameplay(e){
 		//The above is for the tile on the display screen.
 		
 		//The below is for the enlarged pop-up box.
-		$('body').append('<div id="dailyDouble"><p class="clue">DAILY DOUBLE!!!</p></div>');
+		$('body').append('<div id="dailyDouble"><span>X</span><p>DAILY DOUBLE!!!</p></div>');
 		$('#dailyDouble').addClass('fadeIntoView');
 
-		function fadeAndRemove(){
-			$('#dailyDouble').removeClass('fadeIntoView').addClass('fadeFromView').remove();
+		function showRules(){
+			$('#dailyDouble').removeClass('fadeIntoView').addClass('fadeFromView');
+			function removeDailyDouble(){
+				$('#dailyDouble').remove();
+			}
+			setTimeout(removeDailyDouble,1000);
+		
+			function delayAppearance(){
+				var $biddingRules='<div id="biddingRules"><span>X</span><h1>BIDDING RULES</h1><ul><li>THE WAGER CANNOT EXCEED YOUR CURRENT TOTAL PRIZE</li>';
+				$biddingRules+='<li>HOWEVER, AN EXCEPTION IS MADE WHEN YOUR CURRENT TOTAL PRIZE IS LESS THAN THE MAXIMUM CLUE VALUE IN THE CURRENT ROUND;';
+				$biddingRules+=' IN THIS CASE, IT IS PERMISSIBLE TO BID UP TO $1000.</li></ul></div>';
+				
+				$('body').append($biddingRules);
+				$('#biddingRules').addClass('fadeIntoView');
+				
+				$('#biddingRules').find('span').on('click',proceedToBid);
+			}
+			setTimeout(delayAppearance,2000);
 		}
-		setTimeout(fadeAndRemove,5000); //5 second delay in implementation so that the daily double window doesn't immediately become invisible.
-
-		var $biddingRules='<div id="biddingRules"><span>X</span><h1>BIDDING RULES</h1><ul><li>THE WAGER CANNOT EXCEED YOUR CURRENT TOTAL PRIZE</li>';
-			$biddingRules+='<li>HOWEVER, AN EXCEPTION IS MADE WHEN YOUR CURRENT TOTAL PRIZE IS LESS THAN THE MAXIMUM CLUE VALUE IN THE CURRENT ROUND;';
-			$biddingRules+=' IN THIS CASE, IT IS PERMISSIBLE TO BID UP TO $1000.</li></ul></div>';
-		$('body').append($biddingRules);
-		$('#biddingRules').addClass('fadeIntoView');
+		$('#dailyDouble').find('span').on('click',showRules);
 
 		function proceedToBid(){
 			$('#biddingRules').removeClass('fadeIntoView').addClass('fadeFromView').remove();
-			$('body').append('<div id="wagerBox"><p>PLACE DAILY DOUBLE WAGER:</p><input type="text"><button>SUBMIT</button></div>');
+			$('body').append('<div id="wagerBox"><span>X</span><p>PLACE DAILY DOUBLE WAGER:</p><input type="text"><button>SUBMIT</button></div>');
 			$('#wagerBox').addClass('fadeIntoView');
 			
 			function addFocus(){
@@ -43,7 +53,6 @@ function gameplay(e){
 				console.info('Enter registerBidValue()');
 				$bidValue=Number($('#wagerBox').find('input').val());
 				console.info('DAILY DOUBLE BID:'+$bidValue);
-				var $valueType=typeof $bidValue;
 				var $jeopardyTotalPrize=Number(localStorage.getItem('jeopardyTotalPrize'));
 				var $notice;
 				
@@ -52,7 +61,7 @@ function gameplay(e){
 					$('#wagerBox').append($notice);
 				} else if ($jeopardyTotalPrize<1000 && $bidValue>1000){
 					$notice='<p>SINCE YOUR CURRENT TOTAL PRIZE IS BELOW THE MAXIMUM CLUE VALUE ($1000) IN THIS ROUND, YOU CAN WAGER A MAXIMUM OF ';
-					$notice+=' $1000.</p>';
+					$notice+='$1000.</p>';
 					$('#wagerBox').append($notice);
 				} else if ($bidValue>$jeopardyTotalPrize){
 					$notice='<p>YOU CANNOT WAGER MORE THAN YOUR CURRENT TOTAL WINNINGS.</P>';
@@ -71,8 +80,6 @@ function gameplay(e){
 			$('#wagerBox').find('input').on('click',addFocus);
 			$('#wagerBox').find('button').on('click',saveBidValue);
 		}
-	
-		$('#biddingRules').find('span').on('click',proceedToBid);
 	}
 	
 	function showClue(){
@@ -326,11 +333,17 @@ function gameplay(e){
 			} else {
 				$('#answer').find('span').eq(2).css('color','rgb(31,72,7)'); //Winnings over $0 are coloured dollar-bill green.				
 			}
-
+						
 			function fadeAndRemove(){
-				$('#answer').removeClass('fadeIntoView').addClass('fadeFromView').remove();
+				$('#answer').removeClass('fadeIntoView').addClass('fadeFromView');
+				
+				function removeElement(){
+					$('#answer').remove();
+				}
+				setTimeout(removeElement,2000);
 			}
-			$('#answer').find('span').eq(0).on('click',fadeAndRemove);
+			$('#answer').find('span').eq(0).on('click',fadeAndRemove); 
+			//The above line of code is placed at the bottom to ensure that the jQuery cannot close #answer before the clue has been answered.
 		}
 	
 		$('#answer').find('button').one('click',markAnswer);
@@ -434,7 +447,7 @@ function welcomeTheContestant(){
 		$('#nameBox').find('input').blur();
 		var $contestantName=$('#nameBox').find('input').val().toUpperCase();
 		localStorage.setItem('contestant',$contestantName);
-		console.log($contestantName); //debugging purposes to ensure the code functions properly.
+		console.log('CONTESTANT NAME:'+$contestantName); //debugging purposes to ensure the code functions properly.
 
 		if ($contestantName===''){				
 			//Increase box size by 10% (Make it 110% of the current size)as a new <p> element will be added in this case.
@@ -502,7 +515,9 @@ function welcomeTheContestant(){
 	
 	console.info($jeopardyClueStatus); //Check to see the result of the while-loop.
 	console.info(localStorage.getItem('contestant')); 
-	//Check to see if localStorage's contestant variable value is cleared before the contestant is asked to provide his/her name.
+	/*Check to see if localStorage's contestant variable value is cleared before the contestant is asked to provide his/her name; not be confused with
+	the code on line 437; the code is identical, but differences in timing means each serves different purposes.
+	*/
 	
 	//HTML5 localStorage can only store strings, so $jeopardyClueStatus must be formatted into a string.
 	localStorage['jeopardyClueStatus']=JSON.stringify($jeopardyClueStatus); 

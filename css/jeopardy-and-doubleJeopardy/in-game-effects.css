@@ -75,7 +75,7 @@
 	width: 500px;	
 }
 
-#bidBox{
+#wagerBox{
 	height: 225px;
 	left: 420px;
 	top: 200px;
@@ -91,7 +91,7 @@
 	border-radius: 10px;	
 }
 
-#nameBox, #ruleBox, #alreadySelectedWarning, #dailyDouble, #biddingRules, #bidBox, .magnified, #answer{
+#nameBox, #ruleBox, #alreadySelectedWarning, #dailyDouble, #biddingRules, #wagerBox, .magnified, #answer{
 	background-color: rgb(0,0,255);
 	border: 5px solid rgb(0,0,0);
 	color: rgb(255,215,0); 
@@ -226,11 +226,11 @@ button{
 	margin-top: 10px;
 }
 
-#bidBox>p{
+#wagerBox>p{
 	margin: 10px auto;
 }
 
-#bidBox>button{
+#wagerBox>button{
 	margin-left: 200px;
 	margin-top: 10px;
 	width: 100px;

@@ -32,31 +32,39 @@ function gameplay(e){
 
 		function proceedToBid(){
 			$('#biddingRules').removeClass('fadeIntoView').addClass('fadeFromView').remove();
-			$('body').append('<div id="bidBox"><p>PLACE BID:</p><input type="text"><button>SUBMIT BID</button></div>');
-			$('#bidBox').addClass('fadeIntoView');
+			$('body').append('<div id="wagerBox"><p>PLACE BID:</p><input type="text"><button>SUBMIT BID</button></div>');
+			$('#wagerBox').addClass('fadeIntoView');
 			
 			function addFocus(){
-				$('#bidBox').find('input').focus();
+				$('#wagerBox').find('input').focus();
 			}
 			
 			function saveBidValue(){
 				console.info('Enter registerBidValue()');
-				$bidValue=Number($('#bidBox').find('input').val());
+				$bidValue=Number($('#wagerBox').find('input').val());
 				console.info('DAILY DOUBLE BID:'+$bidValue);
-				var $doubleJeopardyTotalPrize=localStorage.getItem('doubleJeopardyTotalPrize');
+				var $doubleJeopardyTotalPrize=Number(localStorage.getItem('doubleJeopardyTotalPrize'));
 				
 				if ($bidValue===''){
-					$('#bidBox').append('<p>PLEASE ENTER A VALID VALUE.</p>');
+					$('#wagerBox').append('<p>PLEASE ENTER A VALID VALUE.</p>');
 				} else if ($doubleJeopardyTotalPrize<2000 && $bidValue>2000){
-					var $bidRestriction='<p>SINCE YOUR CURRENT TOTAL PRIZE IS BELOW THE MAXIMUM CLUE VALUE ($2000) IN THIS ROUND, YOU CAN WAGER A MAXIMUM OF ';
-						$bidRestriction+=' $2000.</p>';
-					$('#bidBox').append($bidRestriction);
+					var $notice='<p>SINCE YOUR CURRENT TOTAL PRIZE IS BELOW THE MAXIMUM CLUE VALUE ($2000) IN THIS ROUND, YOU CAN WAGER A MAXIMUM OF ';
+						$notice+=' $2000.</p>';
+					$('#wagerBox').append($notice);
+				} else if ($bidValue>$doubleJeopardyTotalPrize){
+					$notice='<p>YOU CANNOT WAGER MORE THAN YOUR CURRENT TOTAL WINNINGS.</p>';
+					$('#wagerBox').append($notice);					
 				} else {
-					$('#bidBox').removeClass('fadeIntoView').addClass('fadeFromView').remove();
+					$('#wagerBox').append('<p>WAGER ACCEPTED!</p>');
+
+					function fadeAndRemove(){
+						$('#wagerBox').removeClass('fadeIntoView').addClass('fadeFromView').remove(); 
+					}
+					setTimeout(fadeAndRemove,1000);
 				}
 			}
-			$('#bidBox').find('input').on('click',addFocus);
-			$('#bidBox').find('button').on('click',saveBidValue);
+			$('#wagerBox').find('input').on('click',addFocus);
+			$('#wagerBox').find('button').on('click',saveBidValue);
 		}
 	
 		$('#biddingRules').find('span').on('click',proceedToBid);

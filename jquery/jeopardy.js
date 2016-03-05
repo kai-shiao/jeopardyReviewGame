@@ -32,31 +32,44 @@ function gameplay(e){
 
 		function proceedToBid(){
 			$('#biddingRules').removeClass('fadeIntoView').addClass('fadeFromView').remove();
-			$('body').append('<div id="bidBox"><p>PLACE DAILY DOUBLE WAGER:</p><input type="text"><button>SUBMIT</button></div>');
-			$('#bidBox').addClass('fadeIntoView');
+			$('body').append('<div id="wagerBox"><p>PLACE DAILY DOUBLE WAGER:</p><input type="text"><button>SUBMIT</button></div>');
+			$('#wagerBox').addClass('fadeIntoView');
 			
 			function addFocus(){
-				$('#bidBox').find('input').focus();
+				$('#wagerBox').find('input').focus();
 			}
 			
 			function saveBidValue(){
 				console.info('Enter registerBidValue()');
-				$bidValue=Number($('#bidBox').find('input').val());
+				$bidValue=Number($('#wagerBox').find('input').val());
 				console.info('DAILY DOUBLE BID:'+$bidValue);
-				var $jeopardyTotalPrize=localStorage.getItem('jeopardyTotalPrize');
+				var $valueType=typeof $bidValue;
+				var $jeopardyTotalPrize=Number(localStorage.getItem('jeopardyTotalPrize'));
+				var $notice;
 				
 				if ($bidValue===''){
-					$('#bidBox').append('<p>PLEASE ENTER A VALID VALUE.</p>');
+					$notice='<p>PLEASE ENTER A VALID NUMERICAL VALUE.</p>';
+					$('#wagerBox').append($notice);
 				} else if ($jeopardyTotalPrize<1000 && $bidValue>1000){
-					var $bidRestriction='<p>SINCE YOUR CURRENT TOTAL PRIZE IS BELOW THE MAXIMUM CLUE VALUE ($1000) IN THIS ROUND, YOU CAN WAGER A MAXIMUM OF ';
-						$bidRestriction+=' $1000.</p>';
-					$('#bidBox').append($bidRestriction);
+					$notice='<p>SINCE YOUR CURRENT TOTAL PRIZE IS BELOW THE MAXIMUM CLUE VALUE ($1000) IN THIS ROUND, YOU CAN WAGER A MAXIMUM OF ';
+					$notice+=' $1000.</p>';
+					$('#wagerBox').append($notice);
+				} else if ($bidValue>$jeopardyTotalPrize){
+					$notice='<p>YOU CANNOT WAGER MORE THAN YOUR CURRENT TOTAL WINNINGS.</P>';
+					$('#wagerBox').append($notice);
 				} else {
-					$('#bidBox').removeClass('fadeIntoView').addClass('fadeFromView').remove();
+					$notice='<p>WAGER ACCEPTED!</p>';
+					$('#wagerBox').append($notice);
+
+					function fadeAndRemove(){
+						$('#wagerBox').removeClass('fadeIntoView').addClass('fadeFromView').remove();
+					}
+					setTimeout(fadeAndRemove,1000);
 				}
 			}
-			$('#bidBox').find('input').on('click',addFocus);
-			$('#bidBox').find('button').on('click',saveBidValue);
+			
+			$('#wagerBox').find('input').on('click',addFocus);
+			$('#wagerBox').find('button').on('click',saveBidValue);
 		}
 	
 		$('#biddingRules').find('span').on('click',proceedToBid);

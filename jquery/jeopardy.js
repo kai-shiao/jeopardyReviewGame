@@ -331,7 +331,7 @@ function gameplay(e){
 			} 
 			console.log($sign);
 			
-			var $update='<p>'+$contestantName+',</p><p>HERE ARE YOUR CURRENT GAME STATS:</p><ul><li>TOTAL PRIZE WINNINGS:<span>'+$sign+'$'+$displayScore+'</span></li>';
+			var $update='<p>'+$contestantName+',</p><p>CURRENT GAME STATS:</p><ul><li>TOTAL PRIZE WINNINGS:<span>'+$sign+'$'+$displayScore+'</span></li>';
 			    $update+='<li>TOTAL ANSWERED THIS ROUND: '+'<span>'+$updatedAnsweredCount+'</span>'+'</li>';
 				$update+='<li>REMAINING UNANSWERED: '+'<span>'+$remainingUnanswered+'</span>'+'</li>';
 			
@@ -524,8 +524,8 @@ function welcomeTheContestant(){
 	}
 	
 	console.info($jeopardyClueStatus); //Check to see the result of the while-loop.
-	console.info(localStorage.getItem('contestant')); 
-	/*Check to see if localStorage's contestant variable value is cleared before the contestant is asked to provide his/her name; not be confused with
+	console.info('CONTESTANT NAME (STARTUP): '+localStorage.getItem('contestant')); 
+	/*Check to see if localStorage's contestant variable value is always cleared before the contestant is asked to provide his/her name; not be confused with
 	the code on line 437; the code is identical, but differences in timing means each serves different purposes.
 	*/
 	

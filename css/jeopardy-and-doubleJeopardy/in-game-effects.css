@@ -68,7 +68,7 @@
 	top: 300px;
 }
 
-#biddingRules{
+#wagerRules{
 	height: 150px;
 	left: 420px;
 	top: 200px;
@@ -87,11 +87,11 @@
 	width: 200px;
 }
 
-#dailyDouble, #nameBox, #ruleBox, #alreadySelectedWarning{
+#dailyDouble, #nameBox, #ruleBox, #wagerRules, #wagerBox, .magnified, #answer, #alreadySelectedWarning{
 	border-radius: 10px;	
 }
 
-#nameBox, #ruleBox, #alreadySelectedWarning, #dailyDouble, #biddingRules, #wagerBox, .magnified, #answer{
+#nameBox, #ruleBox, #alreadySelectedWarning, #dailyDouble, #wagerRules, #wagerBox, .magnified, #answer{
 	background-color: rgb(0,0,255);
 	border: 5px solid rgb(0,0,0);
 	color: rgb(255,215,0); 
@@ -120,20 +120,20 @@
 	right: 310px;
 }
 
-#ruleBox>span:first-child, #alreadySelectedWarning>span:first-child, #biddingRules>span:first-child, .magnified>span:first-child
+#dailyDouble>span:first-child, #ruleBox>span:first-child, #wagerBox>span:first-child, #alreadySelectedWarning>span:first-child, #wagerRules>span:first-child, .magnified>span:first-child
 ,#answer>span:first-child{
 	float: right;
 	margin-bottom: 20px;
 	margin-right: 3px;
 }
 
-#ruleBox>span:first-child:hover, #alreadySelectedWarning>span:first-child:hover, #biddingRules>span:first-child:hover, .magnified>span:first-child:hover 
+#dailyDouble>span:first-child:hover, #ruleBox>span:first-child:hover, #wagerBox>span:first-child:hover, #alreadySelectedWarning>span:first-child:hover, #wagerRules>span:first-child:hover, .magnified>span:first-child:hover 
 ,#answer>span:first-child:hover{
 	color: rgb(255,0,0);
 	cursor: pointer;
 }
 
-#dailyDouble>h1, #biddingRules>h1, #ruleBox>h1{
+#dailyDouble>h1, #wagerRules>h1, #ruleBox>h1{
 	font-size: 150%;
 }
 
@@ -146,7 +146,7 @@ div#ruleBox>ul:first-of-type{
 	width: 500px;
 }
 
-div#biddingRules>ul:first-of-type{
+div#wagerRules>ul:first-of-type{
 	width: 450px;
 }
 
@@ -171,12 +171,16 @@ that the different CSS rules would not be applied.
 	margin-left: 3px;
 }
 
-#answer>p:first-of-type{
+#answer>p:first-of-type, #wagerBox>p:first-of-type{
 	margin-top: 20px;
 }
 
-#answer>p:nth-of-type(n+2){
+#answer>p:nth-of-type(2){
 	margin-top: 5px;
+}
+
+#answer>p:nth-of-type(n+3){
+	margin: 0;
 }
 
 #answer>ul>li>span:first-child{
@@ -202,7 +206,7 @@ button{
 }
 
 #answer>input{
-	margin-top: 5px;
+	margin-top: 0px;
 	width: 200px;
 }
 
@@ -224,10 +228,6 @@ button{
 #nameBox>button{
 	margin-left: 75px;
 	margin-top: 10px;
-}
-
-#wagerBox>p{
-	margin: 10px auto;
 }
 
 #wagerBox>button{

@@ -82,16 +82,23 @@
 	width: 500px;	
 }
 
+#completedMessage{
+	left: 450px;
+	height: 400px;
+	top: 200px;
+	width: 500px;
+}
+
 #dailyDouble, #alreadySelectedWarning{
 	left: 500px;
 	width: 200px;
 }
 
-#dailyDouble, #nameBox, #ruleBox, #wagerRules, #wagerBox, .magnified, #answer, #alreadySelectedWarning{
+#dailyDouble, #nameBox, #ruleBox, #wagerRules, #wagerBox, .magnified, #answer, #alreadySelectedWarning, #completedMessage{
 	border-radius: 10px;	
 }
 
-#nameBox, #ruleBox, #alreadySelectedWarning, #dailyDouble, #wagerRules, #wagerBox, .magnified, #answer{
+#nameBox, #ruleBox, #alreadySelectedWarning, #dailyDouble, #wagerRules, #wagerBox, .magnified, #answer, #completedMessage{
 	background-color: rgb(0,0,255);
 	border: 5px solid rgb(0,0,0);
 	color: rgb(255,215,0); 
@@ -133,11 +140,11 @@
 	cursor: pointer;
 }
 
-#dailyDouble>h1, #wagerRules>h1, #ruleBox>h1{
+#dailyDouble>h1, #wagerRules>h1, #ruleBox>h1, #completedMessage>h1{
 	font-size: 150%;
 }
 
-ul:first-of-type{
+div#ruleBox>ul:first-of-type, div#wagerRules>ul:first-of-type, div#completedMessage>section>ul:first-of-type{
 	text-align: left;
 }
 
@@ -148,6 +155,38 @@ div#ruleBox>ul:first-of-type{
 
 div#wagerRules>ul:first-of-type{
 	width: 450px;
+}
+
+#completedMessage>section{
+	float: left;
+	width: 240px;
+}
+
+#completedMessage>div>a{
+	border: 3px solid rgb(0,0,0);
+	color: rgb(0,0,0);
+	padding: 5px;
+	text-decoration: none;
+}
+
+#completedMessage>div>a:hover{
+	color: rgb(255,255,255);
+}
+
+#completedMessage>section>h2{
+	font-size: 120%;
+}
+
+#completedMessage>section>ul>li>.positive,#completedMessage>section>ul>li>.negative{
+	margin-left: 5px;
+}
+
+#completedMessage>section>ul>li>.positive{
+	color: rgb(31,72,7);
+}
+
+#completedMessage>section>ul>li>.negative{
+	color: rgb(255,0,0);
 }
 
 li{

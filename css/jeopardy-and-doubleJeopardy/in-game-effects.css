@@ -175,11 +175,11 @@ that the different CSS rules would not be applied.
 	margin-top: 20px;
 }
 
-#answer>p:nth-of-type(2){
+#answer>p:nth-of-type(2), #answer>p:nth-of-type(5){
 	margin-top: 5px;
 }
 
-#answer>p:nth-of-type(n+3){
+#answer>p:nth-of-type(3),#answer>p:nth-of-type(4){
 	margin: 0;
 }
 

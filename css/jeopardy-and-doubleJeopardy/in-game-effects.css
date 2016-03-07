@@ -187,7 +187,7 @@ that the different CSS rules would not be applied.
 	margin-left: 3px;
 }
 
-#answer>p:nth-of-type(2), #answer>p:nth-of-type(5),#answer>ul>li:nth-child(2)>span,#answer>ul>li:nth-child(3)>span{
+#answer>p:nth-of-type(5),#answer>ul>li:nth-child(2)>span,#answer>ul>li:nth-child(3)>span{
 	color: rgb(0,0,0);
 }
 

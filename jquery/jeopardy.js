@@ -2,7 +2,7 @@ function gameplay(e){
 	//The following variables must be global within the function gameplay() since more than 1 sub-function will make use of these variables.
 	var $eventTarget=$(e.target);
 	var $eventTargetID=Number($eventTarget.attr('id'));
-	var $bidValue;
+	var $wagerValue;
 	var $jeopardyClueStatus=JSON.parse(localStorage['jeopardyClueStatus']);
 	console.log($eventTargetID);
 	var $startTime;
@@ -27,58 +27,73 @@ function gameplay(e){
 			setTimeout(removeDailyDouble,1000);
 		
 			function delayAppearance(){
-				var $biddingRules='<div id="biddingRules"><span>X</span><h1>BIDDING RULES</h1><ul><li>THE WAGER CANNOT EXCEED YOUR CURRENT TOTAL PRIZE</li>';
-				$biddingRules+='<li>HOWEVER, AN EXCEPTION IS MADE WHEN YOUR CURRENT TOTAL PRIZE IS LESS THAN THE MAXIMUM CLUE VALUE IN THE CURRENT ROUND;';
-				$biddingRules+=' IN THIS CASE, IT IS PERMISSIBLE TO BID UP TO $1000.</li></ul></div>';
+				var $wagerRules='<div id="wagerRules"><span>X</span><h1>WAGER RULES</h1><ul><li>THE WAGER CANNOT EXCEED YOUR CURRENT TOTAL PRIZE.</li>';
+				$wagerRules+='<li>HOWEVER, AN EXCEPTION IS MADE WHEN YOUR CURRENT TOTAL PRIZE IS LESS THAN THE MAXIMUM CLUE VALUE IN THE CURRENT ROUND';
+				$wagerRules+=' ($1,000); IN THIS CASE, IT IS PERMISSIBLE TO BID UP TO $1000.</li></ul></div>';
 				
-				$('body').append($biddingRules);
-				$('#biddingRules').addClass('fadeIntoView');
+				$('body').append($wagerRules);
+				$('#wagerRules').addClass('fadeIntoView');
 				
-				$('#biddingRules').find('span').on('click',proceedToBid);
+				$('#wagerRules').find('span').on('click',proceedToBid);
 			}
 			setTimeout(delayAppearance,2000);
 		}
 		$('#dailyDouble').find('span').on('click',showRules);
 
 		function proceedToBid(){
-			$('#biddingRules').removeClass('fadeIntoView').addClass('fadeFromView').remove();
-			$('body').append('<div id="wagerBox"><span>X</span><p>PLACE DAILY DOUBLE WAGER:</p><input type="text"><button>SUBMIT</button></div>');
+			$('#wagerRules').removeClass('fadeIntoView').addClass('fadeFromView').remove();
+			$htmlMarkup='<div id="wagerBox"><span>X</span><p>PLACE DAILY DOUBLE WAGER:</p><span>$</span><input type="text">';
+			$htmlMarkup+='<button>SUBMIT</button></div>';
+			$('body').append($htmlMarkup);
 			$('#wagerBox').addClass('fadeIntoView');
 			
 			function addFocus(){
 				$('#wagerBox').find('input').focus();
 			}
 			
-			function saveBidValue(){
-				console.info('Enter registerBidValue()');
-				$bidValue=Number($('#wagerBox').find('input').val());
-				console.info('DAILY DOUBLE BID:'+$bidValue);
+			function saveWager(){
+				console.info('Enter saveWager()');
+				$wagerValue=Number($('#wagerBox').find('input').val());
+				console.info('DAILY DOUBLE BID:'+$wagerValue);
 				var $jeopardyTotalPrize=Number(localStorage.getItem('jeopardyTotalPrize'));
 				var $notice;
 				
-				if ($bidValue===''){
+				if ($wagerValue===''){
 					$notice='<p>PLEASE ENTER A VALID NUMERICAL VALUE.</p>';
 					$('#wagerBox').append($notice);
-				} else if ($jeopardyTotalPrize<1000 && $bidValue>1000){
+				} else if ($wagerValue<5){
+					$notice='<p>THE MINIMUM DAILY DOUBLE WAGER MUST BE AT LEAST $5; PLEASE CHANGE YOUR WAGER.</p>';
+					$('#wagerBox').append($notice);					
+				} else if ($jeopardyTotalPrize<1000 && $wagerValue>1000){
 					$notice='<p>SINCE YOUR CURRENT TOTAL PRIZE IS BELOW THE MAXIMUM CLUE VALUE ($1000) IN THIS ROUND, YOU CAN WAGER A MAXIMUM OF ';
 					$notice+='$1000.</p>';
 					$('#wagerBox').append($notice);
-				} else if ($bidValue>$jeopardyTotalPrize){
-					$notice='<p>YOU CANNOT WAGER MORE THAN YOUR CURRENT TOTAL WINNINGS.</P>';
+				} else if ($jeopardyTotalPrize>=1000 && $wagerValue>$jeopardyTotalPrize){
+					$notice='<p>SINCE YOUR CURRENT TOTAL PRIZE WINNINGS IS AT LEAST $1000, YOUR WAGER CANNOT EXCEED THIS TOTAL.</p>';
 					$('#wagerBox').append($notice);
 				} else {
 					$notice='<p>WAGER ACCEPTED!</p>';
 					$('#wagerBox').append($notice);
 
 					function fadeAndRemove(){
-						$('#wagerBox').removeClass('fadeIntoView').addClass('fadeFromView').remove();
+						$('#wagerBox').removeClass('fadeIntoView').addClass('fadeFromView');
+						
+						function removeElement(){
+							$('#wagerBox').remove();
+						}
+						setTimeout(removeElement,1000);
 					}
-					setTimeout(fadeAndRemove,1000);
+					$('#wagerBox').find('span').eq(0).on('click',fadeAndRemove);
+					
+					setTimeout(showClue,5000);
+					setTimeout(startCountingTime,5000);
+					setTimeout(disappear,10000);
+					setTimeout(answerAndScore,5000);
 				}
 			}
 			
 			$('#wagerBox').find('input').on('click',addFocus);
-			$('#wagerBox').find('button').on('click',saveBidValue);
+			$('#wagerBox').find('button').on('click',saveWager);
 		}
 	}
 	
@@ -205,7 +220,7 @@ function gameplay(e){
 			
 			var $endTime=new Date();
 			var $elapsedTime=Number(($endTime-$startTime))/1000;
-			var $newScore;
+			console.info('ELAPSED TIME: '+$elapsedTime+' SECONDS');
 			var $cluePrize; //Used for holding the clue's corresponding prize winnings; not to be confused with $jeopardyTotalPrize.
 			
 			/*The first 5 array elements need to be set to empty strings; obviously, prize money is not applicable to tiles 
@@ -232,7 +247,7 @@ function gameplay(e){
 			} else if ($eventTargetID===29 && $inputValue===$answers[$eventTargetID] && $elapsedTime<=10){
 				$cluePrize=1000;  
 			} else if (($eventTargetID===24 || $eventTargetID===28) && $inputValue===$answers[$eventTargetID] && $elapsedTime<=10){
-				$cluePrize=$bidValue;  
+				$cluePrize=$wagerValue;  
 			}  else if ($eventTargetID>=5 && $eventTargetID<10 && $inputValue===$answers[$eventTargetID] && $elapsedTime>10){
 				$cluePrize=-200;
 			} else if ($eventTargetID>=10 && $eventTargetID<15 && $inputValue===$answers[$eventTargetID] && $elapsedTime>10) {
@@ -246,7 +261,7 @@ function gameplay(e){
 			} else if ($eventTargetID===29 && $inputValue===$answers[$eventTargetID] && $elapsedTime>10){
 				$cluePrize=-1000;  
 			} else if (($eventTargetID===24 || $eventTargetID===28) && $inputValue===$answers[$eventTargetID] && $elapsedTime>10){
-				$cluePrize=-$bidValue;  
+				$cluePrize=-$wagerValue;  
 			} else if ($eventTargetID>=5 && $eventTargetID<10 && $inputValue!=$answers[$eventTargetID] && $elapsedTime<=10) {
 				$cluePrize=-200;
 			} else if ($eventTargetID>=10 && $eventTargetID<15 && $inputValue!=$answers[$eventTargetID] && $elapsedTime<=10) {
@@ -260,7 +275,7 @@ function gameplay(e){
 			} else if ($eventTargetID===29 && $inputValue!=$answers[$eventTargetID] && $elapsedTime<=10){
 				$cluePrize=-1000;  
 			}  else if (($eventTargetID===24 || $eventTargetID===28) && $inputValue!=$answers[$eventTargetID] && $elapsedTime<=10){
-				$cluePrize=-$bidValue;  
+				$cluePrize=-$wagerValue;  
 			} else if ($eventTargetID>=5 && $eventTargetID<10 && $inputValue!=$answers[$eventTargetID] && $elapsedTime>10) {
 				$cluePrize=-200;
 			} else if ($eventTargetID>=10 && $eventTargetID<15 && $inputValue!=$answers[$eventTargetID] && $elapsedTime>10) {
@@ -272,30 +287,36 @@ function gameplay(e){
 			} else if ($eventTargetID>=25 && $eventTargetID<28 && $inputValue!=$answers[$eventTargetID] && $elapsedTime>10) {
 				$cluePrize=-1000;
 			} else if (($eventTargetID===24 || $eventTargetID===28) && $inputValue!=$answers[$eventTargetID] && $elapsedTime>10){
-				$cluePrize=-$bidValue;  
+				$cluePrize=-$wagerValue;  
 			} else { // $eventTargetID===29 && $inputValue!=$answers[$eventTargetID] && $elapsedTime>10
 				$cluePrize=-1000;
 			}
-			console.log($cluePrize);
+			console.info('CLUE PRIZE: $'+$cluePrize);
 			
 			var $result;
 			if ($inputValue===$answers[$eventTargetID]){
 				$result='<p>CORRECT!</p>';
+				$('#answer').append($result).find('p').eq(1).css('color','rgb(31,72,7)');
+
 				var $updateCorrectCount=Number(localStorage.getItem('jeopardyCorrect'));
 				$updateCorrectCount++;
 				localStorage.setItem('jeopardyCorrect',$updateCorrectCount);
 				console.info('TOTAL CORRECT:'+$updateCorrectCount);
 			} else {
 				$result='<p>INCORRECT!</p><p>THE CORRECT ANSWER IS</p><p>'+'\''+$answers[$eventTargetID]+'\'.</p>';
+				$('#answer').append($result).find('p').eq(1).css('color','rgb(255,0,0)');
 			}
-			$('#answer').append($result).find('span').eq(2).css('color','rgb(0,0,0)');
 			
 			var $contestantName=localStorage.getItem('contestant');
-			var $jeopardyTotalPrize=Number(localStorage.getItem('jeopardyTotalPrize')); 	//Player's total prize winnings so far
-			console.log($jeopardyTotalPrize);
-			$newScore=$jeopardyTotalPrize+$cluePrize;
-			localStorage.setItem('jeopardyTotalPrize',$newScore); 							//Save the player's new score.
-			console.info('New score:'+$newScore);
+			var $jeopardyTotalPrize=Number(localStorage.getItem('jeopardyTotalPrize')); 	//Player's first round total prize winnings 
+			var $totalPrize=Number(localStorage.getItem('totalPrize'));						//Player's overall prize winnings 
+
+			$totalPrize+=$cluePrize;
+			$jeopardyTotalPrize+=$cluePrize;
+			localStorage.setItem('totalPrize',$totalPrize); 								//Save the player's new overall prize winnings.
+			localStorage.setItem('jeopardyTotalPrize',$jeopardyTotalPrize); 				//Save the player's new overall prize winnings.
+			console.info('UPDATED OVERALL PRIZE WINNINGS: $ '+$totalPrize);
+			console.info('UPDATED JEOPARDY! PRIZE WINNINGS: $ '+$jeopardyTotalPrize);
 			
 			var $updatedAnsweredCount=localStorage.getItem('jeopardyAnswered');
 			$updatedAnsweredCount++;										//Update total number of questions answered.
@@ -309,10 +330,10 @@ function gameplay(e){
 			I wanted  the negative sign to be before the '$' sign, so negative numbers are multiplied by one. When there is a negative number,
 			I then use the initialize and set the variable $sign to '-'; other wise, it exists as an empty string.
 			*/
-			var $displayScore=$newScore;
+			var $displayScore=$totalPrize;
 			var $sign='';
-			if ($newScore<0){
-				$displayScore=$newScore*-1;
+			if ($totalPrize<0){
+				$displayScore=$totalPrize*-1;
 				$sign='-';
 			} 
 			console.log($sign);
@@ -322,31 +343,33 @@ function gameplay(e){
 				$update+='<li>REMAINING UNANSWERED: '+'<span>'+$remainingUnanswered+'</span>'+'</li>';
 			
 			$('.magnified').removeClass('fadeIntoView').addClass('fadeFromView').remove();
-			console.log($newScore);
+			console.log($totalPrize);
 			console.log($updatedAnsweredCount);
 			console.log($remainingUnanswered);
 			
 			$('#answer').append($update);
 			
-			if ($newScore<0){
+			if ($totalPrize<0){
 				$('#answer').find('span').eq(2).css('color','rgb(255,0,0)'); //Winnings below $0 are coloured red.
 			} else {
 				$('#answer').find('span').eq(2).css('color','rgb(31,72,7)'); //Winnings over $0 are coloured dollar-bill green.				
 			}
 						
-			function fadeAndRemove(){
+			function fadeAndRemoveAndCheckGameProgress(){
 				$('#answer').removeClass('fadeIntoView').addClass('fadeFromView');
 				
 				function removeElement(){
 					$('#answer').remove();
 				}
 				setTimeout(removeElement,2000);
+				
+				checkDoubleJeopardyGameProgress();
 			}
-			$('#answer').find('span').eq(0).on('click',fadeAndRemove); 
+			$('#answer').find('span').eq(0).on('click',fadeAndRemoveAndCheckGameProgress); 
 			//The above line of code is placed at the bottom to ensure that the jQuery cannot close #answer before the clue has been answered.
 		}
 	
-		$('#answer').find('button').one('click',markAnswer);
+		$('#answer').find('button').one('click',markAnswer); //.one() is used to prevent the player from re-attempting the clue.
 	}
 	
 	function checkDoubleJeopardyGameProgress(){
@@ -361,7 +384,7 @@ function gameplay(e){
 			}
 			$i++;
 		}
-		console.info('count variable value:'+$count);
+		console.info('COUNT VARIABLE VALUE: '+$count);
 		if ($count===25){
 			//The end of the first round means there is no more need for the array $jeopardyClueStatus, which means it will be deleted from localStorage.
 			localStorage.removeItem('jeopardyClueStatus');
@@ -416,18 +439,12 @@ function gameplay(e){
 			starting from the time the clue is displayed.
 			*/
 			answerAndScore();
-			setTimeout(checkDoubleJeopardyGameProgress,10000);
 		}
 	} else { //Daily double tiles
 		if ($jeopardyClueStatus[$eventTargetID]==='TRUE'){
 			alreadySelectedWarning();
 		} else {
 			dailyDouble();
-			setTimeout(showClue,10000);
-			setTimeout(startCountingTime,10000);
-			setTimeout(disappear,20000);
-			setTimeout(answerAndScore,10000);
-			setTimeout(checkDoubleJeopardyGameProgress,23000);
 		}
 	}
 }

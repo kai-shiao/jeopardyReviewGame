@@ -421,7 +421,7 @@ function gameplay(e){
 	
 	if ($eventTargetID>=0 && $eventTargetID<5){ //Category tiles
 		showClue();
-	} else if ($eventTargetID>=5 && $eventTargetID<=23 || $eventTargetID>=25 && $eventTargetID<=27 || $eventTargetID>28){ //Tiles awarding face value amounts
+	} else if ($eventTargetID>=5 && $eventTargetID<29){ //Tiles awarding face value amounts
 		if ($jeopardyClueStatus[$eventTargetID]==='TRUE'){
 			alreadySelectedWarning();
 		} else {

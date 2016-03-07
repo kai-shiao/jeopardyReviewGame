@@ -280,11 +280,10 @@ function gameplay(e){
 				$cluePrize=-800;
 			} else if ($eventTargetID>=25 && $eventTargetID<29 && $inputValue!=$answers[$eventTargetID] && $elapsedTime>10) {
 				$cluePrize=-1000;
-			} else if ($eventTargetID===29 && $inputValue!=$answers[$eventTargetID] && $elapsedTime>10){
-				$cluePrize=-$wagerValue;  
-			} else { // $eventTargetID===29 && $inputValue!=$answers[$eventTargetID] && $elapsedTime>10
-				$cluePrize=-1000;
+			} else { //$eventTargetID===29 && $inputValue!=$answers[$eventTargetID] && $elapsedTime>10
+				$cluePrize=-$wagerValue;
 			}
+			
 			console.info('CLUE PRIZE: $'+$cluePrize);
 			
 			var $result;

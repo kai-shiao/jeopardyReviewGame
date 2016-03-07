@@ -340,7 +340,13 @@ function gameplay(e){
 			    $update+='<li>TOTAL ANSWERED THIS ROUND: '+'<span>'+$updatedAnsweredCount+'</span>'+'</li>';
 				$update+='<li>REMAINING UNANSWERED: '+'<span>'+$remainingUnanswered+'</span>'+'</li>';
 			
-			$('.magnified').removeClass('fadeIntoView').addClass('fadeFromView').remove();
+			$('.magnified').removeClass('fadeIntoView').addClass('fadeFromView');
+			
+			function removeElement(){
+				$('.magnified').remove();
+			}
+			setTimeout(removeElement,2000);
+			
 			console.log($totalPrize);
 			console.log($updatedAnsweredCount);
 			console.log($remainingUnanswered);
@@ -359,7 +365,7 @@ function gameplay(e){
 				function removeElement(){
 					$('#answer').remove();
 				}
-				setTimeout(removeElement,1000);
+				setTimeout(removeElement,2000);
 				
 				setTimeout(checkJeopardyGameProgress,2000);
 			}

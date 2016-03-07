@@ -387,33 +387,70 @@ function gameplay(e){
 		}
 		console.info('COUNT VARIABLE VALUE: '+$count);
 		
-		if ($count===25){
+		if ($count===1){
 			//Overall game stats
 			var $totalPrize=Number(localStorage.getItem('totalPrize'));
 			var $totalCorrect=Number(localStorage.getItem('totalCorrect'));
+			
 			var $jeopardyWinningPercentage=Number(localStorage.getItem('jeopardyWinningPercentage'));
-
+			
+			var $doubleJeopardyTotalPrize=Number(localStorage.getItem('doubleJeopardyTotalPrize'));
+			var $doubleJeopardyCorrect=Number(localStorage.getItem('doubleJeopardyCorrect'));
 			var $doubleJeopardyWinningPercentage=Number(parseFloat(($doubleJeopardyCorrect/25)*100).toFixed()); 
 			//Convert into percentage rounded to the nearest whole number.
 
-			var $doubleJeopardyTotalPrize=Number(localStorage.getItem('doubleJeopardyTotalPrize'));
-			var $doubleJeopardyCorrect=Number(localStorage.getItem('doubleJeopardyCorrect'));
-			
 			$totalCorrect+=$doubleJeopardyCorrect;
 			
-			$totalWinningPercentage=($jeopardyWinningPercentage+$doubleJeopardyWinningPercentage)/2;
+			var $totalWinningPercentage=($jeopardyWinningPercentage+$doubleJeopardyWinningPercentage)/2;
 			localStorage.setItem('totalWinningPercentage',$totalWinningPercentage);
 			
-			var $htmlMarkup='<div id="completedMessage"><p>CONGRATULATIONS!</p><p>YOU HAVE FINISHED DOUBLE JEOPARDY!</p><h1>OVERALL STATS</h1><ul>';
-			    $htmlMarkup+='<li>PRIZE WINNINGS:'+$totalPrize+'<li> NUMBER CORRECT:'+$totalCorrect+'</li><li>WINNING PERCENTAGE:'+$totalWinningPercentage+'%</li>';
-				$htmlMarkup+='</ul><h1>DOUBLE JEOPARDY! STATS</h1><ul><li>PRIZE WINNINGS:'+$doubleJeopardyTotalPrize+'</li><li>NUMBER CORRECT:'+$doubleJeopardyCorrect+'</li>'; 
-				$htmlMarkup+=+'<li>CORRECT:'+$doubleJeopardyCorrect+'</li></ul>';
-				$htmlMarkup+='<li>WINNING PERCENTAGE:'+$doubleJeopardyWinningPercentage+'</li></ul>';
-				$htmlMarkup+='<a href="finaljeopardy.html">PROCEED TO FINAL JEOPARDY!</a>';
+			var $displayTotalPrize=$totalPrize;
+			var $displayDoubleJeopardyTotalPrize=$doubleJeopardyTotalPrize;
+			var $sign1; //The first is for the total prize winnings; the second is for the round prize winnings.
+			var $sign2; 
+			
+			var $determineClass1; //The first is for the total prize winnings; the second is for the round prize winnings.
+			var $determineClass2;
+			
+			if ($totalPrize<0 && $doubleJeopardyTotalPrize>0){
+				$displayTotalPrize=-$totalPrize;
+				$sign1='-';
+				$sign2=''; 
+				$determineClass1='negative';
+				$determineClass2='positive';
+			} else if ($totalPrize>0 && $doubleJeopardyTotalPrize<0){ 
+				$displaydoubleJeopardyTotalPrize=-$doubleJeopardyTotalPrize;
+				$sign1='';
+				$sign2='-';
+				$determineClass1='positive';
+				$determineClass2='negative';
+			} else if ($totalPrize<0 && $doubleJeopardyTotalPrize<0){ 
+				$displayTotalPrize=-$totalPrize;
+				$displayDoubleJeopardyTotalPrize=-$doubleJeopardyTotalPrize;				
+				$sign1='-';
+				$sign2='-';
+				$determineClass1='negative';
+				$determineClass2='negative';
+			} else { //$totalPrize>0 && $doubleJeopardyTotalPrize>0
+				$sign1='';
+				$sign2='';
+				$determineClass1='positive';
+				$determineClass2='positive';
+			}
+
+			var $htmlMarkup='<div id="completedMessage"><h1>CONGRATULATIONS!</h1><p>YOU HAVE FINISHED DOUBLE JEOPARDY!</p><section><h2>OVERALL STATS</h2><ul>';
+			    $htmlMarkup+='<li>PRIZE WINNINGS:<span class='+'"'+$determineClass1+'">'+$sign1+'$'+$displayTotalPrize+'</li><li> NUMBER CORRECT: '+$totalCorrect+'</li>';
+				$htmlMarkup+='<li>WINNING PERCENTAGE: '+$totalWinningPercentage+'%</li></ul></section><section><h2>DOUBLE JEOPARDY! STATS</h2><ul>'; 
+				$htmlMarkup+='<li>PRIZE WINNINGS:<span class='+'"'+$determineClass2+'">'+$sign2+'$'+$displayDoubleJeopardyTotalPrize+'</li>';
+				$htmlMarkup+='<li>NUMBER CORRECT: '+$doubleJeopardyCorrect+'</li><li>WINNING PERCENTAGE: '+$doubleJeopardyWinningPercentage+'%</li></ul>';
+				$htmlMarkup+='</section><div><a href="finaljeopardy.html">PROCEED TO FINAL JEOPARDY!</a></div></div>';
 			//NOTE: In the first round, first round winning percentage=overall winning percentage;
 			
 			$('body').append($htmlMarkup);
+			$('#completedMessage').addClass('fadeIntoView');
 		}
+		var completionStamp=new Date();
+		console.info('completed game progress checking function; date & time stamp: '+completionStamp);
 	}
 	
 	function alreadySelectedWarning(){

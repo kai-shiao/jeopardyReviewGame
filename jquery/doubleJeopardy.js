@@ -3,7 +3,7 @@ function gameplay(e){
 	var $eventTarget=$(e.target);
 	var $eventTargetID=Number($eventTarget.attr('id'));
 	console.log($eventTargetID);
-	var $doubleJeopardyClueStatus=JSON.parse(localStorage['jeopardyClueStatus']);
+	var $doubleJeopardyClueStatus=JSON.parse(localStorage['doubleJeopardyClueStatus']);
 	var $wagerValue;
 	var $startTime;
 					

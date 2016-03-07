@@ -300,7 +300,6 @@ function gameplay(e){
 				$('#answer').append($result).find('p').eq(1).css('color','rgb(255,0,0)');
 			}
 			
-			var $contestantName=localStorage.getItem('contestant');
 			var $jeopardyTotalPrize=Number(localStorage.getItem('jeopardyTotalPrize')); 	//Player's first round total prize winnings 
 			var $totalPrize=Number(localStorage.getItem('totalPrize'));						//Player's overall prize winnings 
 
@@ -331,7 +330,7 @@ function gameplay(e){
 			} 
 			console.log($sign);
 			
-			var $update='<p>'+$contestantName+',</p><p>CURRENT GAME STATS:</p><ul><li>TOTAL PRIZE WINNINGS:<span>'+$sign+'$'+$displayScore+'</span></li>';
+			var $update='<p>CURRENT GAME STATS:</p><ul><li>TOTAL PRIZE WINNINGS:<span>'+$sign+'$'+$displayScore+'</span></li>';
 			    $update+='<li>TOTAL ANSWERED THIS ROUND: '+'<span>'+$updatedAnsweredCount+'</span>'+'</li>';
 				$update+='<li>REMAINING UNANSWERED: '+'<span>'+$remainingUnanswered+'</span>'+'</li>';
 			

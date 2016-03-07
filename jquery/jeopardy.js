@@ -195,7 +195,7 @@ function gameplay(e){
 	
 	function startCountingTime(){
 		$startTime=new Date(); //Initialize a date object and start counting from the moment the clue is displayed.
-		console.info('Start time:'+$startTime);
+		console.info('START TIME: '+$startTime);
 	}
 
 	function disappear(){
@@ -359,9 +359,9 @@ function gameplay(e){
 				function removeElement(){
 					$('#answer').remove();
 				}
-				setTimeout(removeElement,2000);
+				setTimeout(removeElement,1000);
 				
-				checkDoubleJeopardyGameProgress();
+				setTimeout(checkJeopardyGameProgress,2000);
 			}
 			$('#answer').find('span').eq(0).on('click',fadeAndRemoveAndCheckGameProgress); 
 			//The above line of code is placed at the bottom to ensure that the jQuery cannot close #answer before the clue has been answered.
@@ -370,7 +370,7 @@ function gameplay(e){
 		$('#answer').find('button').one('click',markAnswer); //.one() is used to prevent the player from re-attempting the clue.
 	}
 	
-	function checkDoubleJeopardyGameProgress(){
+	function checkJeopardyGameProgress(){
 		console.log('Reached progress function.');
 		var $i=5;
 		var $count=0;
@@ -383,7 +383,7 @@ function gameplay(e){
 			$i++;
 		}
 		console.info('COUNT VARIABLE VALUE: '+$count);
-		if ($count===25){
+		if ($count===1){
 			//The end of the first round means there is no more need for the array $jeopardyClueStatus, which means it will be deleted from localStorage.
 			localStorage.removeItem('jeopardyClueStatus');
 			
@@ -398,16 +398,27 @@ function gameplay(e){
 			localStorage.setItem('totalCorrect',$jeopardyCorrect);
 			localStorage.setItem('totalWinningPercentage',$jeopardyWinningPercentage);
 			
-			var $htmlMarkup='<div id="completedMessage"><p>CONGRATULATIONS!</p><p>YOU HAVE FINISHED JEOPARDY!</p><h1>OVERALL STATS</h1><ul>';
-			    $htmlMarkup+='<li>PRIZE WINNINGS:'+$jeopardyTotalPrize+'<li>CORRECT:'+$jeopardyCorrect+'</li><li>WINNING PERCENTAGE:'+$jeopardyWinningPercentage+'%</li></ul>';
-				$htmlMarkup+='<h1>JEOPARDY!(FIRST ROUND)STATS</h1><ul><li>PRIZE WINNINGS:'+$jeopardyTotalPrize+'</li><li>CORRECT:'+$jeopardyCorrect+'</li></ul>';
-				$htmlMarkup+='<li>WINNING PERCENTAGE:'+$jeopardyWinningPercentage+'</li>';
-				$htmlMarkup+='<a href="doublejeopardy.html">PROCEED TO DOUBLE JEOPARDY!</a><div>';
+			//For display purposes
+			var $displayJeopardyTotalPrize=$jeopardyTotalPrize;
+			var $sign='';
+			var $determineClass='positive';
+			if ($jeopardyTotalPrize<0){
+				$displayJeopardyTotalPrize=-$jeopardyTotalPrize;
+				$sign='-';
+				$determineClass='negative';
+			}
+			
+			var $htmlMarkup='<div id="completedMessage"><h1>CONGRATULATIONS!</h1><p>YOU HAVE FINISHED JEOPARDY!</p><section><h2>OVERALL STATS</h2><ul>';
+			    $htmlMarkup+='<li>PRIZE WINNINGS:<span class='+'"'+$determineClass+'">'+$sign+'$'+$displayJeopardyTotalPrize+'</span></li><li>CORRECT: '+$jeopardyCorrect+'</li><li>WINNING PERCENTAGE: '+$jeopardyWinningPercentage+'%</li></ul>';
+				$htmlMarkup+='</section><section><h2>JEOPARDY! STATS</h2><ul><li>PRIZE WINNINGS:<span class='+'"'+$determineClass+'">'+$sign+'$'+$displayJeopardyTotalPrize+'</span></li><li>CORRECT: '+$jeopardyCorrect+'</li>';
+				$htmlMarkup+='<li>WINNING PERCENTAGE: '+$jeopardyWinningPercentage+'%</li></ul></section>';
+				$htmlMarkup+='<div><a href="doublejeopardy.html">PROCEED TO DOUBLE JEOPARDY!</a></div></div>';
 			
 			/*Note: Since overall game stats will have the same values as those of Jeopardy! stats, there is no need to call variables representing overall
 			game stats. Instead, just use each of the Jeopardy! variables twice when providing the stat summary.*/
 			
 			$('body').append($htmlMarkup);
+			$('#completedMessage').addClass('fadeIntoView');
 		}
 		
 		var completionStamp=new Date();
@@ -462,7 +473,7 @@ function welcomeTheContestant(){
 		$('#nameBox').find('input').blur();
 		var $contestantName=$('#nameBox').find('input').val().toUpperCase();
 		localStorage.setItem('contestant',$contestantName);
-		console.log('CONTESTANT NAME:'+$contestantName); //debugging purposes to ensure the code functions properly.
+		console.log('CONTESTANT NAME: '+$contestantName); //debugging purposes to ensure the code functions properly.
 
 		if ($contestantName===''){				
 			//Increase box size by 10% (Make it 110% of the current size)as a new <p> element will be added in this case.
@@ -528,7 +539,23 @@ function welcomeTheContestant(){
 		$i++;
 	}
 	
+	//Do the same for Double Jeopardy!
+	var $doubleJeopardyClueStatus=[];
+	var $j=0;
+	
+	while($j<5){
+		$doubleJeopardyClueStatus.push(''); 
+		$j++;
+	}
+		
+	while($j>4 && $j<30){
+		$doubleJeopardyClueStatus.push('FALSE'); 
+		$j++;
+	}
+	
 	console.info($jeopardyClueStatus); //Check to see the result of the while-loop.
+	console.info($doubleJeopardyClueStatus); //Check to see the result of the while-loop.
+	
 	console.info('CONTESTANT NAME (STARTUP): '+localStorage.getItem('contestant')); 
 	/*Check to see if localStorage's contestant variable value is always cleared before the contestant is asked to provide his/her name; not be confused with
 	the code on line 437; the code is identical, but differences in timing means each serves different purposes.
@@ -536,6 +563,7 @@ function welcomeTheContestant(){
 	
 	//HTML5 localStorage can only store strings, so $jeopardyClueStatus must be formatted into a string.
 	localStorage['jeopardyClueStatus']=JSON.stringify($jeopardyClueStatus); 
+	localStorage['doubleJeopardyClueStatus']=JSON.stringify($doubleJeopardyClueStatus); 	
 }
 
 (function(){

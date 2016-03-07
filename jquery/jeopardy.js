@@ -72,7 +72,7 @@ function gameplay(e){
 					$notice='<p>SINCE YOUR CURRENT TOTAL PRIZE WINNINGS IS AT LEAST $1000, YOUR WAGER CANNOT EXCEED THIS TOTAL.</p>';
 					$('#wagerBox').append($notice);
 				} else {
-					$notice='<p>WAGER ACCEPTED!</p>';
+					$notice='<p class="fadeIntoView">WAGER ACCEPTED!</p>';
 					$('#wagerBox').append($notice);
 
 					function fadeAndRemove(){
@@ -81,7 +81,7 @@ function gameplay(e){
 						function removeElement(){
 							$('#wagerBox').remove();
 						}
-						setTimeout(removeElement,1000);
+						setTimeout(removeElement,2000);
 					}
 					$('#wagerBox').find('span').eq(0).on('click',fadeAndRemove);
 					
@@ -111,7 +111,7 @@ function gameplay(e){
 		var $category1='DECLARATION OF INDEPENDENCE';
 		var $category2='US CONSTITUTION';
 		var $category3='COLONIAL AMERICA';
-		var $category4='';
+		var $category4='GILDED AGE';
 	
 		var $200antebellumClue='DURING HIS PRESIDENCY, THIS PRESIDENT OVERSAW THE ANNEXATION OF TEXAS, DEFEATED MEXICO IN THE MEXICAN WAR';
 			$200antebellumClue+=' AND WAS THUS ABLE TO FULFILL THE IDEAL OF \'MANIFEST DESTINY\'.';
@@ -183,7 +183,12 @@ function gameplay(e){
 		$('.magnified').addClass('fadeIntoView');
 		
 		function fadeAndRemove(){
-			$('.magnified').removeClass('fadeIntoView').addClass('fadeFromView').remove();
+			$('.magnified').removeClass('fadeIntoView').addClass('fadeFromView');
+			
+			function removeElement(){
+				$('.magnified').remove();
+			}
+			setTimeout(removeElement,2000);
 		}
 		$('.magnified').find('span').eq(0).on('click',fadeAndRemove);
 	}
@@ -288,7 +293,7 @@ function gameplay(e){
 			
 			var $result;
 			if ($inputValue===$answers[$eventTargetID]){
-				$result='<p>CORRECT!</p>';
+				$result='<p class="fadeIntoView">CORRECT!</p>';
 				$('#answer').append($result).find('p').eq(1).css('color','rgb(31,72,7)');
 
 				var $updateCorrectCount=Number(localStorage.getItem('jeopardyCorrect'));
@@ -296,7 +301,8 @@ function gameplay(e){
 				localStorage.setItem('jeopardyCorrect',$updateCorrectCount);
 				console.info('TOTAL CORRECT:'+$updateCorrectCount);
 			} else {
-				$result='<p>INCORRECT!</p><p>THE CORRECT ANSWER IS</p><p>'+'\''+$answers[$eventTargetID]+'\'.</p>';
+				$result='<p class="fadeIntoView">INCORRECT!</p><p class="fadeIntoView">THE CORRECT ANSWER IS</p>';
+				$result+='<p class="fadeIntoView">'+'\''+$answers[$eventTargetID]+'\'.</p>';
 				$('#answer').append($result).find('p').eq(1).css('color','rgb(255,0,0)');
 			}
 			
@@ -330,7 +336,7 @@ function gameplay(e){
 			} 
 			console.log($sign);
 			
-			var $update='<p>CURRENT GAME STATS:</p><ul><li>TOTAL PRIZE WINNINGS:<span>'+$sign+'$'+$displayScore+'</span></li>';
+			var $update='<p class="fadeIntoView" >CURRENT GAME STATS:</p><ul class="fadeIntoView"><li>TOTAL PRIZE WINNINGS:<span>'+$sign+'$'+$displayScore+'</span></li>';
 			    $update+='<li>TOTAL ANSWERED THIS ROUND: '+'<span>'+$updatedAnsweredCount+'</span>'+'</li>';
 				$update+='<li>REMAINING UNANSWERED: '+'<span>'+$remainingUnanswered+'</span>'+'</li>';
 			

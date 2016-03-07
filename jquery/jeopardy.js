@@ -240,13 +240,11 @@ function gameplay(e){
 				$cluePrize=400;
 			} else if ($eventTargetID>=15 && $eventTargetID<20 && $inputValue===$answers[$eventTargetID] && $elapsedTime<=10) {
 				$cluePrize=600;
-			} else if ($eventTargetID>=20 && $eventTargetID<24 && $inputValue===$answers[$eventTargetID] && $elapsedTime<=10) {
+			} else if ($eventTargetID>=20 && $eventTargetID<25 && $inputValue===$answers[$eventTargetID] && $elapsedTime<=10) {
 				$cluePrize=800;
-			} else if ($eventTargetID>=25 && $eventTargetID<28 && $inputValue===$answers[$eventTargetID] && $elapsedTime<=10){
+			} else if ($eventTargetID>=25 && $eventTargetID<29 && $inputValue===$answers[$eventTargetID] && $elapsedTime<=10){
 				$cluePrize=1000; 
 			} else if ($eventTargetID===29 && $inputValue===$answers[$eventTargetID] && $elapsedTime<=10){
-				$cluePrize=1000;  
-			} else if (($eventTargetID===24 || $eventTargetID===28) && $inputValue===$answers[$eventTargetID] && $elapsedTime<=10){
 				$cluePrize=$wagerValue;  
 			}  else if ($eventTargetID>=5 && $eventTargetID<10 && $inputValue===$answers[$eventTargetID] && $elapsedTime>10){
 				$cluePrize=-200;
@@ -254,13 +252,11 @@ function gameplay(e){
 				$cluePrize=-400;
 			} else if ($eventTargetID>=15 && $eventTargetID<20 && $inputValue===$answers[$eventTargetID] && $elapsedTime>10) {
 				$cluePrize=-600;
-			} else if ($eventTargetID>=20 && $eventTargetID<24 && $inputValue===$answers[$eventTargetID] && $elapsedTime>10){
+			} else if ($eventTargetID>=20 && $eventTargetID<25 && $inputValue===$answers[$eventTargetID] && $elapsedTime>10){
 				$cluePrize=-800;
-			} else if ($eventTargetID>=25 && $eventTargetID<28 && $inputValue===$answers[$eventTargetID] && $elapsedTime>10){
+			} else if ($eventTargetID>=25 && $eventTargetID<29 && $inputValue===$answers[$eventTargetID] && $elapsedTime>10){
 				$cluePrize=-1000; 
 			} else if ($eventTargetID===29 && $inputValue===$answers[$eventTargetID] && $elapsedTime>10){
-				$cluePrize=-1000;  
-			} else if (($eventTargetID===24 || $eventTargetID===28) && $inputValue===$answers[$eventTargetID] && $elapsedTime>10){
 				$cluePrize=-$wagerValue;  
 			} else if ($eventTargetID>=5 && $eventTargetID<10 && $inputValue!=$answers[$eventTargetID] && $elapsedTime<=10) {
 				$cluePrize=-200;
@@ -268,13 +264,11 @@ function gameplay(e){
 				$cluePrize=-400;
 			} else if ($eventTargetID>=15 && $eventTargetID<20 && $inputValue!=$answers[$eventTargetID] && $elapsedTime<=10) {
 				$cluePrize=-600;
-			} else if ($eventTargetID>=20 && $eventTargetID<24 && $inputValue!=$answers[$eventTargetID] && $elapsedTime<=10) {
+			} else if ($eventTargetID>=20 && $eventTargetID<25 && $inputValue!=$answers[$eventTargetID] && $elapsedTime<=10) {
 				$cluePrize=-800;
-			} else if ($eventTargetID>=25 && $eventTargetID<28 && $inputValue!=$answers[$eventTargetID] && $elapsedTime<=10) {
+			} else if ($eventTargetID>=25 && $eventTargetID<29 && $inputValue!=$answers[$eventTargetID] && $elapsedTime<=10) {
 				$cluePrize=-1000;
 			} else if ($eventTargetID===29 && $inputValue!=$answers[$eventTargetID] && $elapsedTime<=10){
-				$cluePrize=-1000;  
-			}  else if (($eventTargetID===24 || $eventTargetID===28) && $inputValue!=$answers[$eventTargetID] && $elapsedTime<=10){
 				$cluePrize=-$wagerValue;  
 			} else if ($eventTargetID>=5 && $eventTargetID<10 && $inputValue!=$answers[$eventTargetID] && $elapsedTime>10) {
 				$cluePrize=-200;
@@ -282,11 +276,11 @@ function gameplay(e){
 				$cluePrize=-400;
 			} else if ($eventTargetID>=15 && $eventTargetID<20 && $inputValue!=$answers[$eventTargetID] && $elapsedTime>10) {
 				$cluePrize=-600;
-			} else if ($eventTargetID>=20 && $eventTargetID<24 && $inputValue!=$answers[$eventTargetID] && $elapsedTime>10) {
+			} else if ($eventTargetID>=20 && $eventTargetID<25 && $inputValue!=$answers[$eventTargetID] && $elapsedTime>10) {
 				$cluePrize=-800;
-			} else if ($eventTargetID>=25 && $eventTargetID<28 && $inputValue!=$answers[$eventTargetID] && $elapsedTime>10) {
+			} else if ($eventTargetID>=25 && $eventTargetID<29 && $inputValue!=$answers[$eventTargetID] && $elapsedTime>10) {
 				$cluePrize=-1000;
-			} else if (($eventTargetID===24 || $eventTargetID===28) && $inputValue!=$answers[$eventTargetID] && $elapsedTime>10){
+			} else if ($eventTargetID===29 && $inputValue!=$answers[$eventTargetID] && $elapsedTime>10){
 				$cluePrize=-$wagerValue;  
 			} else { // $eventTargetID===29 && $inputValue!=$answers[$eventTargetID] && $elapsedTime>10
 				$cluePrize=-1000;

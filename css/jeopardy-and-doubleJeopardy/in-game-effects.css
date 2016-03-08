@@ -127,15 +127,15 @@
 	right: 310px;
 }
 
-#dailyDouble>span:first-child, #ruleBox>span:first-child, #wagerBox>span:first-child, #alreadySelectedWarning>span:first-child, #wagerRules>span:first-child, .magnified>span:first-child
-,#answer>span:first-child{
+#dailyDouble>span:first-child, #ruleBox>span:first-child, #wagerBox>span:first-child, #alreadySelectedWarning>span:first-child, #wagerRules>span:first-child, 
+.magnified>span:first-child, #answer>span:first-child{
 	float: right;
 	margin-bottom: 20px;
 	margin-right: 3px;
 }
 
-#dailyDouble>span:first-child:hover, #ruleBox>span:first-child:hover, #wagerBox>span:first-child:hover, #alreadySelectedWarning>span:first-child:hover, #wagerRules>span:first-child:hover, .magnified>span:first-child:hover 
-,#answer>span:first-child:hover{
+#dailyDouble>span:first-child:hover, #ruleBox>span:first-child:hover, #wagerBox>span:first-child:hover, #alreadySelectedWarning>span:first-child:hover, #wagerRules>span:first-child:hover,  
+.magnified>span:first-child:hover, #answer>span:first-child:hover{
 	color: rgb(255,0,0);
 	cursor: pointer;
 }

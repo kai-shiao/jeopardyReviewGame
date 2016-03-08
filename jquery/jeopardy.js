@@ -75,20 +75,19 @@ function gameplay(e){
 					$notice='<p class="fadeIntoView">WAGER ACCEPTED!</p>';
 					$('#wagerBox').append($notice);
 
-					function fadeAndRemove(){
+					function proceedWithGame(){
 						$('#wagerBox').removeClass('fadeIntoView').addClass('fadeFromView');
 						
 						function removeElement(){
 							$('#wagerBox').remove();
 						}
 						setTimeout(removeElement,2000);
+						setTimeout(showClue,5000);
+						setTimeout(startCountingTime,5000);
+						setTimeout(disappear,10000);
+						setTimeout(answerAndScore,5000);
 					}
-					$('#wagerBox').find('span').eq(0).on('click',fadeAndRemove);
-					
-					setTimeout(showClue,5000);
-					setTimeout(startCountingTime,5000);
-					setTimeout(disappear,10000);
-					setTimeout(answerAndScore,5000);
+					$('#wagerBox').find('span').eq(0).on('click',proceedWithGame);
 				}
 			}
 			

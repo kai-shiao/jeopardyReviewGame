@@ -52,7 +52,7 @@
 	animation: fadeIntoView 3s 1;
 }
 
-#wagerBox, section{
+#wagerBox, section, #gameCompletionInfo, #showGameStats{
 	border: 5px solid rgb(0,0,0);
 	border-radius: 10px;
 }
@@ -69,13 +69,21 @@
 	margin: 20px auto;
 }
 
-#wagerBox>span:first-of-type{
+#finalJeopardyInfo{
+	height: 200px;
+	left: 400px;
+	top: 200px;
+	position: absolute;
+	width: 500px;
+}
+
+#finalJeopardyInfo>span:first-of-type,#wagerBox>span:first-of-type{
 	color: rgb(255,215,0);
 	float: right;
 	margin-right: 5px;
 }
 
-#wagerBox>span:first-of-type:hover{
+#finalJeopardyInfo>span:first-of-type:hover,#wagerBox>span:first-of-type:hover{
 	color: rgb(255,0,0);
 	cursor: pointer;
 	float: right;
@@ -103,6 +111,23 @@ section>p:first-child{
 section>p:nth-child(2){
 	margin-bottom: 0px;
 	margin-top: 15px;
+}
+
+section>span:nth-of-type(2), .positive{
+	color: rgb(31,72,7);
+}
+
+.negative{
+	color: rgb(255,0,0);
+}
+
+#showGameStats{
+	width: 500px;
+}
+
+#showGameStats>section{
+	float: left;
+	width: 220px;
 }
 
 input{

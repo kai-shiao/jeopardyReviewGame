@@ -443,7 +443,7 @@ function gameplay(e){
 				$htmlMarkup+='<li>WINNING PERCENTAGE: '+$totalWinningPercentage+'%</li></ul></section><section><h2>DOUBLE JEOPARDY! STATS</h2><ul>'; 
 				$htmlMarkup+='<li>PRIZE WINNINGS:<span class='+'"'+$determineClass2+'">'+$sign2+'$'+$displayDoubleJeopardyTotalPrize+'</li>';
 				$htmlMarkup+='<li>NUMBER CORRECT: '+$doubleJeopardyCorrect+'</li><li>WINNING PERCENTAGE: '+$doubleJeopardyWinningPercentage+'%</li></ul>';
-				$htmlMarkup+='</section><div><a href="finaljeopardy.html">PROCEED TO FINAL JEOPARDY!</a></div></div>';
+				$htmlMarkup+='</section><div><img src="multimedia/pointingFingerIcon.png" alt="IMAGE FORMAT NOT SUPPORTED"><a href="finaljeopardy.html">PROCEED TO FINAL JEOPARDY!</a></div></div>';
 			//NOTE: In the first round, first round winning percentage=overall winning percentage;
 			
 			$('body').append($htmlMarkup);

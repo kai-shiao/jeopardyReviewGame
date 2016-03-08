@@ -418,7 +418,7 @@ function gameplay(e){
 			    $htmlMarkup+='<li>PRIZE WINNINGS:<span class='+'"'+$determineClass+'">'+$sign+'$'+$displayJeopardyTotalPrize+'</span></li><li>CORRECT: '+$jeopardyCorrect+'</li><li>WINNING PERCENTAGE: '+$jeopardyWinningPercentage+'%</li></ul>';
 				$htmlMarkup+='</section><section><h2>JEOPARDY! STATS</h2><ul><li>PRIZE WINNINGS:<span class='+'"'+$determineClass+'">'+$sign+'$'+$displayJeopardyTotalPrize+'</span></li><li>CORRECT: '+$jeopardyCorrect+'</li>';
 				$htmlMarkup+='<li>WINNING PERCENTAGE: '+$jeopardyWinningPercentage+'%</li></ul></section>';
-				$htmlMarkup+='<div><a href="doublejeopardy.html">PROCEED TO DOUBLE JEOPARDY!</a></div></div>';
+				$htmlMarkup+='<div><img src="multimedia/pointingFingerIcon.png" alt="IMAGE FORMAT NOT SUPPORTED"><a href="doublejeopardy.html">PROCEED TO DOUBLE JEOPARDY!</a></div></div>';
 			
 			/*Note: Since overall game stats will have the same values as those of Jeopardy! stats, there is no need to call variables representing overall
 			game stats. Instead, just use each of the Jeopardy! variables twice when providing the stat summary.*/

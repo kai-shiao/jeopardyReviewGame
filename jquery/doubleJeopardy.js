@@ -75,20 +75,21 @@ function gameplay(e){
 					$notice='<p class="fadeIntoView">WAGER ACCEPTED!</p>';
 					$('#wagerBox').append($notice);
 
-					function fadeAndRemove(){
+					function proceedWithGame(){
 						$('#wagerBox').removeClass('fadeIntoView').addClass('fadeFromView');
 						
 						function removeElement(){
 							$('#wagerBox').remove();
 						}
 						setTimeout(removeElement,2000);
+						
+						setTimeout(showClue,5000);
+						setTimeout(startCountingTime,5000);
+						setTimeout(disappear,10000);
+						setTimeout(answerAndScore,5000);
 					}
-					$('#wagerBox').find('span').eq(0).on('click',fadeAndRemove);
+					$('#wagerBox').find('span').eq(0).on('click',proceedWithGame);
 					
-					setTimeout(showClue,5000);
-					setTimeout(startCountingTime,5000);
-					setTimeout(disappear,10000);
-					setTimeout(answerAndScore,5000);
 				}
 			}
 			
@@ -340,7 +341,7 @@ function gameplay(e){
 			
 			console.log($sign);
 			
-			var $update='<p class="fadeIntoView">HERE ARE YOUR CURRENT GAME STATS:</p><ul class="fadeIntoView"><li>TOTAL PRIZE WINNINGS:<span>'+$sign+'$'+$displayScore+'</span></li>';
+			var $update='<p class="fadeIntoView">CURRENT GAME STATS:</p><ul class="fadeIntoView"><li>TOTAL PRIZE WINNINGS:<span>'+$sign+'$'+$displayScore+'</span></li>';
 			    $update+='<li>TOTAL ANSWERED THIS ROUND: '+'<span>'+$updatedAnsweredCount+'</span>'+'</li>';
 				$update+='<li>REMAINING UNANSWERED: '+'<span>'+$remainingUnanswered+'</span>'+'</li>';
 			

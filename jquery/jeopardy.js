@@ -398,7 +398,7 @@ function gameplay(e){
 			var $jeopardyWinningPercentage=Number(parseFloat(($jeopardyCorrect/25)*100).toFixed()); //Convert into percentage rounded to the nearest whole number.
 			localStorage.setItem('jeopardyWinningPercentage',$jeopardyWinningPercentage);
 	
-			//For the first round, overall prize winnings=Jeopardy! (first round) prize winnings; the same logic applies to the winning percentage.
+			//For the first round, overall prize winnings=Jeopardy! (first round) prize winnings; the same logic applies to the winning percentage & number correct.
 			localStorage.setItem('totalPrize',$jeopardyTotalPrize); 
 			localStorage.setItem('totalCorrect',$jeopardyCorrect);
 			localStorage.setItem('totalWinningPercentage',$jeopardyWinningPercentage);

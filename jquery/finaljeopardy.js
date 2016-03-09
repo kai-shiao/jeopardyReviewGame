@@ -25,23 +25,23 @@
 		if ($beforeFinalJeopardyTotalPrize<0 && ($wagerValue<0 || $wagerValue>((-$beforeFinalJeopardyTotalPrize)+10000))){
 			$notice='<p>SINCE YOUR CURRENT TOTAL PRIZE WINNINGS ARE BELOW $0, PLEASE ENTER A VALUE EQUAL TO OR GREATER';
 			$notice+=' THAN 0 BUT NOT MORE THAN $10,000.</p>';
-			$('#wagerBox').find('p').eq(1).html($notice);
+			$('#wagerBox').find('p').eq(1).html($notice).addClass('fadeIntoView');
 		} else if ($beforeFinalJeopardyTotalPrize>0 && $wagerValue>$beforeFinalJeopardyTotalPrize){
 			$notice='<p>SINCE YOUR CURRENT TOTAL PRIZE WINNINGS ARE ABOVE $0, PLEASE ENTER A VALUE THAT IS AT MOST EQUAL TO';
 			$notice+=' BUT NOT MORE THAN THIS AMOUNT.</p>';
-			$('#wagerBox').find('p').eq(1).html($notice);
+			$('#wagerBox').find('p').eq(1).html($notice).addClass('fadeIntoView');
 		} else if ($beforeFinalJeopardyTotalPrize>0 && $wagerValue<0){
 			$notice='<p>SINCE YOUR CURRENT TOTAL PRIZE WINNINGS ARE ABOVE $0, PLEASE WAGER ONLY POSITIVE AMOUNTS.';
-			$('#wagerBox').find('p').eq(1).html($notice);
+			$('#wagerBox').find('p').eq(1).html($notice).addClass('fadeIntoView');
 		} else if ($beforeFinalJeopardyTotalPrize>0 && $wagerValue>$beforeFinalJeopardyTotalPrize){
 			$notice='<p>SINCE YOUR CURRENT TOTAL PRIZE WINNINGS ARE ABOVE $0, PLEASE MAKE SURE THE WAGER DOES NOT EXCEED YOUR TOTAL PRIZE WINNINGS.';
-			$('#wagerBox').find('p').eq(1).html($notice);
+			$('#wagerBox').find('p').eq(1).html($notice).addClass('fadeIntoView');
 		} else if ($beforeFinalJeopardyTotalPrize===0 && $wagerValue>10000){
 			$notice='<p>SINCE YOUR CURRENT TOTAL PRIZE WINNINGS ARE $0, PLEASE MAKE SURE THE WAGER DOES NOT EXCEED $10,000.';
-			$('#wagerBox').find('p').eq(1).html($notice);
+			$('#wagerBox').find('p').eq(1).html($notice).addClass('fadeIntoView');
 		} else {
 			$notice='<p>FINAL JEOPARDY! WAGER ACCEPTED!</p>';
-			$('#wagerBox').find('p').eq(1).html($notice);
+			$('#wagerBox').find('p').eq(1).html($notice).addClass('fadeIntoView');
 
 			function fadeAndRemove(){
 				$('#wagerBox').removeClass('fadeIntoView').addClass('fadeFromView');
@@ -145,35 +145,40 @@
 					$finalResults+='<span class="positive">$'+$wagerValue+'</span></li><li>FINAL PRIZE WINNINGS:<span class="'+$determineClass2+'">'+$sign2+'$'+$displayFinalPrize+'</span></li></ul>';
 					
 					$finalJeopardyInfo='<div id="finalJeopardyInfo"><span>X</span><h1>FINAL JEOPARDY! RESULTS</h1>'+$rightOrWrong+$finalResults+'</div>';
-					$('body').append($finalJeopardyInfo);
-					$('#finalJeopardyInfo').addClass('fadeIntoView');
 					
-					function conclude(){
-						$('#finalJeopardyInfo').removeClass('fadeIntoView').addClass('fadeFromView');
+					function delayFade(){
+						$('body').append($finalJeopardyInfo);
+						$('#finalJeopardyInfo').addClass('fadeIntoView');
+						$('#finalJeopardyInfo').find('span').eq(0).click(conclude);
 						
-						function removeElement(){
-							$('#finalJeopardyInfo').remove();
-						}
+						function conclude(){
+							$('#finalJeopardyInfo').removeClass('fadeIntoView').addClass('fadeFromView');
 						
-						function showGameStats(){
-							var $jeopardyCorrect=localStorage.getItem('jeopardyCorrect');
-							var $jeopardyWinningPercentage=localStorage.getItem('jeopardyWinningPercentage');
-							var $doubleJeopardyCorrect=localStorage.getItem('doubleJeopardyCorrect');
-							var $doubleJeopardyWinningPercentage=localStorage.getItem('doubleJeopardyWinningPercentage');
+							function removeElement(){
+								$('#finalJeopardyInfo').remove();
+							}
+						
+							function showGameStats(){
+								var $jeopardyCorrect=localStorage.getItem('jeopardyCorrect');
+								var $jeopardyWinningPercentage=localStorage.getItem('jeopardyWinningPercentage');
+								var $doubleJeopardyCorrect=localStorage.getItem('doubleJeopardyCorrect');
+								var $doubleJeopardyWinningPercentage=localStorage.getItem('doubleJeopardyWinningPercentage');
 							
-							$showGameStatsHTML='<div id="showGameStats"><h1>GAME STATS</h1><section><h1>JEOPARDY! STATS</h1><ul><li>PRIZE WINNINGS: $'+$jeopardyTotalPrize+'</li>';
-							$showGameStatsHTML+='<li> NUMBER CORRECT: '+$jeopardyCorrect+'</li><li>WINNING PERCENTAGE: '+$jeopardyWinningPercentage+'%</li></ul>';
-							$showGameStatsHTML+='</section><section><h1>DOUBLE JEOPARDY! STATS</h1><li>PRIZE WINNINGS: $'+$doubleJeopardyTotalPrize+'</li>';
-							$showGameStatsHTML+='<li>NUMBER CORRECT: '+$doubleJeopardyCorrect+'</li><li>WINNING PERCENTAGE: '+$doubleJeopardyWinningPercentage+'%</li>';
-							$showGameStatsHTML+='</section></div>';
-							$('body').append($showGameStatsHTML);
-							$('#showGameStats').addClass('fadeIntoView');
-						}
+								$showGameStatsHTML='<div id="showGameStats"><h1>GAME STATS</h1><section><h1>JEOPARDY! STATS</h1><ul><li>PRIZE WINNINGS: $'+$jeopardyTotalPrize+'</li>';
+								$showGameStatsHTML+='<li> NUMBER CORRECT: '+$jeopardyCorrect+'</li><li>WINNING PERCENTAGE: '+$jeopardyWinningPercentage+'%</li></ul>';
+								$showGameStatsHTML+='</section><section><h1>DOUBLE JEOPARDY! STATS</h1><li>PRIZE WINNINGS: $'+$doubleJeopardyTotalPrize+'</li>';
+								$showGameStatsHTML+='<li>NUMBER CORRECT: '+$doubleJeopardyCorrect+'</li><li>WINNING PERCENTAGE: '+$doubleJeopardyWinningPercentage+'%</li>';
+								$showGameStatsHTML+='</section></div>';
+								$('body').append($showGameStatsHTML);
+								$('#showGameStats').addClass('fadeIntoView');
+							}
 						
-						setTimeout(removeElement,2000);
-						setTimeout(showGameStats,3000);
+							setTimeout(removeElement,2000);
+							setTimeout(showGameStats,4000);
+						}
 					}
-					$('#finalJeopardyInfo').find('span').eq(0).on('click',conclude);
+					
+					setTimeout(delayFade,2000);
 				}
 				setTimeout(removeElement,2000);
 				setTimeout(fadeIntoView,3000);

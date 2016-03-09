@@ -52,7 +52,7 @@
 	animation: fadeIntoView 3s 1;
 }
 
-#wagerBox, section, #finalJeopardyInfo, #showGameStats{
+#wagerBox, #wrapper>section, #finalJeopardyInfo, #showGameStats{
 	border: 5px solid rgb(0,0,0);
 	border-radius: 10px;
 }
@@ -103,7 +103,7 @@
 	width: 500px;
 }
 
-section{
+#wrapper>section{
 	height: 300px;
 	margin-left: 200px;
 	width: 600px;
@@ -137,6 +137,7 @@ section>span:nth-of-type(2), .positive{
 }
 
 #showGameStats{
+	height: 400px;
 	width: 500px;
 }
 

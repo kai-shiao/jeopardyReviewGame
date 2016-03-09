@@ -413,9 +413,9 @@ function gameplay(e){
 				$determineClass='negative';
 			}
 			
-			var $htmlMarkup='<div id="completedMessage"><h1>CONGRATULATIONS!</h1><p>YOU HAVE FINISHED JEOPARDY!</p><section><h2>OVERALL STATS</h2><ul>';
+			var $htmlMarkup='<div id="completedMessage"><h1>CONGRATULATIONS!</h1><p>YOU HAVE FINISHED JEOPARDY!</p><section><h1>OVERALL STATS</h1><ul>';
 			    $htmlMarkup+='<li>PRIZE WINNINGS:<span class='+'"'+$determineClass+'">'+$sign+'$'+$displayJeopardyTotalPrize+'</span></li><li>CORRECT: '+$jeopardyCorrect+'</li><li>WINNING PERCENTAGE: '+$jeopardyWinningPercentage+'%</li></ul>';
-				$htmlMarkup+='</section><section><h2>JEOPARDY! STATS</h2><ul><li>PRIZE WINNINGS:<span class='+'"'+$determineClass+'">'+$sign+'$'+$displayJeopardyTotalPrize+'</span></li><li>CORRECT: '+$jeopardyCorrect+'</li>';
+				$htmlMarkup+='</section><section><h1>JEOPARDY! STATS</h1><ul><li>PRIZE WINNINGS:<span class='+'"'+$determineClass+'">'+$sign+'$'+$displayJeopardyTotalPrize+'</span></li><li>CORRECT: '+$jeopardyCorrect+'</li>';
 				$htmlMarkup+='<li>WINNING PERCENTAGE: '+$jeopardyWinningPercentage+'%</li></ul></section>';
 				$htmlMarkup+='<div><img src="multimedia/pointingFingerIcon.png" alt="IMAGE FORMAT NOT SUPPORTED"><a href="doublejeopardy.html">PROCEED TO DOUBLE JEOPARDY!</a></div></div>';
 			

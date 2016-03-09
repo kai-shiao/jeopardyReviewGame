@@ -84,7 +84,7 @@
 
 #completedMessage{
 	left: 450px;
-	height: 400px;
+	height: 330px;
 	top: 200px;
 	width: 500px;
 }
@@ -170,7 +170,7 @@ div#wagerRules>ul:first-of-type{
 	border: 3px solid rgb(0,0,0);
 	color: rgb(0,0,0);
 	margin-left: 90px;
-	margin-top: 150px;
+	margin-top: 160px;
 	padding: 5px;
 	height: 30px;
 	width: 300px;
@@ -199,8 +199,12 @@ div#wagerRules>ul:first-of-type{
 	text-decoration: none;
 }
 
-#completedMessage>section>h2{
+#completedMessage>section>h1{
 	font-size: 120%;
+}
+
+#completedMessage>section>#exception{
+	margin-top: 40px;
 }
 
 #completedMessage>section>ul>li>.positive,#completedMessage>section>ul>li>.negative{

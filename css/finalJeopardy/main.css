@@ -103,6 +103,11 @@
 	width: 500px;
 }
 
+#showGameStats>section>ul{
+	text-align: left;
+	width: 250px;
+}
+
 #wrapper>section{
 	height: 300px;
 	margin-left: 200px;
@@ -138,7 +143,9 @@ section>span:nth-of-type(2), .positive{
 
 #showGameStats{
 	height: 400px;
-	width: 500px;
+	left: 400px;
+	position: absolute;
+	width: 600px;
 }
 
 #showGameStats>h1{
@@ -147,7 +154,7 @@ section>span:nth-of-type(2), .positive{
 
 #showGameStats>section{
 	float: left;
-	width: 220px;
+	width: 280px;
 }
 
 #showGameStats>section>h1{

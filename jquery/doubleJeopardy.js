@@ -398,7 +398,8 @@ function gameplay(e){
 			var $doubleJeopardyTotalPrize=Number(localStorage.getItem('doubleJeopardyTotalPrize'));
 			var $doubleJeopardyCorrect=Number(localStorage.getItem('doubleJeopardyCorrect'));
 			var $doubleJeopardyWinningPercentage=Number(parseFloat(($doubleJeopardyCorrect/25)*100).toFixed()); 
-			//Convert into percentage rounded to the nearest whole number.
+			localStorage.setItem('doubleJeopardyWinningPercentage',$doubleJeopardyWinningPercentage);
+			//Convert into percentage rounded to the nearest whole number & save it to HTML5 localStorage.
 
 			$totalCorrect+=$doubleJeopardyCorrect;
 			

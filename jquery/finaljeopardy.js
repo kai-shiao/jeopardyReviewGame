@@ -90,50 +90,25 @@
 					$finalPrize=$jeopardyTotalPrize+$doubleJeopardyTotalPrize+$finalJeopardyPrize; //Compute total prize 
 					localStorage.setItem('totalPrize',$finalPrize);
 					
-					var $displayBeforeFinalJeopardyPrize;
-					var $sign1;
-					var $determineClass1;
-					
-					var $displayFinalPrize;
-					var $sign2;
-					var $determineClass2;
-	
-					if ($beforeFinalJeopardyTotalPrize<0 && $finalPrize<0){ //The player enters the maximum allowable wager (positive equivalent +$10,000) & answers incorrectly.
-						$displayBeforeFinalJeopardyPrize=-$beforeFinalJeopardyTotalPrize;
+					var $displayBeforeFinalJeopardyTotalPrize=$beforeFinalJeopardyTotalPrize;
+					var $displayFinalPrize=$finalPrize;
+					var $sign1='';
+					var $determineClass1='positive';
+					var $sign2='';
+					var $determineClass2='positive';
+
+					if ($beforeFinalJeopardyTotalPrize<0){
+						$displayBeforeFinalJeopardyTotalPrize=-$beforeFinalJeopardyTotalPrize;
 						$sign1='-';
 						$determineClass1='negative';
-						
+					}
+					
+					if ($finalPrize<0){
 						$displayFinalPrize=-$finalPrize;
 						$sign2='-';
 						$determineClass2='negative';
-					} else if ($beforeFinalJeopardyTotalPrize<0 && $finalPrize>0){ //The player enters the maximum allowable wager & answers correctly. 
-						$displayBeforeFinalJeopardyPrize=-$beforeFinalJeopardyTotalPrize;
-						$sign1='-';
-						$determineClass1='negative';
+					}
 						
-						$displayFinalPrize=$finalPrize;
-						$sign2='';
-						$determineClass2='positive';						
-					} else if ($beforeFinalJeopardyTotalPrize===0 && $finalPrize<0){
-						$sign2='-';
-						$determineClass2='negative';						
-					} else {
-						/*
-						For the following cases:
-						$beforeFinalJeopardyTotalPrize>0 && ($finalPrize===0 || $finalPrize>0) 
-						$beforeFinalJeopardyTotalPrize===0 && $finalPrize>0
-						1. the player bets 0 & answers correctly OR the player bets all & answers incorrectly.
-						2. the player bets the maximum allowable wager and answers correctly.
-						*/
-						$displayBeforeFinalJeopardyPrize=$beforeFinalJeopardyTotalPrize;
-						$sign1='';
-						$determineClass1='positive';						
-
-						$displayFinalPrize=$finalPrize;
-						$sign2='';
-						$determineClass2='positive';						
-					} 
-					
 					if ($inputValue===$correctAnswer){
 						$rightOrWrong='<p class="positive">CORRECT!</p>';
 					} else {
@@ -141,7 +116,7 @@
 					}
 					
 					$finalResults='<ul><li>TOTAL PRIZE WINNINGS PRIOR TO FINAL JEOPARDY!:<span class='; 
-					$finalResults+='"'+$determineClass1+'">'+$sign1+'$'+$displayBeforeFinalJeopardyPrize+'</span></li><li>YOUR WAGER:';
+					$finalResults+='"'+$determineClass1+'">'+$sign1+'$'+$displayBeforeFinalJeopardyTotalPrize+'</span></li><li>YOUR WAGER:';
 					$finalResults+='<span class="positive">$'+$wagerValue+'</span></li><li>FINAL PRIZE WINNINGS:<span class="'+$determineClass2+'">'+$sign2+'$'+$displayFinalPrize+'</span></li></ul>';
 					
 					$finalJeopardyInfo='<div id="finalJeopardyInfo"><span>X</span><h1>FINAL JEOPARDY! RESULTS</h1>'+$rightOrWrong+$finalResults+'</div>';
@@ -156,6 +131,7 @@
 						
 							function removeElement(){
 								$('#finalJeopardyInfo').remove();
+								$('footer').addClass('hidden');
 							}
 						
 							function showGameStats(){
@@ -164,13 +140,33 @@
 								var $doubleJeopardyCorrect=localStorage.getItem('doubleJeopardyCorrect');
 								var $doubleJeopardyWinningPercentage=localStorage.getItem('doubleJeopardyWinningPercentage');
 							
-								$showGameStatsHTML='<div id="showGameStats"><h1>GAME STATS</h1><section><h1>JEOPARDY! STATS</h1><ul><li>PRIZE WINNINGS: $'+$jeopardyTotalPrize+'</li>';
+								var $displayJeopardyTotalPrize=$jeopardyTotalPrize;
+								var $displayDoubleJeopardyTotalPrize=$doubleJeopardyTotalPrize;
+								var $sign1='';
+								var $determineClass1='positive';
+								var $sign2='';
+								var $determineClass2='positive';
+
+								if ($jeopardyTotalPrize<0){
+									$displayJeopardyTotalPrize=-$jeopardyTotalPrize;
+									$sign1='-';
+									$determineClass1='negative';
+								}
+								
+								if ($doubleJeopardyTotalPrize<0){
+									$displayDoubleJeopardyTotalPrize=-$doubleJeopardyTotalPrize;
+									$sign2='-';
+									$determineClass2='negative';
+								}
+					
+								$showGameStatsHTML='<div id="showGameStats"><h1>GAME STATS</h1><section><h1>JEOPARDY! STATS</h1><ul><li>PRIZE WINNINGS:<span class="'+$determineClass1+'">'+$sign1+'$'+$displayJeopardyTotalPrize+'</li>';
 								$showGameStatsHTML+='<li> NUMBER CORRECT: '+$jeopardyCorrect+'</li><li>WINNING PERCENTAGE: '+$jeopardyWinningPercentage+'%</li></ul>';
-								$showGameStatsHTML+='</section><section><h1>DOUBLE JEOPARDY! STATS</h1><li>PRIZE WINNINGS: $'+$doubleJeopardyTotalPrize+'</li>';
+								$showGameStatsHTML+='</section><section><h1>DOUBLE JEOPARDY! STATS</h1><ul><li>PRIZE WINNINGS:<span class="'+$determineClass2+'">'+$sign2+'$'+$displayDoubleJeopardyTotalPrize+'</li>';
 								$showGameStatsHTML+='<li>NUMBER CORRECT: '+$doubleJeopardyCorrect+'</li><li>WINNING PERCENTAGE: '+$doubleJeopardyWinningPercentage+'%</li>';
-								$showGameStatsHTML+='</section></div>';
+								$showGameStatsHTML+='</ul></section></div>';
 								$('body').append($showGameStatsHTML);
 								$('#showGameStats').addClass('fadeIntoView');
+								$('footer').removeClass('hidden').addClass('fadeIntoView');
 							}
 						
 							setTimeout(removeElement,2000);

@@ -503,7 +503,9 @@ function welcomeTheContestant(){
 				function removeRuleBox(){
 					$('#ruleBox').removeClass('fadeIntoView').addClass('fadeFromView').remove();
 					$('table').removeClass('hidden').addClass('fadeIntoView');
-					$('footer').html('&copy; 2016. WESTON HILL. ALL RIGHTS RESERVED.');
+					var date=new Date();
+					var currentYear=date.getFullYear();
+					$('footer').html('&copy;'+currentYear+'2016. WESTON HILL. ALL RIGHTS RESERVED.');
 				}
 				$('#ruleBox').first().on('click',removeRuleBox);	
 			}

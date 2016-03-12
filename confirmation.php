@@ -10,20 +10,29 @@ $doubleJeopardyCorrect=filter_input(INPUT_POST,"doubleJeopardyCorrect");
 $statSheet=new DOMDocument('1.0', 'UTF-8'); 
 $statSheet->load("data/playerstats.xml"); 
 
-$contestantName=$statSheet->createElement('contestantName');
+$contestantNameElement=$statSheet->createElement('contestantName');
 $contestantNameNodeValue=$statSheet->createTextNode($contestantName);
-$contestantName->appendChild($contestantNameNodeValue);
+$contestantNameElement->appendChild($contestantNameNodeValue);
 
-$jeopardyTotalPrize=$statSheet->createElement('jeopardyTotalPrize');
+$jeopardyTotalPrizeElement=$statSheet->createElement('jeopardyTotalPrize');
 $jeopardyTotalPrizeNodeValue=$statSheet->createTextNode($jeopardyTotalPrize);
-$jeopardyTotalPrize->appendChild($jeopardyTotalPrizeNodeValue);
+$jeopardyTotalPrizeElement->appendChild($jeopardyTotalPrizeNodeValue);
 
-$doubleJeopardyTotalPrize=$statSheet->createElement('doubleJeopardyTotalPrize');
+$doubleJeopardyTotalPrizeElement=$statSheet->createElement('doubleJeopardyTotalPrize');
 $doubleJeopardyTotalPrizeNodeValue=$statSheet->createTextNode($doubleJeopardyTotalPrize);
-$doubleJeopardyTotalPrize->appendChild($doubleJeopardyTotalPrizeNodeValue);
+$doubleJeopardyTotalPrizeElement->appendChild($doubleJeopardyTotalPrizeNodeValue);
 
-$statSheet->createElement('jeopardyCorrect');
-$statSheet->createElement('doubleJeopardyCorrect');
+$jeopardyCorrectElement=$statSheet->createElement('jeopardyCorrect');
+$jeopardyCorrectNodeValue=$statSheet->createTextNode($jeopardyCorrect);
+$jeopardyCorrectElement->appendChild($jeopardyCorrectNodeValue);
+
+$doubleJeopardyCorrectElement=$statSheet->createElement('doubleJeopardyCorrect');
+$doubleJeopardyCorrectNodeValue=$statSheet->createTextNode($doubleJeopardyCorrect);
+$doubleJeopardyCorrectElement->appendChild($doubleJeopardyCorrectElementNodeValue);
+
+#Run a loop to assign the 4 stats as children of the contestantName node.
+
+
 
 $statSheet->save('data/playerstats.xml');
 ?>

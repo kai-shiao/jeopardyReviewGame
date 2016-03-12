@@ -1,26 +1,29 @@
 <?php
 #Save the newly received statistics sent to PHP from "finaljeopardy.html" via the POST method into corresponding PHP variables; 
-#they will be used to update existing stats.
+$contestantName=filter_input(INPUT_POST,"contestantName");
+$jeopardyTotalPrize=filter_input(INPUT_POST,"doubleJeopardyTotalPrize");
+$doubleJeopardyTotalPrize=filter_input(INPUT_POST,"doubleJeopardyTotalPrize");
+$jeopardyCorrect=filter_input(INPUT_POST,"jeopardyCorrect");
+$doubleJeopardyCorrect=filter_input(INPUT_POST,"doubleJeopardyCorrect");
 
-$scoreUpdate=$_POST["$score"];
-$correctUpdate=$_POST["$correct"];
-$answeredUpdate=$_POST["$answered"];
-$percentageUpdate=$correctUpdate/25;
+#Create a new DOMDocument object to be able to work with a XML documents & use the XML DOM methods in PHP.
+$statSheet=new DOMDocument('1.0', 'UTF-8'); 
+$statSheet->load("data/playerstats.xml"); 
 
-$score+=$scoreUpdate;
-$correct+=$correctUpdate;
-$answered+=$answeredUpdate;
-$percentage+=$percentageUpdate;
+$contestantName=$statSheet->createElement('contestantName');
+$contestantNameNodeValue=$statSheet->createTextNode($contestantName);
+$contestantName->appendChild($contestantNameNodeValue);
 
-$values=[$score,$correct,$answered,$percentage];
-$stats=["score","correct","percentage","answered"]; #Create an array to collect all the tag names of the XML elements to be accessed.
+$jeopardyTotalPrize=$statSheet->createElement('jeopardyTotalPrize');
+$jeopardyTotalPrizeNodeValue=$statSheet->createTextNode($jeopardyTotalPrize);
+$jeopardyTotalPrize->appendChild($jeopardyTotalPrizeNodeValue);
 
-$statSheet=new DOMDocument(); #Create a new DOMDocument object to be able to use DOM methods in PHP.
-$statSheet->load("data/playerstats.xml"); #The object is populated with the XML file containing player stats.
+$doubleJeopardyTotalPrize=$statSheet->createElement('doubleJeopardyTotalPrize');
+$doubleJeopardyTotalPrizeNodeValue=$statSheet->createTextNode($doubleJeopardyTotalPrize);
+$doubleJeopardyTotalPrize->appendChild($doubleJeopardyTotalPrizeNodeValue);
 
-$statSheet->getElementsByTagName($stats[0])->item(1)->nodeValue=$values[0];
-$statSheet->getElementsByTagName($stats[1])->item(1)->nodeValue=$values[1];
-$statSheet->getElementsByTagName($stats[2])->item(1)->nodeValue=$values[2];
+$statSheet->createElement('jeopardyCorrect');
+$statSheet->createElement('doubleJeopardyCorrect');
 
-$loadStats->save('data/playerstats.xml');
+$statSheet->save('data/playerstats.xml');
 ?>

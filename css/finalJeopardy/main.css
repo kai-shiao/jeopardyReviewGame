@@ -80,12 +80,8 @@
 	position: absolute;
 }
 
-#wagerBox, #finalJeopardyInfo{
-	height: 200px;
-	top: 200px;
-}
-
 #wagerBox{
+	height: 200px;
 	left: 425px;
 	width: 500px;
 }
@@ -99,7 +95,9 @@
 }
 
 #finalJeopardyInfo{
+	height: 250px;
 	left: 375px;
+	top: 150px;
 	width: 600px;
 }
 
@@ -129,7 +127,7 @@
 }
 
 #showGameStats{
-	height: 300px;
+	height: 250px;
 	left: 375px;
 	width: 600px;
 }
@@ -219,14 +217,10 @@ footer{
 	position: absolute;
 }
 
-.expand{
-	height: 250px;
-}
-
 .incorrect{
 	top: 450px;
 }
 
 .final{
-	top: 600px;
+	top: 550px;
 }

@@ -34,11 +34,11 @@ function gameplay(e){
 				$('body').append($wagerRules);
 				$('#wagerRules').addClass('fadeIntoView');
 				
-				$('#wagerRules').find('span').on('click',proceedToBid);
+				$('#wagerRules').find('span').one('click',proceedToBid);
 			}
 			setTimeout(delayAppearance,2000);
 		}
-		$('#dailyDouble').find('span').on('click',showRules);
+		$('#dailyDouble').find('span').one('click',showRules);
 
 		function proceedToBid(){
 			$('#wagerRules').removeClass('fadeIntoView').addClass('fadeFromView').remove();
@@ -88,7 +88,7 @@ function gameplay(e){
 						setTimeout(disappear,10000);
 						setTimeout(answerAndScore,5000);
 					}
-					$('#wagerBox').find('span').eq(0).on('click',proceedWithGame);
+					$('#wagerBox').find('span').eq(0).one('click',proceedWithGame);
 					
 				}
 			}
@@ -192,7 +192,7 @@ function gameplay(e){
 			}
 			setTimeout(removeElement,2000);
 		}
-		$('.magnified').find('span').eq(0).on('click',fadeAndRemove);
+		$('.magnified').find('span').eq(0).one('click',fadeAndRemove);
 	}
 	
 	function startCountingTime(){
@@ -368,7 +368,7 @@ function gameplay(e){
 				
 				checkDoubleJeopardyGameProgress();
 			}
-			$('#answer').find('span').eq(0).on('click',fadeAndRemoveAndCheckGameProgress);
+			$('#answer').find('span').eq(0).one('click',fadeAndRemoveAndCheckGameProgress);
 		}
 	
 		$('#answer').find('button').one('click',markAnswer);
@@ -467,7 +467,7 @@ function gameplay(e){
 			}
 			setTimeout(removeElement,2000);
 		}
-		$('#alreadySelectedWarning').find('span').on('click',fadeAndRemove);
+		$('#alreadySelectedWarning').find('span').one('click',fadeAndRemove);
 	}
 	
 	if ($eventTargetID>=0 && $eventTargetID<5){ //Category tiles

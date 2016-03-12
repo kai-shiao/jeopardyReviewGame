@@ -119,21 +119,23 @@
 	font-size: 150%;
 }
 
-#finalJeopardyInfo>ul{
-	margin-left: 20px;
+#finalJeopardyInfo>ul, #showGameStats>section>ul{
 	text-align: left;
-	width: 500px;
 }
 
-#showGameStats>section>ul{
-	text-align: left;
-	width: 250px;
+#finalJeopardyInfo>ul{
+	margin-left: 20px;
+	width: 500px;
 }
 
 #showGameStats{
 	height: 400px;
-	left: 400px;
+	left: 375px;
 	width: 600px;
+}
+
+#showGameStats>section>ul{
+	width: 250px;
 }
 
 #showGameStats>h1{

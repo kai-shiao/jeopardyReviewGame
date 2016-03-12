@@ -1,6 +1,6 @@
 <?php
 $stats=new DOMDocument();
-$stats->load("playerstats.xml"); # "->" is the equivalent of JavaScript's dot notation used when accessing a specific object's property or method.
+$stats->load("data/playerstats.xml"); # "->" is the equivalent of JavaScript's dot notation used when accessing a specific object's property or method.
 $list=["score","correct","percentage","answered"]; #always use double quotes; never use single quotes as they produce invalid results in PHP.
 $length=count($list); #PHP's equivalent of the JavaScript's length property is a function known as count() that determines the length of a string, array, etc.
 $k=0;

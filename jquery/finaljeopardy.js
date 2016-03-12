@@ -9,7 +9,6 @@
 	console.info('BEFORE FINAL JEOPARDY TOTAL PRIZE: $'+$beforeFinalJeopardyTotalPrize);
 	
 	$('section').eq(0).addClass('hidden'); //Hide the footer & the section element containing the clue, answer field, & the 'Submit' button for now.
-	$('footer').addClass('hidden');
 	
 	$('body').append('<div id="wagerBox"><span>X</span><p>PLACE FINAL JEOPARDY! WAGER:</p><span>$</span><input type="text"><button>SUBMIT</button><p></p></div>');
 	$('#wagerBox').addClass('fadeIntoView');
@@ -52,7 +51,6 @@
 				
 				function fadeIntoView(){
 					$('section').eq(0).removeClass('hidden').addClass('fadeIntoView'); //Bring the clue, answer input field, & submit button into view.
-					$('footer').removeClass('hidden').addClass('fadeIntoView');
 				}
 				
 				function setUpGame(){
@@ -76,6 +74,7 @@
 					var $finalJeopardyPrize;
 					var $rightOrWrong;
 					var $finalResults;
+					var $incorrect;
 					
 					if ($inputValue===$correctAnswer && $elapsedTime<=30){
 						$finalJeopardyPrize=$wagerValue;
@@ -113,6 +112,7 @@
 						$rightOrWrong='<p class="positive">CORRECT!</p>';
 					} else {
 						$rightOrWrong='<p class="negative">INCORRECT!</p><p> THE CORRECT ANSWER IS \'SALUTARY NEGLECT\'.</p>';
+						$incorrect=true;
 					}
 					
 					$finalResults='<ul><li>TOTAL PRIZE WINNINGS PRIOR TO FINAL JEOPARDY!:<span class='; 
@@ -121,8 +121,17 @@
 					
 					$finalJeopardyInfo='<div id="finalJeopardyInfo"><span>X</span><h1>FINAL JEOPARDY! RESULTS</h1>'+$rightOrWrong+$finalResults+'</div>';
 					
+					var date=new Date();
+					var currentYear=date.getFullYear();
+					var $floatingFooter='<footer>&copy;'+currentYear+'. WESTON HILL. ALL RIGHTS RESERVED.</footer>';
+					
 					function delayFade(){
-						$('body').append($finalJeopardyInfo);
+						$('footer').remove();
+						$('body').append($finalJeopardyInfo).append($floatingFooter);
+						if ($incorrect===true){
+							$('#finalJeopardyInfo').addClass('expand');
+							$('footer').addClass('incorrect');
+						}
 						$('#finalJeopardyInfo').addClass('fadeIntoView');
 						$('#finalJeopardyInfo').find('span').eq(0).one('click',conclude);
 						
@@ -131,7 +140,6 @@
 						
 							function removeElement(){
 								$('#finalJeopardyInfo').remove();
-								$('footer').addClass('hidden');
 							}
 						
 							function showGameStats(){
@@ -166,6 +174,7 @@
 								$showGameStatsHTML+='</ul></section></div>';
 								$('body').append($showGameStatsHTML);
 								$('#showGameStats').addClass('fadeIntoView');
+								$('footer').removeClass('incorrect').addClass('final');
 							}
 						
 							setTimeout(removeElement,2000);

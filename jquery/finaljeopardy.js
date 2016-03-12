@@ -124,7 +124,7 @@
 					function delayFade(){
 						$('body').append($finalJeopardyInfo);
 						$('#finalJeopardyInfo').addClass('fadeIntoView');
-						$('#finalJeopardyInfo').find('span').eq(0).click(conclude);
+						$('#finalJeopardyInfo').find('span').eq(0).one('click',conclude);
 						
 						function conclude(){
 							$('#finalJeopardyInfo').removeClass('fadeIntoView').addClass('fadeFromView');
@@ -180,7 +180,7 @@
 				setTimeout(fadeIntoView,3000);
 				setTimeout(setUpGame,5000);	
 			}
-			$('#wagerBox').find('span').eq(0).on('click',fadeAndRemove);
+			$('#wagerBox').find('span').eq(0).one('click',fadeAndRemove);
 		}
 	}
 	

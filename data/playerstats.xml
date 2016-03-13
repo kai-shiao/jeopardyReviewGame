@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <playerSummary>
-  <ere>
-    <jeopardyTotalPrize> </jeopardyTotalPrize>
-    <doubleJeopardyTotalPrize> </doubleJeopardyTotalPrize>
-    <finalPrize> </finalPrize>
-    <jeopardyCorrect> </jeopardyCorrect>
-    <doubleJeopardyCorrect> </doubleJeopardyCorrect>
-  </ere>
+  <player name="Mortimer">
+    <jeopardyTotalPrize>5000</jeopardyTotalPrize>
+    <doubleJeopardyTotalPrize>4000</doubleJeopardyTotalPrize>
+    <finalPrize>12000</finalPrize>
+    <jeopardyCorrect>10</jeopardyCorrect>
+    <doubleJeopardyCorrect>10</doubleJeopardyCorrect>
+  </player>
 </playerSummary>

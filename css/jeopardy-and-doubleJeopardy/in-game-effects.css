@@ -211,11 +211,11 @@ div#wagerRules>ul:first-of-type{
 	margin-left: 5px;
 }
 
-#completedMessage>section>ul>li>.positive{
+.positive{
 	color: rgb(31,72,7);
 }
 
-#completedMessage>section>ul>li>.negative{
+.negative{
 	color: rgb(255,0,0);
 }
 

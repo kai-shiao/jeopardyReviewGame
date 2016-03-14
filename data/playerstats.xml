@@ -7,4 +7,18 @@
     <jeopardyCorrect>10</jeopardyCorrect>
     <doubleJeopardyCorrect>10</doubleJeopardyCorrect>
   </player>
+  <player name="errrr">
+    <jeopardyTotalPrize>43</jeopardyTotalPrize>
+    <doubleJeopardyTotalPrize>33</doubleJeopardyTotalPrize>
+    <finalPrize>33</finalPrize>
+    <jeopardyCorrect>33</jeopardyCorrect>
+    <doubleJeopardyCorrect>33</doubleJeopardyCorrect>
+  </player>
+  <player name="errrr">
+    <jeopardyTotalPrize>43</jeopardyTotalPrize>
+    <doubleJeopardyTotalPrize>33</doubleJeopardyTotalPrize>
+    <finalPrize>33</finalPrize>
+    <jeopardyCorrect>33</jeopardyCorrect>
+    <doubleJeopardyCorrect>33</doubleJeopardyCorrect>
+  </player>
 </playerSummary>

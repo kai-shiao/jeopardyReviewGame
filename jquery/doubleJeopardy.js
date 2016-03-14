@@ -24,7 +24,7 @@ function gameplay(e){
 			function removeDailyDouble(){
 				$('#dailyDouble').remove();
 			}
-			setTimeout(removeDailyDouble,1000);
+			setTimeout(removeDailyDouble,2000);
 		
 			function delayAppearance(){
 				var $wagerRules='<div id="wagerRules"><span>X</span><h1>WAGER RULES</h1><ul><li>THE WAGER CANNOT EXCEED YOUR CURRENT TOTAL PRIZE.</li>';

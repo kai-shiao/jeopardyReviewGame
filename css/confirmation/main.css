@@ -1,2 +1,78 @@
-@import '../header-and-footer.css';
 @import '../reset.css';
+
+/*
+This page(confirmation.php), unlike the jeopardy game pages, has a border surrounding the wrapper element; therefore, the CSS rules set out in 
+'header-and-footer.css' cannot be used.
+*/
+body{
+	background-color: rgb(0,0,255);
+	color: rgb(255,215,0);
+	font-family: "Maiandra GD", cursive;
+	font-weight: bold;
+	text-align: center;
+}
+
+div#wrapper{
+	border: 5px solid rgb(0,0,0);
+	border-radius: 10px;
+	margin: 20px auto;
+	width: 800px;
+}
+
+#wrapper>p{
+	margin-left: 100px;
+	width: 600px;
+}
+
+#wrapper>p:nth-of-type(2){
+	margin-top: 40px;
+}
+
+#wrapper>div{
+	border: 3px solid rgb(0,0,0);
+	cursor: pointer;
+	margin-left: 170px;
+	text-align: left;
+	width: 470px;
+}
+
+#wrapper>div:active{
+	-ms-transform: translate(2.5px,2.5px); /* IE vendor prefix*/
+    -webkit-transform: translate(2.5px,2.5px); /* Chrome, Safari, Opera vendor prefixes*/
+    transform: translate(2.5px,2.5px); 
+}
+
+#wrapper>div:first-of-type{
+	border: 3px solid rgb(0,0,0);
+}
+
+#wrapper>div:nth-of-type(2), #wrapper>div:last-of-type{
+	border-bottom: 3px;
+	border-left: 3px;
+	border-right: 3px; 
+	border-style: solid;
+	border-top: 0px;
+	color: rgb(0,0,0);
+}
+
+#wrapper>div:nth-of-type(n):active{
+	border: 3px solid rgb(255,255,255);
+}
+
+#wrapper>div>img{
+	margin-left: 5px;
+}
+
+div>a{
+	color: rgb(0,0,0);
+	text-decoration: none;
+}
+
+div>a:hover{
+	color: rgb(255,255,255);
+}
+
+footer{
+	margin-bottom: 20px;
+	margin-top: 80px;
+}

@@ -12,7 +12,10 @@ is dedicated to producing in-house, high end, and premium quality macarons using
 </head>
 <body>
 <div id="wrapper">
-<header>CONFIRMATION OF SCORE ENTRY INTO DATABASE</header>
+<header>
+	<h1>AP US HISTORY JEOPARDY REVIEW GAME!</h1>
+	<h2>CONFIRMATION OF SCORE ENTRY INTO DATABASE</h2>
+</header>
 <?php
 #Save the newly received statistics sent to PHP from "finaljeopardy.html" via the POST method into the corresponding PHP variables. 
 /*$contestantName=filter_input(INPUT_POST,"contestantName");
@@ -104,10 +107,20 @@ HERE;
 HERE;
 } finally{
 	print <<<HERE
-	<div>
 	<p>WHAT WOULD YOU LIKE TO DO NOW?</p>
-	<a href="game-curriculum.html">REVIEW THE CURRICULUM COVERED IN THIS GAME.</a>
-	<a href="jeopardy.html">PLAY AGAIN!</a>
+	<div>
+		<img src="multimedia/pointingFingerIcon.png" alt="IMAGE FORMAT NOT SUPPORTED">
+		<a href="game-curriculum.html">REVIEW THE CURRICULUM COVERED IN THIS GAME.</a>
+	</div>
+	<div>	
+		<img src="multimedia/pointingFingerIcon.png" alt="IMAGE FORMAT NOT SUPPORTED">
+		<a href="jeopardy.html">PLAY AGAIN!</a>
+	</div>	
+	<div>	
+		<img src="multimedia/pointingFingerIcon.png" alt="IMAGE FORMAT NOT SUPPORTED">
+		<a href="all-time-list.html">VIEW ALL-TIME LIST</a>
+	</div>
+
 	<footer>&copy;$currentYear. WESTON HILL. ALL RIGHTS RESERVED.</footer>
 HERE;
 }

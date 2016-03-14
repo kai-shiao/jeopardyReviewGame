@@ -177,7 +177,7 @@ function gameplay(e){
 		];
 		
 		$eventTarget.html('<p>'+$clues[$eventTargetID]+'</p>');			
-		var $htmlMarkup='<div class="magnified"><span>X</span><p class='+'"'+$determineClass+'">'+$clues[$eventTargetID]+'</p></div>';
+		var $htmlMarkup='<div class="magnified"><p class='+'"'+$determineClass+'">'+$clues[$eventTargetID]+'</p></div>';
 		$('body').append($htmlMarkup);
 		$('.magnified').addClass('fadeIntoView');
 		
@@ -292,19 +292,19 @@ function gameplay(e){
 			
 			var $result;
 			if ($inputValue===$answers[$eventTargetID]){
-				$result='<p class="fadeIntoView">CORRECT!</p>';
-				$('#answer').append($result).find('p').eq(1).css('color','rgb(31,72,7)');
-
+				$result='<p class="fadeIntoView positive">CORRECT!</p>';
+				
 				var $updateCorrectCount=Number(localStorage.getItem('jeopardyCorrect'));
 				$updateCorrectCount++;
 				localStorage.setItem('jeopardyCorrect',$updateCorrectCount);
 				console.info('TOTAL CORRECT:'+$updateCorrectCount);
 			} else {
-				$result='<p class="fadeIntoView">INCORRECT!</p><p class="fadeIntoView">THE CORRECT ANSWER IS</p>';
-				$result+='<p class="fadeIntoView">'+'\''+$answers[$eventTargetID]+'\'.</p>';
-				$('#answer').append($result).find('p').eq(1).css('color','rgb(255,0,0)');
+				$result='<p class="fadeIntoView negative">INCORRECT!</p><p class="fadeIntoView">THE CORRECT ANSWER IS</p>';
+				$result+='<p class="fadeIntoView negative">'+'\''+$answers[$eventTargetID]+'\'.</p>';
 			}
 			
+			$('#answer').append($result);
+
 			var $jeopardyTotalPrize=Number(localStorage.getItem('jeopardyTotalPrize')); 	//Player's first round total prize winnings 
 			var $totalPrize=Number(localStorage.getItem('totalPrize'));						//Player's overall prize winnings 
 
@@ -353,9 +353,9 @@ function gameplay(e){
 			$('#answer').append($update);
 			
 			if ($totalPrize<0){
-				$('#answer').find('span').eq(2).css('color','rgb(255,0,0)'); //Winnings below $0 are coloured red.
+				$('#answer').find('span').eq(2).addClass('negative'); //Winnings below $0 are coloured red.
 			} else {
-				$('#answer').find('span').eq(2).css('color','rgb(31,72,7)'); //Winnings over $0 are coloured dollar-bill green.				
+				$('#answer').find('span').eq(2).addClass('positive'); //Winnings over $0 are coloured dollar-bill green.				
 			}
 						
 			function fadeAndRemoveAndCheckGameProgress(){

@@ -174,7 +174,11 @@
 								$showGameStatsHTML+='</ul></section></div>';
 								$('body').append($showGameStatsHTML);
 								$('#showGameStats').addClass('fadeIntoView');
-								$('footer').removeClass('incorrect').addClass('final');
+								if ($('footer').hasClass('incorrect')){
+									$('footer').removeClass('incorrect').addClass('final');
+								} else {
+									$('footer').addClass('final');									
+								}
 							}
 						
 							setTimeout(removeElement,2000);

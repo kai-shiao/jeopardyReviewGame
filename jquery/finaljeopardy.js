@@ -181,7 +181,7 @@
 								$showGameStatsHTML+='<input type="hidden" name="totalPrize" value="'+localStorage.getItem('totalPrize')+'">';
 								$showGameStatsHTML+='<input type="hidden" name="jeopardyCorrect" value="'+$jeopardyCorrect+'">';
 								$showGameStatsHTML+='<input type="hidden" name="doubleJeopardyCorrect" value="'+$doubleJeopardyCorrect+'">';
-								$showGameStatsHTML+='<button type="submit">YES</button></form><button>NO</button></div>';
+								$showGameStatsHTML+='<button type="submit">YES</button></form><button>NO, I WOULD LIKE TO REVIEW THE GAME CURRICULUM.</button></div>';
 								
 								$('body').append($showGameStatsHTML);
 								$('#showGameStats').addClass('fadeIntoView');
@@ -193,7 +193,7 @@
 								}
 								
 								function redirect(){
-									location.href='intro.html';
+									location.href='game-curriculum.html';
 								}
 								
 								$('#showGameStats').find('button').eq(1).on('click',redirect);

@@ -459,7 +459,7 @@ function gameplay(e){
 				$('#completedMessage').addClass('fadeIntoView');
 				
 				function proceedToFinalJeopardy(){
-					location.href='finaljeopardy.html';
+					location.href='finaljeopardy.html'
 				}
 				$('#completedMessage').find('button').on('click',proceedToFinalJeopardy);
 			}

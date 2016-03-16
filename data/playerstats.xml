@@ -7,12 +7,4 @@
     <jeopardyCorrect>10</jeopardyCorrect>
     <doubleJeopardyCorrect>10</doubleJeopardyCorrect>
   </player>
-  <player name="43">
-    <jeopardyTotalPrize>200</jeopardyTotalPrize>
-    <doubleJeopardyTotalPrize>400</doubleJeopardyTotalPrize>
-    <finalPrize>557</finalPrize>
-    <jeopardyCorrect>1</jeopardyCorrect>
-    <doubleJeopardyCorrect>1</doubleJeopardyCorrect>
-    <totalCorrect>2</totalCorrect>
-  </player>
 </playerSummary>

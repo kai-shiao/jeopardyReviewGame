@@ -127,7 +127,7 @@
 }
 
 #showGameStats{
-	height: 250px;
+	height: 300px;
 	left: 375px;
 	width: 600px;
 }
@@ -147,6 +147,21 @@
 
 #showGameStats>section>h1{
 	font-size: 120%;
+}
+
+#showGameStats>form{
+	margin: 0 auto;
+	width: 480px;
+}
+
+#showGameStats>form>button{
+	margin-left: 180px;
+}
+
+#showGameStats>button:last-of-type{
+	left: 300px;
+	position: absolute;
+	top: 250px;
 }
 
 #wrapper>section{

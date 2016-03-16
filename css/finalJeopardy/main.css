@@ -155,11 +155,11 @@
 }
 
 #showGameStats>form>button{
-	margin-left: 180px;
+	margin-left: 10px;
 }
 
 #showGameStats>button:last-of-type{
-	left: 300px;
+	left: 130px;
 	position: absolute;
 	top: 250px;
 }

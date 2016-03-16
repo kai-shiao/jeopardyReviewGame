@@ -167,18 +167,35 @@
 									$determineClass2='negative';
 								}
 					
-								$showGameStatsHTML='<div id="showGameStats"><h1>GAME STATS</h1><section><h1>JEOPARDY! STATS</h1><ul><li>PRIZE WINNINGS:<span class="'+$determineClass1+'">'+$sign1+'$'+$displayJeopardyTotalPrize+'</li>';
-								$showGameStatsHTML+='<li> NUMBER CORRECT: '+$jeopardyCorrect+'</li><li>WINNING PERCENTAGE: '+$jeopardyWinningPercentage+'%</li></ul>';
-								$showGameStatsHTML+='</section><section><h1>DOUBLE JEOPARDY! STATS</h1><ul><li>PRIZE WINNINGS:<span class="'+$determineClass2+'">'+$sign2+'$'+$displayDoubleJeopardyTotalPrize+'</li>';
+								$showGameStatsHTML='<div id="showGameStats"><h1>GAME STATS</h1><section><h1>JEOPARDY! STATS</h1><ul>';
+								$showGameStatsHTML+='<li>PRIZE WINNINGS:<span class="'+$determineClass1+'">'+$sign1+'$'+$displayJeopardyTotalPrize+'</li>';
+								$showGameStatsHTML+='<li> NUMBER CORRECT: '+$jeopardyCorrect+'</li><li>WINNING PERCENTAGE: '+$jeopardyWinningPercentage+'%</li>';
+								$showGameStatsHTML+='</ul></section><section><h1>DOUBLE JEOPARDY! STATS</h1><ul><li>PRIZE WINNINGS:';
+								$showGameStatsHTML+='<span class="'+$determineClass2+'">'+$sign2+'$'+$displayDoubleJeopardyTotalPrize+'</li>';
 								$showGameStatsHTML+='<li>NUMBER CORRECT: '+$doubleJeopardyCorrect+'</li><li>WINNING PERCENTAGE: '+$doubleJeopardyWinningPercentage+'%</li>';
-								$showGameStatsHTML+='</ul></section></div>';
+								$showGameStatsHTML+='</ul></section><form method="post" action="confirmation.php"><p>WOULD YOU LIKE TO HAVE YOUR FINAL STATS CONSIDERED FOR POSSIBLE RANKING IN THE ALL-TIME LIST?</p>';
+								$showGameStatsHTML+='<input type="hidden" name="contestantName" value="'+localStorage.getItem('contestantName')+'">';
+								$showGameStatsHTML+='<input type="hidden" name="jeopardyTotalPrize" value="'+$jeopardyTotalPrize+'">';
+								$showGameStatsHTML+='<input type="hidden" name="doubleJeopardyTotalPrize" value="'+$doubleJeopardyTotalPrize+'">';
+								$showGameStatsHTML+='<input type="hidden" name="totalPrize" value="'+localStorage.getItem('totalPrize')+'">';
+								$showGameStatsHTML+='<input type="hidden" name="jeopardyCorrect" value="'+$jeopardyCorrect+'">';
+								$showGameStatsHTML+='<input type="hidden" name="doubleJeopardyCorrect" value="'+$doubleJeopardyCorrect+'">';
+								$showGameStatsHTML+='<button type="submit">YES</button></form><button>NO</button></div>';
+								
 								$('body').append($showGameStatsHTML);
 								$('#showGameStats').addClass('fadeIntoView');
+								
 								if ($('footer').hasClass('incorrect')){
 									$('footer').removeClass('incorrect').addClass('final');
 								} else {
 									$('footer').addClass('final');									
 								}
+								
+								function redirect(){
+									location.href='intro.html';
+								}
+								
+								$('#showGameStats').find('button').eq(1).on('click',redirect);
 							}
 						
 							setTimeout(removeElement,2000);

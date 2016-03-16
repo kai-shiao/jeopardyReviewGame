@@ -113,23 +113,15 @@ HERE;
 } finally{
 	print <<<HERE
 	<p>WHAT WOULD YOU LIKE TO DO NOW?</p>
-	<div>
-		<img src="multimedia/pointingFingerIcon.png" alt="IMAGE FORMAT NOT SUPPORTED">
-		<a href="game-curriculum.html">REVIEW THE CURRICULUM COVERED IN THIS GAME.</a>
-	</div>
-	<div>	
-		<img src="multimedia/pointingFingerIcon.png" alt="IMAGE FORMAT NOT SUPPORTED">
-		<a href="jeopardy.html">PLAY AGAIN!</a>
-	</div>	
-	<div>	
-		<img src="multimedia/pointingFingerIcon.png" alt="IMAGE FORMAT NOT SUPPORTED">
-		<a href="all-time-list.html">VIEW ALL-TIME LIST</a>
-	</div>
-
+	<button>REVIEW THE CURRICULUM COVERED IN THIS GAME.</button>
+	<button>PLAY AGAIN!</button>
+	<button>VIEW ALL-TIME LIST</button>
 	<footer>&copy;$currentYear. WESTON HILL. ALL RIGHTS RESERVED.</footer>
 HERE;
 }
 ?>
 </div>
+<script src="http://localhost/jeopardyReviewGame/jquery/jquery-2.2.1.min.js"></script>
+<script src="http://localhost/jeopardyReviewGame/jquery/confirmation.js"></script>
 </body>
 </html>

@@ -18,19 +18,20 @@ is dedicated to producing in-house, high end, and premium quality macarons using
 </header>
 <?php
 #Save the newly received statistics sent to PHP from "finaljeopardy.html" via the POST method into the corresponding PHP variables. 
-/*$contestantName=filter_input(INPUT_POST,"contestantName");
-$jeopardyTotalPrize=filter_input(INPUT_POST,"doubleJeopardyTotalPrize");
+$contestantName=filter_input(INPUT_POST,"contestantName");
+$jeopardyTotalPrize=filter_input(INPUT_POST,"jeopardyTotalPrize");
 $doubleJeopardyTotalPrize=filter_input(INPUT_POST,"doubleJeopardyTotalPrize");
-$finalPrize=filter_input(INPUT_POST,"finalPrize");
+$totalPrize=filter_input(INPUT_POST,"totalPrize");
 $jeopardyCorrect=filter_input(INPUT_POST,"jeopardyCorrect");
-$doubleJeopardyCorrect=filter_input(INPUT_POST,"doubleJeopardyCorrect");*/
+$doubleJeopardyCorrect=filter_input(INPUT_POST,"doubleJeopardyCorrect");
+$totalCorrect=$jeopardyCorrect+$doubleJeopardyCorrect;
 
-$contestantName="errrr";
+/*$contestantName="errrr";
 $jeopardyTotalPrize="43";
 $doubleJeopardyTotalPrize="33";
 $finalPrize="33";
 $jeopardyCorrect="33";
-$doubleJeopardyCorrect="33";
+$doubleJeopardyCorrect="33";*/
 
 try{
 	#Create a new DOMDocument object to be able to work with a XML document & use the XML DOM methods in PHP.
@@ -83,7 +84,11 @@ try{
 	$doubleJeopardyCorrectNodeValue=$statSheet->createTextNode($doubleJeopardyCorrect);
 	$doubleJeopardyCorrectElement->appendChild($doubleJeopardyCorrectNodeValue);
 
-	$childNodes=array($jeopardyTotalPrizeElement,$doubleJeopardyTotalPrizeElement,$finalPrizeElement,$jeopardyCorrectElement,$doubleJeopardyCorrectElement);
+	$totalCorrectElement=$statSheet->createElement("totalCorrect");
+	$totalCorrectNodeValue=$statSheet->createTextNode($totalCorrect);
+	$totalCorrectElement->appendChild($totalCorrectNodeValue);
+
+	$childNodes=array($jeopardyTotalPrizeElement,$doubleJeopardyTotalPrizeElement,$finalPrizeElement,$jeopardyCorrectElement,$doubleJeopardyCorrectElement,$totalCorrectElement);
 
 	#Run a for-loop to assign the 6 newly created nodes as children of the contestantName node.
 	for ($i=0;$i<count($childNodes);$i++){

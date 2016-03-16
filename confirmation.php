@@ -73,7 +73,7 @@ try{
 	$doubleJeopardyTotalPrizeElement->appendChild($doubleJeopardyTotalPrizeNodeValue);
 
 	$finalPrizeElement=$statSheet->createElement("finalPrize");
-	$finalPrizeNodeValue=$statSheet->createTextNode($finalPrize);
+	$finalPrizeNodeValue=$statSheet->createTextNode($totalPrize);
 	$finalPrizeElement->appendChild($finalPrizeNodeValue);
 
 	$jeopardyCorrectElement=$statSheet->createElement("jeopardyCorrect");

@@ -2,7 +2,7 @@
 
 /*
 This page(confirmation.php), unlike the jeopardy game pages, has a border surrounding the wrapper element; therefore, the CSS rules set out in 
-'header-and-footer.css' cannot be used.
+'header-and-footer.css' cannot and will not be used.
 */
 body{
 	background-color: rgb(0,0,255);
@@ -36,40 +36,22 @@ div#wrapper{
 	width: 470px;
 }
 
-#wrapper>div:active{
+button{
+	border: 3px solid rgb(0,0,0);
+	border-radius: 3px;
+	cursor: pointer;
+	display: block;
+	font-family: "Maiandra GD", cursive;
+	font-weight: bold;
+	margin: 10px auto;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+button:active{
 	-ms-transform: translate(2.5px,2.5px); /* IE vendor prefix*/
     -webkit-transform: translate(2.5px,2.5px); /* Chrome, Safari, Opera vendor prefixes*/
     transform: translate(2.5px,2.5px); 
-}
-
-#wrapper>div:first-of-type{
-	border: 3px solid rgb(0,0,0);
-}
-
-#wrapper>div:nth-of-type(2), #wrapper>div:last-of-type{
-	border-bottom: 3px;
-	border-left: 3px;
-	border-right: 3px; 
-	border-style: solid;
-	border-top: 0px;
-	color: rgb(0,0,0);
-}
-
-#wrapper>div:nth-of-type(n):active{
-	border: 3px solid rgb(255,255,255);
-}
-
-#wrapper>div>img{
-	margin-left: 5px;
-}
-
-div>a{
-	color: rgb(0,0,0);
-	text-decoration: none;
-}
-
-div>a:hover{
-	color: rgb(255,255,255);
 }
 
 footer{

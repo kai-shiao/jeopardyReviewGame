@@ -166,39 +166,6 @@ div#wagerRules>ul:first-of-type{
 	width: 240px;
 }
 
-#completedMessage>div:last-child{
-	border: 3px solid rgb(0,0,0);
-	color: rgb(0,0,0);
-	margin-left: 90px;
-	margin-top: 160px;
-	padding: 5px;
-	height: 30px;
-	width: 300px;
-}
-
-#completedMessage>div:last-child:active{
-	border: 3px solid rgb(255,255,255);
-	color: rgb(255,255,255);
-	cursor: pointer;
-	-ms-transform: translate(2.5px,2.5px); /* IE vendor prefix*/
-    -webkit-transform: translate(2.5px,2.5px); /* Chrome, Safari, Opera vendor prefixes*/
-    transform: translate(2.5px,2.5px); 
-}
-
-#completedMessage>div>img{
-	margin-right: 2.5px;
-}
-
-#completedMessage>div>a{
-	color: rgb(0,0,0);
-	text-decoration: none;
-}
-
-#completedMessage>div>a:hover{
-	color: rgb(255,255,255);
-	text-decoration: none;
-}
-
 #completedMessage>section>h1{
 	font-size: 120%;
 }
@@ -221,6 +188,16 @@ div#wagerRules>ul:first-of-type{
 
 li{
 	font-size: 80%;	
+}
+
+#completedMessage>button{
+	margin: 5px auto;
+}
+
+#completedMessage>button:active{ /*Make an animated button.*/
+	-ms-transform: translate(2.5px,2.5px); /* IE vendor prefix*/
+    -webkit-transform: translate(2.5px,2.5px); /* Chrome, Safari, Opera vendor prefixes*/
+    transform: translate(2.5px,2.5px); 
 }
 
 /*Inside the magnified screen, the <p> elements used to hold the clue or the category are assigned and selected using classes 

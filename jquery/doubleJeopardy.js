@@ -451,12 +451,17 @@ function gameplay(e){
 				$htmlMarkup+='<li>WINNING PERCENTAGE: '+$totalWinningPercentage+'%</li></ul></section><section><h1>DOUBLE JEOPARDY! STATS</h1><ul >'; 
 				$htmlMarkup+='<li>PRIZE WINNINGS:<span class='+'"'+$determineClass2+'">'+$sign2+'$'+$displayDoubleJeopardyTotalPrize+'</li>';
 				$htmlMarkup+='<li>NUMBER CORRECT: '+$doubleJeopardyCorrect+'</li><li>WINNING PERCENTAGE: '+$doubleJeopardyWinningPercentage+'%</li></ul>';
-				$htmlMarkup+='</section><div><img src="multimedia/pointingFingerIcon.png" alt="IMAGE FORMAT NOT SUPPORTED"><a href="finaljeopardy.html">PROCEED TO FINAL JEOPARDY!</a></div></div>';
+				$htmlMarkup+='</section><button>PROCEED TO FINAL JEOPARDY!</button></div>';
 			//NOTE: In the first round, first round winning percentage=overall winning percentage;
 			
 			function delayFade(){
 				$('body').append($htmlMarkup);
 				$('#completedMessage').addClass('fadeIntoView');
+				
+				function proceedToFinalJeopardy(){
+					location.href='finaljeopardy.html';
+				}
+				$('#completedMessage').find('button').on('click',proceedToFinalJeopardy);
 			}
 			setTimeout(delayFade,2000);
 		}

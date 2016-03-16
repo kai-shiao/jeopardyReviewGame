@@ -417,13 +417,18 @@ function gameplay(e){
 			    $htmlMarkup+='<li>PRIZE WINNINGS:<span class='+'"'+$determineClass+'">'+$sign+'$'+$displayJeopardyTotalPrize+'</span></li><li>CORRECT: '+$jeopardyCorrect+'</li><li>WINNING PERCENTAGE: '+$jeopardyWinningPercentage+'%</li></ul>';
 				$htmlMarkup+='</section><section><h1>JEOPARDY! STATS</h1><ul><li>PRIZE WINNINGS:<span class='+'"'+$determineClass+'">'+$sign+'$'+$displayJeopardyTotalPrize+'</span></li><li>CORRECT: '+$jeopardyCorrect+'</li>';
 				$htmlMarkup+='<li>WINNING PERCENTAGE: '+$jeopardyWinningPercentage+'%</li></ul></section>';
-				$htmlMarkup+='<div><img src="multimedia/pointingFingerIcon.png" alt="IMAGE FORMAT NOT SUPPORTED"><a href="doublejeopardy.html">PROCEED TO DOUBLE JEOPARDY!</a></div></div>';
+				$htmlMarkup+='<button>PROCEED TO DOUBLE JEOPARDY!</button>';
 			
 			/*Note: Since overall game stats will have the same values as those of Jeopardy! stats, there is no need to call variables representing overall
 			game stats. Instead, just use each of the Jeopardy! variables twice when providing the stat summary.*/
 			
 			$('body').append($htmlMarkup);
 			$('#completedMessage').addClass('fadeIntoView');
+			
+			function proceedToDoubleJeopardy(){
+				location.href='doublejeopardy.html';
+			}
+			$('#completedMessage').find('button').on('click',proceedToDoubleJeopardy);
 		}
 		
 		var completionStamp=new Date();

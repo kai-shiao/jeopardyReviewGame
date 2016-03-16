@@ -482,7 +482,7 @@ function welcomeTheContestant(){
 	function saveContestantName(){
 		$('#nameBox').find('input').blur();
 		var $contestantName=$('#nameBox').find('input').val().toUpperCase();
-		localStorage.setItem('contestant',$contestantName);
+		localStorage.setItem('contestantName',$contestantName);
 		console.log('CONTESTANT NAME: '+$contestantName); //debugging purposes to ensure the code functions properly.
 
 		if ($contestantName===''){				

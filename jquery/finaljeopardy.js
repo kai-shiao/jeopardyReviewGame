@@ -5,7 +5,8 @@
 	var $doubleJeopardyTotalPrize=Number(localStorage.getItem('doubleJeopardyTotalPrize'));
 	var $beforeFinalJeopardyTotalPrize=$jeopardyTotalPrize+$doubleJeopardyTotalPrize;
 	var $wagerValue;
-
+	
+	console.info('CONTESTANT NAME: '+localStorage.getItem('contestantName'));
 	console.info('BEFORE FINAL JEOPARDY TOTAL PRIZE: $'+$beforeFinalJeopardyTotalPrize);
 	
 	$('section').eq(0).addClass('hidden'); //Hide the footer & the section element containing the clue, answer field, & the 'Submit' button for now.

@@ -7,4 +7,67 @@
     <jeopardyCorrect>10</jeopardyCorrect>
     <doubleJeopardyCorrect>10</doubleJeopardyCorrect>
   </player>
+    <player name="Jerry">
+    <jeopardyTotalPrize>5000</jeopardyTotalPrize>
+    <doubleJeopardyTotalPrize>4000</doubleJeopardyTotalPrize>
+    <finalPrize>12000</finalPrize>
+    <jeopardyCorrect>10</jeopardyCorrect>
+    <doubleJeopardyCorrect>10</doubleJeopardyCorrect>
+  </player>
+  <player name="Roman">
+    <jeopardyTotalPrize>5000</jeopardyTotalPrize>
+    <doubleJeopardyTotalPrize>4000</doubleJeopardyTotalPrize>
+    <finalPrize>12000</finalPrize>
+    <jeopardyCorrect>10</jeopardyCorrect>
+    <doubleJeopardyCorrect>10</doubleJeopardyCorrect>
+  </player>
+  <player name="Ari">
+    <jeopardyTotalPrize>5000</jeopardyTotalPrize>
+    <doubleJeopardyTotalPrize>4000</doubleJeopardyTotalPrize>
+    <finalPrize>12000</finalPrize>
+    <jeopardyCorrect>10</jeopardyCorrect>
+    <doubleJeopardyCorrect>10</doubleJeopardyCorrect>
+  </player>
+  <player name="Ariel">
+    <jeopardyTotalPrize>5000</jeopardyTotalPrize>
+    <doubleJeopardyTotalPrize>4000</doubleJeopardyTotalPrize>
+    <finalPrize>12000</finalPrize>
+    <jeopardyCorrect>10</jeopardyCorrect>
+    <doubleJeopardyCorrect>10</doubleJeopardyCorrect>
+  </player>
+  <player name="Naftali">
+    <jeopardyTotalPrize>5000</jeopardyTotalPrize>
+    <doubleJeopardyTotalPrize>4000</doubleJeopardyTotalPrize>
+    <finalPrize>12000</finalPrize>
+    <jeopardyCorrect>10</jeopardyCorrect>
+    <doubleJeopardyCorrect>10</doubleJeopardyCorrect>
+  </player>
+  <player name="Binyamin">
+    <jeopardyTotalPrize>5000</jeopardyTotalPrize>
+    <doubleJeopardyTotalPrize>4000</doubleJeopardyTotalPrize>
+    <finalPrize>12000</finalPrize>
+    <jeopardyCorrect>10</jeopardyCorrect>
+    <doubleJeopardyCorrect>10</doubleJeopardyCorrect>
+  </player>
+  <player name="Iddo">
+    <jeopardyTotalPrize>5000</jeopardyTotalPrize>
+    <doubleJeopardyTotalPrize>4000</doubleJeopardyTotalPrize>
+    <finalPrize>12000</finalPrize>
+    <jeopardyCorrect>10</jeopardyCorrect>
+    <doubleJeopardyCorrect>10</doubleJeopardyCorrect>
+  </player>
+  <player name="Avraham">
+    <jeopardyTotalPrize>5000</jeopardyTotalPrize>
+    <doubleJeopardyTotalPrize>4000</doubleJeopardyTotalPrize>
+    <finalPrize>12000</finalPrize>
+    <jeopardyCorrect>10</jeopardyCorrect>
+    <doubleJeopardyCorrect>10</doubleJeopardyCorrect>
+  </player>
+  <player name="Yonatan">
+    <jeopardyTotalPrize>5000</jeopardyTotalPrize>
+    <doubleJeopardyTotalPrize>4000</doubleJeopardyTotalPrize>
+    <finalPrize>12000</finalPrize>
+    <jeopardyCorrect>10</jeopardyCorrect>
+    <doubleJeopardyCorrect>10</doubleJeopardyCorrect>
+  </player>
 </playerSummary>

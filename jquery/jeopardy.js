@@ -510,7 +510,7 @@ function welcomeTheContestant(){
 					$('table').removeClass('hidden').addClass('fadeIntoView');
 					var date=new Date();
 					var currentYear=date.getFullYear();
-					$('footer').html('&copy;'+currentYear+'2016. WESTON HILL. ALL RIGHTS RESERVED.');
+					$('footer').html('&copy;'+currentYear+' WESTON HILL. ALL RIGHTS RESERVED.');
 				}
 				$('#ruleBox').first().on('click',removeRuleBox);	
 			}

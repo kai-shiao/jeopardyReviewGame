@@ -31,12 +31,15 @@
 					//Only keep the top 10 values and delete the rest.
 					//Start deleting from the element with an index number of 9 (not including this element).
 					
-					var $dynamicallyGeneratedList; //Will be used to hold dynamically generated <li> elements.
-					var $htmlMarkup='<ul>'+$DynamicallyGeneratedList+'</ul>';
+					var $dynamicallyGeneratedNameList; //Will be used to hold dynamically generated <li> elements containing top 10 players' names.
+					var $htmlMarkupForNameList='<ul>'+$dynamicallyGeneratedNameList+'</ul>';
+					
+					var $dynamicallyGeneratedStatList; //Will be used to hold dynamically generated <li> elements containing top 10 stats.
+					var $htmlMarkupForStatList='<ul>'+$dynamicallyGeneratedStatList+'</ul>';
 					//Construct the list of the top 10 values using a for-loop.
 					for (var $i=0;$i<$finalized.length;$i++){
 						var $originalIndexPosition=$jeopardyCorrect.indexOf($finalized[$i]);
-						$dynamicallyGeneratedList+='<li>'+$playerNames[$originalIndexPosition]+'</li>';
+						$dynamicallyGeneratedNameList+='<li>'+$playerNames[$originalIndexPosition]+'</li>';
 					}						
 		}
 		fail: function(){

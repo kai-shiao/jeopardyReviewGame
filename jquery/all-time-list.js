@@ -37,10 +37,13 @@
 					var $dynamicallyGeneratedStatList; //Will be used to hold dynamically generated <li> elements containing top 10 stats.
 					var $htmlMarkupForStatList='<ul>'+$dynamicallyGeneratedStatList+'</ul>';
 					//Construct the list of the top 10 values using a for-loop.
+					
 					for (var $i=0;$i<$finalized.length;$i++){
+						$dynamicallyGeneratedStatList+='<li>'+$finalized[$i]+'</li>';
 						var $originalIndexPosition=$jeopardyCorrect.indexOf($finalized[$i]);
 						$dynamicallyGeneratedNameList+='<li>'+$playerNames[$originalIndexPosition]+'</li>';
-					}						
+					}
+					$('body').find('section').eq(0).append($dynamicallyGeneratedNameList).append($dynamicallyGeneratedStatList);
 		}
 		fail: function(){
 				$(e.target).parent().append('<p>SORRY, THERE WAS AN AJAX ERROR.</p>');

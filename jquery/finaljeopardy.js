@@ -79,6 +79,9 @@
 					
 					if ($inputValue===$correctAnswer && $elapsedTime<=30){
 						$finalJeopardyPrize=$wagerValue;
+						var $totalCorrect=Number(localStorage.getItem('totalCorrect'));
+						$totalCorrect++;
+						localStorage.setItem('totalCorrect',$totalCorrect);
 					} else if ($inputValue===$correctAnswer && $elapsedTime>30){
 						$finalJeopardyPrize=-$wagerValue;	
 					} else if ($inputValue!=$correctAnswer && $elapsedTime<=30){

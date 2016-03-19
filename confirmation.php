@@ -49,9 +49,10 @@ try{
 		<player name="NICOLE">
 			<jeopardyTotalPrize>15000</jeopardyTotalPrize>
 			<doubleJeopardyTotalPrize>15000</doubleJeopardyTotalPrize>
-			<finalPrize>30000</finalPrize>
+			<totalPrize>30000</totalPrize>
 			<jeopardyCorrect>25</doubleJeopardyCorrect>
 			<doubleJeopardyCorrect>25</doubleJeopardyCorrect>
+			<totalCorrect>51</totalCorrect>
 		</player>
 	</playerSummary>
 	*/
@@ -72,9 +73,9 @@ try{
 	$doubleJeopardyTotalPrizeNodeValue=$statSheet->createTextNode($doubleJeopardyTotalPrize);
 	$doubleJeopardyTotalPrizeElement->appendChild($doubleJeopardyTotalPrizeNodeValue);
 
-	$finalPrizeElement=$statSheet->createElement("finalPrize");
-	$finalPrizeNodeValue=$statSheet->createTextNode($totalPrize);
-	$finalPrizeElement->appendChild($finalPrizeNodeValue);
+	$totalPrizeElement=$statSheet->createElement("totalPrize");
+	$totalPrizeNodeValue=$statSheet->createTextNode($totalPrize);
+	$totalPrizeElement->appendChild($totalPrizeNodeValue);
 
 	$jeopardyCorrectElement=$statSheet->createElement("jeopardyCorrect");
 	$jeopardyCorrectNodeValue=$statSheet->createTextNode($jeopardyCorrect);
@@ -88,7 +89,7 @@ try{
 	$totalCorrectNodeValue=$statSheet->createTextNode($totalCorrect);
 	$totalCorrectElement->appendChild($totalCorrectNodeValue);
 
-	$childNodes=array($jeopardyTotalPrizeElement,$doubleJeopardyTotalPrizeElement,$finalPrizeElement,$jeopardyCorrectElement,$doubleJeopardyCorrectElement,$totalCorrectElement);
+	$childNodes=array($jeopardyTotalPrizeElement,$doubleJeopardyTotalPrizeElement,$totalPrizeElement,$jeopardyCorrectElement,$doubleJeopardyCorrectElement,$totalCorrectElement);
 
 	#Run a for-loop to assign the 6 newly created nodes as children of the contestantName node.
 	for ($i=0;$i<count($childNodes);$i++){

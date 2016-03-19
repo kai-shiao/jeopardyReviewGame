@@ -3,9 +3,6 @@
 		type: 'GET',
 		url: 'data/playerstats.xml',
 		dataType: 'xml',
-		complete: function(){
-			$('#loading').remove();
-		};
 		success: function(xml){ //'success' in a callback context is still valid and acceptable; .success() as a chained method following $.ajax() is deprecated.
 					var $statsList=['jeopardyTotalPrize','doubleJeopardyTotalPrize','totalPrize',
 									'jeopardyCorrect','doubleJeopardyCorrect','totalCorrect'
@@ -50,9 +47,10 @@
 							var $originalIndexPosition=$allObservations.indexOf($finalized[$i]);
 							$dynamicallyGeneratedNameList+='<li>'+$playerNames[$originalIndexPosition]+'</li>';
 						}
+						
 						$('body').find('section').eq($i).append($dynamicallyGeneratedNameList).append($dynamicallyGeneratedStatList);						
 					}
-		}
+		},
 		fail: function(){
 				$(e.target).parent().append('<p>SORRY, THERE WAS AN AJAX ERROR.</p>');
 		}
@@ -61,5 +59,9 @@
 
 /*beforeSend: function(){
 			.parent().append('<p id="loading">ONE MOMENT PLEASE...</p>');
+		}
+		timeout: 2000; //2 second delay in implementing the Ajax request.
+		complete: function(){
+			$('#loading').remove();
 		};
-		timeout: 2000; //2 second delay in implementing the Ajax request.*/
+*/

@@ -526,7 +526,7 @@ function welcomeTheContestant(){
 	var $statsList=['totalPrize','totalCorrect','totalWinningPercentage',
 					'jeopardyTotalPrize','jeopardyCorrect','jeopardyWinningPercentage','jeopardyAnswered',
 					'doubleJeopardyTotalPrize','doubleJeopardyCorrect','doubleJeopardyWinningPercentage','doubleJeopardyAnswered',
-					'finalJeopardyTotalPrize'
+					'totalPrize'
 	];
 		
 	for (var $i=0;$i<$statsList.length;$i++){

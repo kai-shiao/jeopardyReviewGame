@@ -1,0 +1,52 @@
+@import '../header-and-footer.css';
+@import '../reset.css';
+
+section{
+	border: 5px solid rgb(0,0,0);
+	border-radius: 10px;
+	height: 320px;
+	width: 380px;
+	float: left;
+} 
+
+section:nth-of-type(odd){
+	margin-left: 100px;
+	margin-right: 30px;
+}
+
+section:nth-of-type(n){
+	margin-bottom: 20px;
+}
+
+section>h1{
+	font-size: 110%;
+	margin: 10px auto;
+}
+
+section>button{
+	border: 3px solid rgb(0,0,0);
+	border-radius: 3px;
+	font-family: "Maindra GD", cursive;
+	font-weight: bold;
+	clear: both;
+	cursor: pointer;
+	display: block;
+	margin: 10px auto;
+}
+
+section>ol{
+	width: 200px;
+	float: left;
+	margin-left: 50px;
+	margin-top: 5px;
+}
+
+section>ul{
+	list-style-type: none;
+	text-align: left;
+	width: 300px;
+}
+
+footer{
+	clear: both;
+}

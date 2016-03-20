@@ -26,13 +26,6 @@ $jeopardyCorrect=filter_input(INPUT_POST,"jeopardyCorrect");
 $doubleJeopardyCorrect=filter_input(INPUT_POST,"doubleJeopardyCorrect");
 $totalCorrect=$jeopardyCorrect+$doubleJeopardyCorrect;
 
-/*$contestantName="errrr";
-$jeopardyTotalPrize="43";
-$doubleJeopardyTotalPrize="33";
-$finalPrize="33";
-$jeopardyCorrect="33";
-$doubleJeopardyCorrect="33";*/
-
 try{
 	#Create a new DOMDocument object to be able to work with a XML document & use the XML DOM methods in PHP.
 	$statSheet=new DOMDocument();
@@ -122,7 +115,7 @@ HERE;
 }
 ?>
 </div>
-<script src="http://localhost/jeopardyReviewGame/jquery/jquery-2.2.1.min.js"></script>
+<script src="http://localhost/jeopardyReviewGame/jquery/jquery-2.2.2.min.js"></script>
 <script src="http://localhost/jeopardyReviewGame/jquery/confirmation.js"></script>
 </body>
 </html>

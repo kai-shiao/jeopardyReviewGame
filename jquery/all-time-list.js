@@ -51,8 +51,8 @@
 								$dynamicallyGeneratedNameList+='<li>'+$playerNames[$originalIndexPosition]+'</li>';
 							}
 							console.log('reached line 45');
-							var $htmlMarkupForNameList='<ol>'+$dynamicallyGeneratedNameList+'</ol>';
-							var $htmlMarkupForStatList='<ul>'+$dynamicallyGeneratedStatList+'</ul>';
+							var $htmlMarkupForNameList='<ol class="fadeIntoView">'+$dynamicallyGeneratedNameList+'</ol>';
+							var $htmlMarkupForStatList='<ul class="fadeIntoView">'+$dynamicallyGeneratedStatList+'</ul>';
 							$('body').find('section').eq($k).append($htmlMarkupForNameList).append($htmlMarkupForStatList);
 							console.log($k);
 							$k++;
@@ -69,21 +69,25 @@
 
 function respondToClickEvent(e){
 	var $eventTarget=$(e.target);
+	var $eventTargetID=$(e.target).attr('id');
 	
-	function displayLoadingMessage(e){
+	function displayLoadingMessage(){
 		var $cssTopValue=$eventTarget.offset().top+10; //Ensure that the loading message always appears in the window by finding the event target's top coordinate value.
-		$('body').append('<p>REQUESTING DATA FROM SERVER....</p>');
-		$('body').find('p').css('top',$cssTopValue);
+		$('body').append('<p>DATA UPDATED!....</p>');
+		$('body').find('p').addClass('fadeIntoView').css('top',$cssTopValue);
+	
+		function fade(){
+			$('body').find('p').removeClass('fadeIntoView').addClass('fadeFromView');
+		}
+		
+		function removeElement(){
+			$('body').find('p').remove();
+		}
+		setTimeout(fade,4000);
+		setTimeout(removeElement,6000);
 	}
 	
-	function removeLoadingMessage(e){
-		setTimeout(function(){$('body').find('p').remove();},2000);
-	}
-	
-	function loadData(xml,e){ //'success' in a callback context is still valid and acceptable; .success() as a chained method following $.ajax() is deprecated.
-		var $nodeList=Array.prototype.slice.call($('body').find('section'));
-		var $index=$nodeList.indexOf($eventTarget);
-
+	function loadData(xml){ //'success' in a callback context is still valid and acceptable; .success() as a chained method following $.ajax() is deprecated.
 		var $statsList=['jeopardyTotalPrize','doubleJeopardyTotalPrize','totalPrize',
 						'jeopardyCorrect','doubleJeopardyCorrect','totalCorrect'
 		];
@@ -91,9 +95,9 @@ function respondToClickEvent(e){
 		var $playerNames=[]; 
 		var $allObservations=[]; 
 															
-		for (var $i=0;$i<$(xml).find($statsList[$index]).length;$i++){
-			var $name=$(xml).find($statsList[$index]).eq($i).parent().attr('name');
-			var $value=$(xml).find($statsList[$index]).eq($i).text();
+		for (var $i=0;$i<$(xml).find($statsList[$eventTargetID]).length;$i++){
+			var $name=$(xml).find($statsList[$eventTargetID]).eq($i).parent().attr('name');
+			var $value=$(xml).find($statsList[$eventTargetID]).eq($i).text();
 										
 			//Populate array with all the names and values from "playerstats.xml".
 			$playerNames.push($name); 
@@ -108,26 +112,24 @@ function respondToClickEvent(e){
 		var $dynamicallyGeneratedStatList='';
 								
 		var $dollarSign='';
-		if ($index<=2){
+		if ($eventTargetID<=2){
 			$dollarSign='$';
 		}
 							
 		for (var $i=0;$i<$allObservations.length;$i++){
-			$dynamicallyGeneratedStatList+='<li>'+$dollarSign+$allObservations[$i]+'</li>';
+			$dynamicallyGeneratedStatList+='<li class="fadeIntoView">'+$dollarSign+$allObservations[$i]+'</li>';
 			var $originalIndexPosition=$allObservations.indexOf($allObservations[$i]);
-			$dynamicallyGeneratedNameList+='<li>'+$playerNames[$originalIndexPosition]+'</li>';
+			$dynamicallyGeneratedNameList+='<li class="fadeIntoView">'+$playerNames[$originalIndexPosition]+'</li>';
 		}
 												
-		var $htmlMarkupForNameList='<ol>'+$dynamicallyGeneratedNameList+'</ol>';	
-		var $htmlMarkupForStatList='<ul>'+$dynamicallyGeneratedStatList+'</ul>';
-		$('body').find('section').eq($nodeList[$index]).append($htmlMarkupForNameList).append($htmlMarkupForStatList);
+		$('body').find('section').eq($eventTargetID).find('ol').html($dynamicallyGeneratedNameList);
+		$('body').find('section').eq($eventTargetID).find('ul').html($dynamicallyGeneratedStatList);
 	}
 	
 	$.ajax({
 		type: 'POST',
 		url: 'data/playerstats.xml',
-		beforeSend: displayLoadingMessage,
-		complete: removeLoadingMessage,
+		complete: displayLoadingMessage,
 		success: loadData,
 		fail: function(){
 				$('body').append('<p>SORRY, THERE WAS AN AJAX ERROR.</p>');

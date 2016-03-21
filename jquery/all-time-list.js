@@ -53,7 +53,7 @@
 							console.log('reached line 45');
 							var $htmlMarkupForNameList='<ol>'+$dynamicallyGeneratedNameList+'</ol>';
 							var $htmlMarkupForStatList='<ul>'+$dynamicallyGeneratedStatList+'</ul>';
-							$('#wrapper').find('section').eq($k).append($htmlMarkupForNameList).append($htmlMarkupForStatList);
+							$('body').find('section').eq($k).append($htmlMarkupForNameList).append($htmlMarkupForStatList);
 							console.log($k);
 							$k++;
 						}
@@ -63,13 +63,74 @@
 				  }
 		});
 	});
+	
+	$('body').find('button').on('click',respondToClickEvent);
 })();
 
-/*beforeSend: function(){
-			.parent().append('<p id="loading">ONE MOMENT PLEASE...</p>');
+function respondToClickEvent(e){
+	var $eventTarget=$(e.target);
+	
+	function displayLoadingMessage(e){
+		var $cssTopValue=$eventTarget.offset().top+10; //Ensure that the loading message always appears in the window by finding the event target's top coordinate value.
+		$('body').append('<p>REQUESTING DATA FROM SERVER....</p>');
+		$('body').find('p').css('top',$cssTopValue);
+	}
+	
+	function removeLoadingMessage(e){
+		setTimeout(function(){$('body').find('p').remove();},2000);
+	}
+	
+	function loadData(xml,e){ //'success' in a callback context is still valid and acceptable; .success() as a chained method following $.ajax() is deprecated.
+		var $nodeList=Array.prototype.slice.call($('body').find('section'));
+		var $index=$nodeList.indexOf($eventTarget);
+
+		var $statsList=['jeopardyTotalPrize','doubleJeopardyTotalPrize','totalPrize',
+						'jeopardyCorrect','doubleJeopardyCorrect','totalCorrect'
+		];
+		
+		var $playerNames=[]; 
+		var $allObservations=[]; 
+															
+		for (var $i=0;$i<$(xml).find($statsList[$index]).length;$i++){
+			var $name=$(xml).find($statsList[$index]).eq($i).parent().attr('name');
+			var $value=$(xml).find($statsList[$index]).eq($i).text();
+										
+			//Populate array with all the names and values from "playerstats.xml".
+			$playerNames.push($name); 
+			$allObservations.push($value); 
 		}
-		timeout: 2000; //2 second delay in implementing the Ajax request.
-		complete: function(){
-			$('#loading').remove();
-		};
-*/
+								
+		$allObservations.sort(function(a,b){ 
+			return b-a;
+		}).splice(9,$allObservations.length-10);
+		
+		var $dynamicallyGeneratedNameList=''; 
+		var $dynamicallyGeneratedStatList='';
+								
+		var $dollarSign='';
+		if ($index<=2){
+			$dollarSign='$';
+		}
+							
+		for (var $i=0;$i<$allObservations.length;$i++){
+			$dynamicallyGeneratedStatList+='<li>'+$dollarSign+$allObservations[$i]+'</li>';
+			var $originalIndexPosition=$allObservations.indexOf($allObservations[$i]);
+			$dynamicallyGeneratedNameList+='<li>'+$playerNames[$originalIndexPosition]+'</li>';
+		}
+												
+		var $htmlMarkupForNameList='<ol>'+$dynamicallyGeneratedNameList+'</ol>';	
+		var $htmlMarkupForStatList='<ul>'+$dynamicallyGeneratedStatList+'</ul>';
+		$('body').find('section').eq($nodeList[$index]).append($htmlMarkupForNameList).append($htmlMarkupForStatList);
+	}
+	
+	$.ajax({
+		type: 'POST',
+		url: 'data/playerstats.xml',
+		beforeSend: displayLoadingMessage,
+		complete: removeLoadingMessage,
+		success: loadData,
+		fail: function(){
+				$('body').append('<p>SORRY, THERE WAS AN AJAX ERROR.</p>');
+		}
+	});
+}

@@ -6,7 +6,7 @@
     <totalPrize>3</totalPrize>
     <jeopardyCorrect>4</jeopardyCorrect>
     <doubleJeopardyCorrect>5</doubleJeopardyCorrect>
-	<totalCorrect>9</totalCorrect>
+    <totalCorrect>9</totalCorrect>
   </player>
   <player name="Mortimer">
     <jeopardyTotalPrize>2</jeopardyTotalPrize>
@@ -14,7 +14,7 @@
     <totalPrize>5</totalPrize>
     <jeopardyCorrect>5</jeopardyCorrect>
     <doubleJeopardyCorrect>6</doubleJeopardyCorrect>
-	<totalCorrect>11</totalCorrect>
+    <totalCorrect>11</totalCorrect>
   </player>
   <player name="Mortimer">
     <jeopardyTotalPrize>3</jeopardyTotalPrize>
@@ -22,15 +22,15 @@
     <totalPrize>7</totalPrize>
     <jeopardyCorrect>6</jeopardyCorrect>
     <doubleJeopardyCorrect>7</doubleJeopardyCorrect>
-	<totalCorrect>13</totalCorrect>
+    <totalCorrect>13</totalCorrect>
   </player>
-    <player name="Mortimer">
+  <player name="Mortimer">
     <jeopardyTotalPrize>4</jeopardyTotalPrize>
     <doubleJeopardyTotalPrize>5</doubleJeopardyTotalPrize>
     <totalPrize>9</totalPrize>
     <jeopardyCorrect>7</jeopardyCorrect>
     <doubleJeopardyCorrect>8</doubleJeopardyCorrect>
-	<totalCorrect>15</totalCorrect>
+    <totalCorrect>15</totalCorrect>
   </player>
   <player name="Mortimer">
     <jeopardyTotalPrize>5</jeopardyTotalPrize>
@@ -38,7 +38,7 @@
     <totalPrize>11</totalPrize>
     <jeopardyCorrect>8</jeopardyCorrect>
     <doubleJeopardyCorrect>9</doubleJeopardyCorrect>
-	<totalCorrect>17</totalCorrect>
+    <totalCorrect>17</totalCorrect>
   </player>
   <player name="Mortimer">
     <jeopardyTotalPrize>6</jeopardyTotalPrize>
@@ -46,7 +46,7 @@
     <totalPrize>13</totalPrize>
     <jeopardyCorrect>9</jeopardyCorrect>
     <doubleJeopardyCorrect>10</doubleJeopardyCorrect>
-	<totalCorrect>19</totalCorrect>
+    <totalCorrect>19</totalCorrect>
   </player>
   <player name="Mortimer">
     <jeopardyTotalPrize>7</jeopardyTotalPrize>
@@ -54,7 +54,7 @@
     <totalPrize>15</totalPrize>
     <jeopardyCorrect>10</jeopardyCorrect>
     <doubleJeopardyCorrect>11</doubleJeopardyCorrect>
-	<totalCorrect>21</totalCorrect>
+    <totalCorrect>21</totalCorrect>
   </player>
   <player name="Mortimer">
     <jeopardyTotalPrize>8</jeopardyTotalPrize>
@@ -62,7 +62,7 @@
     <totalPrize>17</totalPrize>
     <jeopardyCorrect>11</jeopardyCorrect>
     <doubleJeopardyCorrect>12</doubleJeopardyCorrect>
-	<totalCorrect>23</totalCorrect>
+    <totalCorrect>23</totalCorrect>
   </player>
   <player name="Mortimer">
     <jeopardyTotalPrize>9</jeopardyTotalPrize>
@@ -70,7 +70,7 @@
     <totalPrize>19</totalPrize>
     <jeopardyCorrect>12</jeopardyCorrect>
     <doubleJeopardyCorrect>13</doubleJeopardyCorrect>
-	<totalCorrect>25</totalCorrect>
+    <totalCorrect>25</totalCorrect>
   </player>
   <player name="Mortimer">
     <jeopardyTotalPrize>10</jeopardyTotalPrize>
@@ -78,6 +78,6 @@
     <totalPrize>29</totalPrize>
     <jeopardyCorrect>13</jeopardyCorrect>
     <doubleJeopardyCorrect>14</doubleJeopardyCorrect>
-	<totalCorrect>27</totalCorrect>
+    <totalCorrect>27</totalCorrect>
   </player>
 </playerSummary>

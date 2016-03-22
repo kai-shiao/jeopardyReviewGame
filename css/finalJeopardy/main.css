@@ -110,7 +110,6 @@
 #finalJeopardyInfo>span:first-of-type:hover,#wagerBox>span:first-of-type:hover{
 	color: rgb(255,0,0);
 	cursor: pointer;
-	float: right;
 }
 
 #finalJeopardyInfo>h1{

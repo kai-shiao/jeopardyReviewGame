@@ -1,0 +1,83 @@
+@import '../header-and-footer.css';
+@import '../reset.css';
+
+@-webkit-keyframes fadeFromView{
+	from {
+		opacity: 1;
+	} 
+	to {
+		opacity: 0;
+	}
+}
+
+@-moz-keyframes fadeFromView{
+	from {
+		opacity: 1;
+	} 
+	to {
+		opacity: 0;
+	}
+}
+
+@keyframes fadeFromView{
+	from {
+		opacity: 1;
+	} 
+	to {
+		opacity: 0;
+	}
+}
+
+.fadeFromView{
+	-webkit-animation: fadeFromView 3s 1;
+	-moz-animation: fadeFromView 3s 1;
+	animation: fadeFromView 3s 1;
+}
+
+@-webkit-keyframes fadeIntoView{
+	0% {
+		opacity: 0;
+	} 
+	100% {
+		opacity: 1;
+	}
+}
+
+@-moz-keyframes fadeIntoView{
+	0% {
+		opacity: 0;
+	} 
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeIntoView{
+	0% {
+		opacity: 0;
+	} 
+	100% {
+		opacity: 1;
+	}
+}
+
+.fadeIntoView{
+	-webkit-animation: fadeIntoView 3s 1;
+	-moz-animation: fadeIntoView 3s 1;
+	animation: fadeIntoView 3s 1;
+}
+
+#incomplete{
+	margin: 50px auto;
+}
+
+#incomplete>span{
+	color: rgb(255,215,0);
+	float: right;
+	margin-right: 5px;
+}
+
+#incomplete>span:hover{
+	color: rgb(255,0,0);
+	cursor: pointer;
+} 	

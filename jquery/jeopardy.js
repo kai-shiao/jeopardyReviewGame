@@ -534,6 +534,8 @@ function welcomeTheContestant(){
 		console.log(localStorage.getItem($statsList[$i]));
 	}
 	
+	localStorage.setItem('gameComplete','false');
+	
 	console.info('JEOPARDY! TOTAL PRIZE: '+localStorage.getItem('jeopardyTotalPrize'));
 	
 	/*Initialize an array that will hold Boolean values indicating current status (TRUE or FALSE) for all clues; 'TRUE' indicates 'answered', while

@@ -125,6 +125,8 @@
 					
 					$finalJeopardyInfo='<div id="finalJeopardyInfo"><span>X</span><h1>FINAL JEOPARDY! RESULTS</h1>'+$rightOrWrong+$finalResults+'</div>';
 					
+					localStorage.setItem('gameComplete','true');
+					
 					var date=new Date();
 					var currentYear=date.getFullYear();
 					var $floatingFooter='<footer>&copy;'+currentYear+'. WESTON HILL. ALL RIGHTS RESERVED.</footer>';

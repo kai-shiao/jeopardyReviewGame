@@ -1,10 +1,24 @@
 (function(){
-	if (localStorage.getItem('gameComplete')==='false' || 'null'){
-		window.stop();
-		/*
-		Since there's no record of game completion, stop the window from loading to prevent the user from seeing the review material; this ensures 
-		students are not able to preview material prior to playing Jeopardy!
-		*/
-		$('body').append('<p id="incomplete">YOU CANNOT REVIEW GAME MATERIAL PRIOR TO COMPLETING THE GAME!</p>');
+	function deliverContent(e){
+		e.preventDefault();
+		
+	//	if (localStorage.getItem('gameComplete')==='true'){
+			
+			if (e.target.href==='jeopardy-curriculum.html') {
+				$('h1').eq(1).text('JEOPARDY!').addClass('fadeIntoView')
+			} else if (e.target.href==='doublejeopardy-curriculum.html'){
+				$('h1').eq(1).text('DOUBLE JEOPARDY!').addClass('fadeIntoView')
+			} else {
+				$('h1').eq(1).text('');
+			}
+						$('section').load(e.target.href).addClass('fadeIntoView');
+
+			$('footer').removeClass('absolute').addClass('static');
+	/*	} else {
+			$('<p>YOU CANNOT REVIEW GAME MATERIAL PRIOR TO COMPLETING THE GAME!</p>').insertBefore('footer');
+			$('p').addClass('fadeIntoView');
+		}*/
 	}
+		
+	$('nav').find('ul').find('li').eq(2).find('ul').on('click',deliverContent);
 })();

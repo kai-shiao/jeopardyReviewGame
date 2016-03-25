@@ -67,6 +67,10 @@
 	animation: fadeIntoView 3s 1;
 }
 
+header{
+	margin: 20px auto;
+}
+
 nav{
 	color: rgb(0,0,0);
 }
@@ -117,17 +121,56 @@ a{
 	text-decoration: none;
 }
 
-#incomplete{
-	margin: 50px auto;
+section{
+	margin: 0 auto;
+	width: 600px;
 }
 
-#incomplete>span{
-	color: rgb(255,215,0);
-	float: right;
-	margin-right: 5px;
+section>section>table{
+	border: 3px solid rgb(0,0,0);
+	border-collapse: collapse;
+	border-radius: 1px;
+	margin: 40px auto;
 }
 
-#incomplete>span:hover{
-	color: rgb(255,0,0);
-	cursor: pointer;
-} 	
+section>section>table>tbody>tr:first-of-type>td{
+	font-size: 150%;
+}
+
+section>section>table>tbody>tr{
+	border: 3px solid rgb(0,0,0);
+	border-radius: 1px;
+}
+
+section>section>table>tbody>tr>th, section>section>table>tbody>tr>td{
+	padding-bottom: 15px;
+	padding-top: 15px;	
+}
+
+section>section>table>tbody>tr>th:nth-child(2), section>section>table>tbody>tr>td:nth-child(2){
+	border-left: 3px solid rgb(0,0,0);
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+section>section>table>tbody>tr>td:nth-child(2){
+	text-align: left;
+}
+
+p{
+	left: 400px;
+	top: 250px;
+}
+
+.absolute{
+	left: 500px;
+	top: 400px;
+}
+
+p, .absolute{
+	position: absolute;
+}
+
+.static{
+	position: static;
+}

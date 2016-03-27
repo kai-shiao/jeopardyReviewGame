@@ -93,7 +93,6 @@ nav>ul>li:nth-child(-n+2):after{
 
 nav>ul>li>ul>li{
 	display: none;
-	text-align: center;
 }
 
 nav>ul>li:hover>ul>li{

@@ -458,6 +458,16 @@ function gameplay(e){
 				$('body').append($htmlMarkup);
 				$('#completedMessage').addClass('fadeIntoView');
 				
+				$('table').removeClass('fadeIntoView').addClass('fadeFromView');
+			
+				function removeTable(){
+					$('table').remove();
+				}
+				setTimeout(removeTable,2000);
+			
+				$('#completedMessage').addClass('fadeIntoView');
+				$('footer').addClass('hidden');
+
 				function proceedToFinalJeopardy(){
 					location.href='finaljeopardy.html';
 				}

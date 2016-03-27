@@ -423,7 +423,15 @@ function gameplay(e){
 			game stats. Instead, just use each of the Jeopardy! variables twice when providing the stat summary.*/
 			
 			$('body').append($htmlMarkup);
+			$('table').removeClass('fadeIntoView').addClass('fadeFromView');
+			
+			function removeTable(){
+				$('table').remove();
+			}
+			setTimeout(removeTable,2000);
+			
 			$('#completedMessage').addClass('fadeIntoView');
+			$('footer').addClass('hidden');
 			
 			function proceedToDoubleJeopardy(){
 				location.href='doublejeopardy.html';

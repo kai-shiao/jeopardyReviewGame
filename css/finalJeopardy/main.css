@@ -71,12 +71,33 @@
 	animation: fadeIntoView 3s 1;
 }
 
-#wagerBox, #wrapper>section, #finalJeopardyInfo, #showGameStats{
+#startNewGame{
+	left: 375px;
+	width: 600px;
+}
+
+#startNewGame>button{
+	margin: 10px auto;
+}
+
+#wagerBox>button:active, section>button:active, #startNewGame>button:active, #showGameStats>button:active{
+	-ms-transform: translate(2.5px,2.5px); /* IE vendor prefix*/
+    -webkit-transform: translate(2.5px,2.5px); /* Chrome, Safari, Opera vendor prefixes*/
+    transform: translate(2.5px,2.5px); 
+}
+
+.absolute{
+	left: 500px;
+	position: absolute;
+	top: 400px;
+}
+
+#startNewGame, #wagerBox, #wrapper>section, #finalJeopardyInfo, #showGameStats{
 	border: 5px solid rgb(0,0,0);
 	border-radius: 10px;
 }
 
-#wagerBox, #finalJeopardyInfo, #showGameStats{
+#startNewGame, #wagerBox, #finalJeopardyInfo, #showGameStats{
 	position: absolute;
 }
 
@@ -202,12 +223,17 @@ input{
 	width: 250px;
 }
 
+
 input, button{
 	border: 3px solid rgb(0,0,0);
 	border-radius: 3px;
 	font-family: "Maiandra GD", cursive;
 	font-weight: bold;	
 	text-transform: uppercase;
+}
+
+input:focus{
+	background-color: rgb(255,215,0);
 }
 
 button{

@@ -44,6 +44,21 @@
 	animation: fadeIntoView 3s 1;
 }
 
+#startNewGame{
+	left: 375px;
+	width: 600px;
+}
+
+#startNewGame>button{
+	margin: 10px auto;
+}
+
+.absolute{
+	left: 500px;
+	position: absolute;
+	top: 400px;
+}
+
 #dailyDouble{
 	height: 60px;
 	top: 200px;
@@ -52,7 +67,7 @@
 #nameBox{
 	height: 150px;
 	left: 420px;
-	top: 250px;
+	top: 200px;
 	width: 500px;
 }
 
@@ -94,13 +109,10 @@
 	width: 200px;
 }
 
-#dailyDouble, #nameBox, #ruleBox, #wagerRules, #wagerBox, .magnified, #answer, #alreadySelectedWarning, #completedMessage{
-	border-radius: 10px;	
-}
-
-#nameBox, #ruleBox, #alreadySelectedWarning, #dailyDouble, #wagerRules, #wagerBox, .magnified, #answer, #completedMessage{
+#startNewGame, #nameBox, #ruleBox, #alreadySelectedWarning, #dailyDouble, #wagerRules, #wagerBox, .magnified, #answer, #completedMessage{
 	background-color: rgb(0,0,255);
 	border: 5px solid rgb(0,0,0);
+	border-radius: 10px;
 	color: rgb(255,215,0); 
 	position: absolute;
 }
@@ -194,7 +206,7 @@ li{
 	margin: 5px auto;
 }
 
-#completedMessage>button:active{ /*Make an animated button.*/
+#nameBox>button:active, #answer>button:active, #startNewGame>button:active, #completedMessage>button:active{ /*Make an animated button.*/
 	-ms-transform: translate(2.5px,2.5px); /* IE vendor prefix*/
     -webkit-transform: translate(2.5px,2.5px); /* Chrome, Safari, Opera vendor prefixes*/
     transform: translate(2.5px,2.5px); 
@@ -244,6 +256,10 @@ input, button{
 	font-weight: bold;
 	text-align: center;
 	text-transform: uppercase;
+}
+
+input:focus{
+	background-color: rgb(255,215,0);
 }
 
 button{

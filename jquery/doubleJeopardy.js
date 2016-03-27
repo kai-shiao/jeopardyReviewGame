@@ -508,5 +508,27 @@ function gameplay(e){
 }
 
 (function(){
-	$('table').addClass('fadeIntoView').on('click',gameplay);
+	if (localStorage.getItem('startedDoubleJeopardy')==='false'){
+		localStorage.setItem('startedDoubleJeopardy','true');
+		
+		$('table').addClass('fadeIntoView').on('click',gameplay);
+	} else {
+		$('table').addClass('hidden');
+		
+		var $captureFooterElement=$('footer').detach();
+		
+		var $htmlMarkup='<div id="startNewGame"><p>YOU CANNOT RE-ATTEMPT DOUBLE JEOPARDY OR ATTEMPT TO START OVER WHEN THE ROUND HAS ALREADY BEEN STARTED! THIS';
+			$htmlMarkup+='IS DONE TO PREVENT PLAYERS FROM ATTEMPTING TO ARTIFICIALLY INFLATE THEIR SCORES. YOU WILL HAVE TO START A NEW GAME.</p>';
+			$htmlMarkup+='<button>START OVER</button></div>';
+		$('body').append($htmlMarkup);
+		
+		$('#startNewGame').addClass('fadeIntoView');
+		$('body').append($captureFooterElement);
+		$($captureFooterElement).addClass('absolute');
+		
+		function redirect(){
+			location.href='jeopardy.html';
+		}
+		$('#startNewGame').find('button').on('click',redirect);
+	} 
 })();

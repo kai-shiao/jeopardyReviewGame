@@ -500,7 +500,9 @@ function welcomeTheContestant(){
 					$ruleBox+=' PLAYING AS THE WEB APPLICATION WILL DELETE <span>ALL</span> IN-GAME DATA AND, AS A RESULT, THE PLAYER WILL HAVE TO START';
 					$ruleBox+=' FROM SCRATCH.</li><li>ENSURE NO SPACES BETWEEN COMMAS AND NO DASHES BETWEEN WORDS.</li><li>IN COURT CASES, ENSURE THAT ONLY';
 					$ruleBox+=' \'V.\' IS USED; DO NOT USE \'VERSUS\' OR \'VS.\'</li><li>ANSWERS INVOLVING THE WORD \'AND\' MUST BE SPELLED OUT USING THE';
-				    $ruleBox+=' ENTIRE WORD; OTHERWISE, THE ANSWER WILL BE MARKED AS INCORRECT.</li></ul></div>';
+				    $ruleBox+=' ENTIRE WORD; OTHERWISE, THE ANSWER WILL BE MARKED AS INCORRECT.</li><li>PLAYERS WHO ATTEMPT TO ARTIFICIALLY INFLATE THEIR';
+					$ruleBox+='PRIZE WINNINGS BY RELOADING THE PAGE FOR ANY ROUND WILL HAVE TO START OVER WITH $0.</li><li>BOTTOM LINE-DON\'T ATTEMPT TO';
+					$ruleBox+='CHEAT!</li></ul></div>';
 					
 				$('body').append($ruleBox);
 				$('#ruleBox').addClass('fadeIntoView');
@@ -535,6 +537,8 @@ function welcomeTheContestant(){
 	}
 	
 	localStorage.setItem('gameComplete','false');
+	localStorage.setItem('startedDoubleJeopardy','false');
+	localStorage.setItem('startedFinalJeopardy','false');
 	
 	console.info('JEOPARDY! TOTAL PRIZE: '+localStorage.getItem('jeopardyTotalPrize'));
 	
@@ -583,4 +587,6 @@ function welcomeTheContestant(){
 (function(){
 	$(document).ready(welcomeTheContestant);
 	$('table').on('click',gameplay);
+	//Notice that the if-else block here is not needed for the first round; this is because every time the player attempts to reload the page, he/she is
+	//forced to start over and all the game stats are automatically set to 0.
 })();

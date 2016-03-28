@@ -388,7 +388,7 @@ function gameplay(e){
 			$i++;
 		}
 		console.info('COUNT VARIABLE VALUE: '+$count);
-		if ($count===1){
+		if ($count===25){
 			//The end of the first round means there is no more need for the array $jeopardyClueStatus, which means it will be deleted from localStorage.
 			localStorage.removeItem('jeopardyClueStatus');
 			

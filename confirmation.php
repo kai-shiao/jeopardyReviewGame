@@ -9,6 +9,7 @@ is dedicated to producing in-house, high end, and premium quality macarons using
 print <<<HERE
 <link rel="icon" type="image/x-icon" href="multimedia/AmericanFlag.ico"/>
 <link rel="shortcut icon" type="image/x-icon" href="multimedia/AmericanFlag.ico"/>
+<link href="css/reset.css" rel="stylesheet">
 <link href="css/confirmation/main.css" rel="stylesheet">
 HERE;
 ?>

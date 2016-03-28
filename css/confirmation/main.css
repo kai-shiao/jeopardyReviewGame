@@ -1,5 +1,3 @@
-@import '../reset.css';
-
 /*
 This page(confirmation.php), unlike the jeopardy game pages, has a border surrounding the wrapper element; therefore, the CSS rules set out in 
 'header-and-footer.css' cannot and will not be used.

@@ -7,7 +7,11 @@ is dedicated to producing in-house, high end, and premium quality macarons using
 <meta name="keywords" content="macaron shop, patisserie, all-natural, premium, treats">
 <link rel="icon" type="image/x-icon" href="multimedia/beardedManIcon.ico"/>
 <link rel="shortcut icon" type="image/x-icon" href="multimedia/beardedManIcon.ico"/>
-<link href="http://localhost/jeopardyReviewGame/css/confirmation/main.css" rel="stylesheet">
+<?php
+print <<<HERE
+<link href="css/confirmation/main.css" rel="stylesheet">
+HERE;
+?>
 <title>CONFIRMATION OF SCORE ENTRY INTO DATABASE</title>
 </head>
 <body>
@@ -116,8 +120,11 @@ print <<<HERE
 HERE;
 ?>
 </div>
-
-<script src="http://localhost/jeopardyReviewGame/jquery/jquery-2.2.2.min.js"></script>
-<script src="http://localhost/jeopardyReviewGame/jquery/confirmation.js"></script>
+<?php
+print <<<HERE
+<script src="jquery/jquery-2.2.2.min.js"></script>
+<script src="jquery/confirmation.js"></script>
+HERE;
+?>
 </body>
 </html>

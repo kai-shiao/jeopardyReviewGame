@@ -5,10 +5,10 @@
 <meta name="description" content="Unlike conventional macaron bakeries, The Macaron Man 
 is dedicated to producing in-house, high end, and premium quality macarons using world renowned ingredients.">
 <meta name="keywords" content="macaron shop, patisserie, all-natural, premium, treats">
-<link rel="icon" type="image/x-icon" href="multimedia/beardedManIcon.ico"/>
-<link rel="shortcut icon" type="image/x-icon" href="multimedia/beardedManIcon.ico"/>
 <?php
 print <<<HERE
+<link rel="icon" type="image/x-icon" href="multimedia/AmericanFlag.ico"/>
+<link rel="shortcut icon" type="image/x-icon" href="multimedia/AmericanFlag.ico"/>
 <link href="css/confirmation/main.css" rel="stylesheet">
 HERE;
 ?>

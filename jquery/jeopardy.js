@@ -100,10 +100,12 @@ function gameplay(e){
 		var $determineClass;
 		if ($eventTargetID>=0 && $eventTargetID<5){
 			$eventTarget.css('font-size','75%');
-			$determineClass='category';
+			$determineClass1='magnifiedCategory';
+			$determineClass2='category';
 		} else {
 			$eventTarget.css('font-size','55%');
-			$determineClass='clue';
+			$determineClass1='magnifiedClue';
+			$determineClass2='clue';
 		}
 			
 		var $category0='ANTEBELLUM ERA';
@@ -176,20 +178,19 @@ function gameplay(e){
 					$1000antebellumClue, $1000declarationOfIndependenceClue, $1000usConstitutionClue, $1000colonialAmericaClue, $1000gildedAgeClue
 		];
 		
-		$eventTarget.html('<p>'+$clues[$eventTargetID]+'</p>');			
-		var $htmlMarkup='<div class="magnified"><p class='+'"'+$determineClass+'">'+$clues[$eventTargetID]+'</p></div>';
+		$eventTarget.html('<p>'+$clues[$eventTargetID]+'</p>');	
+		var $htmlMarkup='<div class="'+$determineClass1+'">'+'<span>X</span><p class='+'"'+$determineClass2+'"'+'>'+$clues[$eventTargetID]+'</p></div>';
 		$('body').append($htmlMarkup);
-		$('.magnified').addClass('fadeIntoView');
+		$('.'+$determineClass1).addClass('fadeIntoView');
 		
 		function fadeAndRemove(){
-			$('.magnified').removeClass('fadeIntoView').addClass('fadeFromView');
-			
+			$('.'+$determineClass1).removeClass('fadeIntoView').addClass('fadeFromView');
 			function removeElement(){
-				$('.magnified').remove();
+				$('.'+$determineClass1).remove();
 			}
 			setTimeout(removeElement,2000);
 		}
-		$('.magnified').find('span').eq(0).on('click',fadeAndRemove);
+		$('.'+$determineClass1).first().on('click',fadeAndRemove);
 	}
 	
 	function startCountingTime(){
@@ -510,7 +511,7 @@ function welcomeTheContestant(){
 					$ruleBox+=' \'V.\' IS USED; DO NOT USE \'VERSUS\' OR \'VS.\'</li><li>ANSWERS INVOLVING THE WORD \'AND\' MUST BE SPELLED OUT USING THE';
 				    $ruleBox+=' ENTIRE WORD; OTHERWISE, THE ANSWER WILL BE MARKED AS INCORRECT.</li><li>PLAYERS WHO ATTEMPT TO ARTIFICIALLY INFLATE THEIR';
 					$ruleBox+='PRIZE WINNINGS BY RELOADING THE PAGE FOR ANY ROUND WILL HAVE TO START OVER WITH $0.</li><li>BOTTOM LINE-DON\'T ATTEMPT TO';
-					$ruleBox+='CHEAT!</li></ul></div>';
+					$ruleBox+=' CHEAT!</li></ul></div>';
 					
 				$('body').append($ruleBox);
 				$('#ruleBox').addClass('fadeIntoView');

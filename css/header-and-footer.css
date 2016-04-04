@@ -3,10 +3,75 @@ body{
 	color: rgb(255,215,0);
 	font-family: "Maiandra GD", cursive;
 	font-weight: bold;
+	max-width: 100%;
 	text-align: center;
 }
 
-div#wrapper{
-	margin: 0px auto;
-	width: 1020px;
+@media only screen and (min-width:320px){
+	div#wrapper{
+		margin: 0 auto;
+		max-width: 90%;
+	}
+	
+	footer{
+		font-size: 80%;
+		margin-bottom: 5%;
+		margin-top: 30%;
+	}
+}
+
+@media only screen and (min-width:320px){
+	div#wrapper{
+		margin: 0 auto;
+		max-width: 90%;
+	}
+	
+	footer{
+		font-size: 80%;
+		margin-bottom: 5%;
+		margin-top: 25%;
+	}
+}
+
+@media only screen and (min-width:500px){
+	div#wrapper{
+		margin: 0 auto;
+		max-width: 90%;
+	}
+	
+	footer{
+		font-size: 80%;
+		margin-bottom: 10%;
+		margin-top: 5%;
+	}
+}
+
+@media only screen and (min-width:600px){
+	div#wrapper{
+		margin: 0 auto;
+		max-width: 90%;
+	}
+	
+	footer{
+		margin-bottom: 5%;
+	}
+}
+
+@media only screen and (min-width:700px){
+	footer{
+		font-size: 100%;
+	}
+}
+
+@media only screen and (min-width:800px){
+	div#wrapper{
+		margin: 0 auto;
+		max-width: 90%;
+	}	
+}
+
+@media only screen and (min-width:1020px){
+	div#wrapper{
+		width: 1020px;
+	}	
 }

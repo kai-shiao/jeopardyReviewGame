@@ -3,18 +3,30 @@
 }
 
 @-webkit-keyframes fadeFromView{
-	from {opacity: 1;} 
-	to {opacity: 0;}
+	from {
+		opacity: 1;
+	} 
+	to {
+		opacity: 0;
+	}
 }
 
 @-moz-keyframes fadeFromView{
-	from {opacity: 1;} 
-	to {opacity: 0;}
+	from {
+		opacity: 1;
+	} 
+	to {
+		opacity: 0;
+	}
 }
 
 @keyframes fadeFromView{
-	from {opacity: 1;} 
-	to {opacity: 0;}
+	from {
+		opacity: 1;
+	} 
+	to {
+		opacity: 0;
+	}
 }
 
 .fadeFromView{
@@ -24,18 +36,30 @@
 }
 
 @-webkit-keyframes fadeIntoView{
-	0% {opacity: 0;} 
-	100% {opacity: 1;}
+	0% {
+		opacity: 0;
+	} 
+	100% {
+		opacity: 1;
+	}
 }
 
 @-moz-keyframes fadeIntoView{
-	0% {opacity: 0;} 
-	100% {opacity: 1;}
+	0% {
+		opacity: 0;
+	} 
+	100% {
+		opacity: 1;
+	}
 }
 
 @keyframes fadeIntoView{
-	0% {opacity: 0;} 
-	100% {opacity: 1;}
+	0% {
+		opacity: 0;
+	} 
+	100% {
+		opacity: 1;
+	}
 }
 
 .fadeIntoView{
@@ -44,13 +68,108 @@
 	animation: fadeIntoView 3s 1;
 }
 
-#startNewGame{
-	left: 375px;
-	width: 600px;
+@media only screen and (min-width:320px){
+	header>h1{
+		font-size: 130%;
+	}
+	
+	header>h2{
+		font-size: 100%;		
+	}
+	
+	#startNewGame{
+		left: 5%;
+		width: 60%;
+	}
+	
+	#startNewGame>button{
+		margin: 1% auto;
+	}
+	
+	#nameBox{
+		height: 40%;
+		left: 20%;
+		top: 40%;
+		width: 60%;
+	}
+
+	#nameBox>button{
+		font-size: 70%;
+		margin-bottom: 2.5%;
+		margin-left: 12.5%;
+		margin-top: 2.5%;
+		width: 75%;
+	}
+	
+	#ruleBox{
+		top: 30%;
+	}
+	
+	#ruleBox>p{
+		font-size: 80%;
+		margin: 2.5% auto;
+	}
+		
+	#ruleBox, #ruleBox>p, #ruleBox>ul:first-of-type{
+		margin: 15px auto;
+		width: 80%;
+	}
+	
+	.magnifiedCategory{
+		height: 120px;
+		left: 100px;
+		top: -300px;
+		width: 120px;
+	}
+	
+	.category{
+		line-height: 150%;
+		margin-top: 25%;
+		text-align: center;
+	}
+	
+	#dailyDouble>h1, #wagerRules>h1, #ruleBox>h1, #completedMessage>h1{
+		font-size: 110%;
+	}
+	
+	#nameBox, #ruleBox>ul:first-of-type .magnifiedCategory, #answer{
+		font-size: 90%;
+	}
 }
 
-#startNewGame>button{
-	margin: 10px auto;
+@media only screen and (min-width:600px){
+	#dailyDouble>h1, #wagerRules>h1, #ruleBox>h1, #completedMessage>h1{
+		font-size: 130%;
+	}
+	
+	#ruleBox>p, #ruleBox>ul:first-of-type{
+		font-size: 110%;
+	}
+}
+
+@media only screen and (min-width:1020px){
+	#startNewGame{
+		left: 375px;
+		width: 600px;
+	}
+
+	#startNewGame>button{
+		margin: 10px auto;
+	}
+	
+	#nameBox{
+		height: 150px;
+		left: 250px;
+		top: 200px;
+		width: 500px;
+	}
+	
+	#ruleBox{
+		height: 375px;
+		left: 30%;
+		top: 150px;
+		width: 600px;
+	}
 }
 
 .absolute{
@@ -62,20 +181,6 @@
 #dailyDouble{
 	height: 60px;
 	top: 200px;
-}
-
-#nameBox{
-	height: 150px;
-	left: 420px;
-	top: 200px;
-	width: 500px;
-}
-
-#ruleBox{
-	height: 375px;
-	left: 370px;
-	top: 150px;
-	width: 600px;
 }
 
 #alreadySelectedWarning{
@@ -109,52 +214,58 @@
 	width: 200px;
 }
 
-#startNewGame, #nameBox, #ruleBox, #alreadySelectedWarning, #dailyDouble, #wagerRules, #wagerBox, .magnified, #answer, #completedMessage{
+#startNewGame, #nameBox, #ruleBox, #alreadySelectedWarning, #dailyDouble, #wagerRules, #wagerBox, .magnifiedCategory, #answer, #completedMessage{
 	background-color: rgb(0,0,255);
 	border: 5px solid rgb(0,0,0);
 	border-radius: 10px;
 	color: rgb(255,215,0); 
-	position: absolute;
+	position: relative;
 }
-
-#nameBox, .magnified, #answer{
+/*
+#nameBox, .magnifiedCategory, #answer{
 	font-size: 100%;
-}
+}*/
 
-#alreadySelectedWarning, .magnified, #answer{
+#alreadySelectedWarning, .magnifiedCategory, #answer{
 	padding: 5px;
 }
 
-.magnified, #answer{
+#answer{
 	height: 300px;
 	top: 200px;
 	width: 300px;	
-}
-
-.magnified{
-	left: 400px;
 }
 
 #answer{
 	right: 310px;
 }
 
-#dailyDouble>span:first-child, #ruleBox>span:first-child, #wagerBox>span:first-child, #alreadySelectedWarning>span:first-child, #wagerRules>span:first-child, 
-.magnified>span:first-child, #answer>span:first-child{
+#dailyDouble>span:first-child, 
+#ruleBox>span:first-child, 
+#wagerBox>span:first-child, 
+#alreadySelectedWarning>span:first-child, 
+#wagerRules>span:first-child, 
+.magnifiedCategory>span:first-child, 
+#answer>span:first-child{
 	float: right;
 	margin-bottom: 20px;
 	margin-right: 3px;
 }
 
-#dailyDouble>span:first-child:hover, #ruleBox>span:first-child:hover, #wagerBox>span:first-child:hover, #alreadySelectedWarning>span:first-child:hover, #wagerRules>span:first-child:hover,  
-.magnified>span:first-child:hover, #answer>span:first-child:hover{
+#dailyDouble>span:first-child:hover, 
+#ruleBox>span:first-child:hover, 
+#wagerBox>span:first-child:hover, 
+#alreadySelectedWarning>span:first-child:hover, 
+#wagerRules>span:first-child:hover,  
+.magnifiedCategory>span:first-child:hover, 
+#answer>span:first-child:hover{
 	color: rgb(255,0,0);
 	cursor: pointer;
 }
 
-#dailyDouble>h1, #wagerRules>h1, #ruleBox>h1, #completedMessage>h1{
+/*#dailyDouble>h1, #wagerRules>h1, #ruleBox>h1, #completedMessage>h1{
 	font-size: 150%;
-}
+}*/
 
 div#ruleBox>ul:first-of-type, div#wagerRules>ul:first-of-type, div#answer>ul:first-of-type, div#completedMessage>section>ul:first-of-type{
 	text-align: left;
@@ -164,10 +275,10 @@ div#ruleBox>ul:first-of-type, div#wagerRules>ul:first-of-type, div#answer>ul:fir
 	margin-left: 20px;
 }
 
-div#ruleBox>ul:first-of-type{
+/*div#ruleBox>ul:first-of-type{
 	margin-left: 25px;
 	width: 500px;
-}
+}*/
 
 div#wagerRules>ul:first-of-type{
 	width: 450px;
@@ -217,12 +328,8 @@ as opposed to using advanced pseudo-classes as using p:first-of-type OR p:nth-ch
 the <p> elements used to display clue content from the <p> elements used to display category content. More importantly, this means
 that the different CSS rules would not be applied.
 */
-.magnified>p.clue{
+.magnifiedCategory>p.clue{
 	margin-top: 40px;
-}
-
-.magnified>p.category{
-	margin-top: 120px;
 }
 
 #answer>span:last-of-type{
@@ -276,7 +383,7 @@ button{
 	margin-left: 75px;
 	margin-top: 10px;
 }
-
+/*
 #nameBox>p{
 	margin: 10px auto;
 }
@@ -290,7 +397,7 @@ button{
 #nameBox>button{
 	margin-left: 75px;
 	margin-top: 10px;
-}
+}*/
 
 #wagerBox>button{
 	margin-left: 200px;

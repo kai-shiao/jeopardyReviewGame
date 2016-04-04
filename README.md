@@ -1,4 +1,5 @@
 <h1>jeopardyReviewGame</h1>
+<p>The website can be viewed at <a href="http://www.apushreviewgame.com">http://www.apushreviewgame.com</a>.</p>
 <ul>
 	<li>A simple interactive, jQuery, one-player flashcard review game for AP US History.</li>
 	<li>The review material used in this game came straight from my old course notes while still in high school in Texas.</li>

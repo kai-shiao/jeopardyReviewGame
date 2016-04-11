@@ -117,7 +117,7 @@
 						if ($inputValue===$correctAnswer){
 							$rightOrWrong='<p class="positive">CORRECT!</p>';
 						} else {
-							$rightOrWrong='<p class="negative">INCORRECT!</p><p> THE CORRECT ANSWER IS \'SALUTARY NEGLECT\'.</p>';
+							$rightOrWrong='<p class="negative">INCORRECT!</p><p class="negative"> THE CORRECT ANSWER IS \'SALUTARY NEGLECT\'.</p>';
 							$incorrect=true;
 						}
 						
@@ -136,11 +136,11 @@
 						function delayFade(){
 							$('footer').remove();
 							$('body').append($finalJeopardyInfo).append($floatingFooter);
+							$('#finalJeopardyInfo').addClass('fadeIntoView');
+
 							if ($incorrect===true){
-								$('#finalJeopardyInfo').addClass('expand');
 								$('footer').addClass('incorrect');
 							}
-							$('#finalJeopardyInfo').addClass('fadeIntoView');
 							$('#finalJeopardyInfo').find('span').eq(0).one('click',conclude);
 							
 							function conclude(){
@@ -226,9 +226,9 @@
 	} else {
 		$('section').addClass('hidden');
 		
-		var $htmlMarkup='<div id="startNewGame"><p>YOU CANNOT RE-ATTEMPT DOUBLE JEOPARDY OR ATTEMPT TO START OVER WHEN THE ROUND HAS ALREADY BEEN STARTED! THIS';
-			$htmlMarkup+='IS DONE TO PREVENT PLAYERS FROM ATTEMPTING TO ARTIFICIALLY INFLATE THEIR SCORES. YOU WILL HAVE TO START A NEW GAME.</p>';
-			$htmlMarkup+='<button>START OVER</button></div>';
+		var $htmlMarkup='<div id="startNewGame" class="fadeIntoView"><p>YOU CANNOT RE-ATTEMPT DOUBLE JEOPARDY OR ATTEMPT TO START OVER WHEN THE ROUND HAS';
+			$htmlMarkup+=' ALREADY BEEN STARTED! THIS IS DONE TO PREVENT PLAYERS FROM ATTEMPTING TO ARTIFICIALLY INFLATE THEIR SCORES. YOU WILL HAVE TO';
+			$htmlMarkup+=' START A NEW GAME.</p><button>START OVER</button></div>';
 		$('body').append($htmlMarkup);
 		
 		function redirect(){

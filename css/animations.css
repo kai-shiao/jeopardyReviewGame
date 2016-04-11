@@ -1,0 +1,71 @@
+/*Obviously, .hidden is not an animation; however, it is part of this file because it is part of necessary code to for the desired effects.*/
+
+.hidden{
+	display: none;
+}
+
+@-webkit-keyframes fadeFromView{
+	from {
+		opacity: 1;
+	} 
+	to {
+		opacity: 0;
+	}
+}
+
+@-moz-keyframes fadeFromView{
+	from {
+		opacity: 1;
+	} 
+	to {
+		opacity: 0;
+	}
+}
+
+@keyframes fadeFromView{
+	from {
+		opacity: 1;
+	} 
+	to {
+		opacity: 0;
+	}
+}
+
+.fadeFromView{
+	-moz-animation: fadeFromView 3s 1;
+	-webkit-animation: fadeFromView 3s 1;
+	animation: fadeFromView 3s 1;
+}
+
+@-webkit-keyframes fadeIntoView{
+	0% {
+		opacity: 0;
+	} 
+	100% {
+		opacity: 1;
+	}
+}
+
+@-moz-keyframes fadeIntoView{
+	0% {
+		opacity: 0;
+	} 
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeIntoView{
+	0% {
+		opacity: 0;
+	} 
+	100% {
+		opacity: 1;
+	}
+}
+
+.fadeIntoView{
+	-moz-animation: fadeIntoView 3s 1;
+	-webkit-animation: fadeIntoView 3s 1;
+	animation: fadeIntoView 3s 1;
+}

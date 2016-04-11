@@ -10,7 +10,9 @@ print <<<HERE
 <link rel="icon" type="image/x-icon" href="multimedia/AmericanFlag.ico"/>
 <link rel="shortcut icon" type="image/x-icon" href="multimedia/AmericanFlag.ico"/>
 <link href="css/reset.css" rel="stylesheet">
+<link href="css/header-and-footer.css" rel="stylesheet">
 <link href="css/confirmation/main.css" rel="stylesheet">
+<link href="css/animations.css" rel="stylesheet">
 HERE;
 ?>
 <title>CONFIRMATION OF SCORE ENTRY INTO DATABASE</title>

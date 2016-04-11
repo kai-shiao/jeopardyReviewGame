@@ -1,6 +1,7 @@
 @import '../reset.css';
 @import '../header-and-footer.css';
 @import 'in-game-effects.css';
+@import '../animations.css';
 
 table{
 	border-collapse: collapse;
@@ -8,7 +9,7 @@ table{
 	font-size: 80%;
 }
 
-@media only screen and (min-width:320px){
+@media only screen and (min-width:287px){
 	table{
 		margin: 1% auto;
 	}

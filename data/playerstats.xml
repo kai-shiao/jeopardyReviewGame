@@ -80,4 +80,52 @@
     <doubleJeopardyCorrect>14</doubleJeopardyCorrect>
     <totalCorrect>27</totalCorrect>
   </player>
+  <player name="D">
+    <jeopardyTotalPrize>-200</jeopardyTotalPrize>
+    <doubleJeopardyTotalPrize>-400</doubleJeopardyTotalPrize>
+    <totalPrize>-643</totalPrize>
+    <jeopardyCorrect>0</jeopardyCorrect>
+    <doubleJeopardyCorrect>0</doubleJeopardyCorrect>
+    <totalCorrect>0</totalCorrect>
+  </player>
+  <player name="D">
+    <jeopardyTotalPrize>-200</jeopardyTotalPrize>
+    <doubleJeopardyTotalPrize>-400</doubleJeopardyTotalPrize>
+    <totalPrize>-643</totalPrize>
+    <jeopardyCorrect>0</jeopardyCorrect>
+    <doubleJeopardyCorrect>0</doubleJeopardyCorrect>
+    <totalCorrect>0</totalCorrect>
+  </player>
+  <player name="D">
+    <jeopardyTotalPrize>-200</jeopardyTotalPrize>
+    <doubleJeopardyTotalPrize>-400</doubleJeopardyTotalPrize>
+    <totalPrize>-643</totalPrize>
+    <jeopardyCorrect>0</jeopardyCorrect>
+    <doubleJeopardyCorrect>0</doubleJeopardyCorrect>
+    <totalCorrect>0</totalCorrect>
+  </player>
+  <player name="54">
+    <jeopardyTotalPrize>-200</jeopardyTotalPrize>
+    <doubleJeopardyTotalPrize>-400</doubleJeopardyTotalPrize>
+    <totalPrize>-643</totalPrize>
+    <jeopardyCorrect>0</jeopardyCorrect>
+    <doubleJeopardyCorrect>0</doubleJeopardyCorrect>
+    <totalCorrect>0</totalCorrect>
+  </player>
+  <player name="D">
+    <jeopardyTotalPrize>-200</jeopardyTotalPrize>
+    <doubleJeopardyTotalPrize>-400</doubleJeopardyTotalPrize>
+    <totalPrize>-632</totalPrize>
+    <jeopardyCorrect>0</jeopardyCorrect>
+    <doubleJeopardyCorrect>0</doubleJeopardyCorrect>
+    <totalCorrect>0</totalCorrect>
+  </player>
+  <player name="D">
+    <jeopardyTotalPrize>-200</jeopardyTotalPrize>
+    <doubleJeopardyTotalPrize>-400</doubleJeopardyTotalPrize>
+    <totalPrize>-643</totalPrize>
+    <jeopardyCorrect>0</jeopardyCorrect>
+    <doubleJeopardyCorrect>0</doubleJeopardyCorrect>
+    <totalCorrect>0</totalCorrect>
+  </player>
 </playerSummary>

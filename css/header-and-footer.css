@@ -7,12 +7,20 @@ body{
 	text-align: center;
 }
 
-@media only screen and (min-width:320px){
+@media only screen and (min-width:287px){
 	div#wrapper{
 		margin: 0 auto;
 		max-width: 90%;
 	}
 	
+	header>h1{
+		font-size: 130%;
+	}
+	
+	header>h2{
+		font-size: 100%;		
+	}
+
 	footer{
 		font-size: 80%;
 		margin-bottom: 5%;
@@ -22,8 +30,7 @@ body{
 
 @media only screen and (min-width:320px){
 	div#wrapper{
-		margin: 0 auto;
-		max-width: 90%;
+		min-height: 500px;
 	}
 	
 	footer{
@@ -34,11 +41,6 @@ body{
 }
 
 @media only screen and (min-width:500px){
-	div#wrapper{
-		margin: 0 auto;
-		max-width: 90%;
-	}
-	
 	footer{
 		font-size: 80%;
 		margin-bottom: 10%;
@@ -47,11 +49,6 @@ body{
 }
 
 @media only screen and (min-width:600px){
-	div#wrapper{
-		margin: 0 auto;
-		max-width: 90%;
-	}
-	
 	footer{
 		margin-bottom: 5%;
 	}
@@ -64,10 +61,13 @@ body{
 }
 
 @media only screen and (min-width:800px){
-	div#wrapper{
-		margin: 0 auto;
-		max-width: 90%;
-	}	
+	header>h1{
+		font-size: 170%;
+	}
+	
+	header>h2{
+		font-size: 140%;		
+	}
 }
 
 @media only screen and (min-width:1020px){

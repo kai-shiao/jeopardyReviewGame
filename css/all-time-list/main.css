@@ -1,71 +1,6 @@
 @import '../header-and-footer.css';
 @import '../reset.css';
-
-@-webkit-keyframes fadeFromView{
-	from {
-		opacity: 1;
-	} 
-	to {
-		opacity: 0;
-	}
-}
-
-@-moz-keyframes fadeFromView{
-	from {
-		opacity: 1;
-	} 
-	to {
-		opacity: 0;
-	}
-}
-
-@keyframes fadeFromView{
-	from {
-		opacity: 1;
-	} 
-	to {
-		opacity: 0;
-	}
-}
-
-.fadeFromView{
-	-webkit-animation: fadeFromView 3s 1;
-	-moz-animation: fadeFromView 3s 1;
-	animation: fadeFromView 3s 1;
-}
-
-@-webkit-keyframes fadeIntoView{
-	0% {
-		opacity: 0;
-	} 
-	100% {
-		opacity: 1;
-	}
-}
-
-@-moz-keyframes fadeIntoView{
-	0% {
-		opacity: 0;
-	} 
-	100% {
-		opacity: 1;
-	}
-}
-
-@keyframes fadeIntoView{
-	0% {
-		opacity: 0;
-	} 
-	100% {
-		opacity: 1;
-	}
-}
-
-.fadeIntoView{
-	-webkit-animation: fadeIntoView 3s 1;
-	-moz-animation: fadeIntoView 3s 1;
-	animation: fadeIntoView 3s 1;
-}
+@import '../animations.css';
 
 button:active{
 	-webkit-transform: translate(2.5px,2.5px);
@@ -73,19 +8,123 @@ button:active{
 	transform: translate(2.5px,2.5px);
 }
 
-section{
-	height: 320px;
-	width: 380px;
-	float: left;
-} 
+@media only screen and (min-width:287px){
+	section{
+		margin: 0 auto;
+		width: 80%;
+	}
 
-section:nth-of-type(odd){
-	margin-left: 100px;
-	margin-right: 30px;
+	section>button{
+		border: 3px solid rgb(0,0,0);
+		border-radius: 3px;
+		cursor: pointer;
+		display: block;
+		font-family: "Maindra GD", cursive;
+		font-weight: bold;
+		margin: 10px auto;
+	}
+
+	section>ol{
+		float: left;
+		margin-left: 15px;
+		margin-right: 0px;
+		margin-top: 5px;
+		width: 40%;
+	}
+
+	section>ul{
+		float: left;
+		list-style-type: none;
+		margin-top: 5px;
+		text-align: left;
+		width: 15%;
+	}
+	
+	section{
+		height: 240px;
+	} 
+	
+	section,button,p:first-of-type{
+		font-size: 70%;
+	}
+	
+	p:first-of-type{
+		left: 30%;
+		width: 50%;
+	}
 }
 
-section:nth-of-type(n){
-	margin-bottom: 20px;
+@media only screen and (min-width:400px){
+	section{
+		float: left;
+		width: 45%;
+	}
+}
+
+@media only screen and (min-width:500px){
+	section{
+		height: 300px;
+	}
+	
+	section>ol{
+		margin-left: 20px;
+	}
+	
+	section,button,p:first-of-type{
+		font-size: 80%;
+	}
+}
+
+@media only screen and (min-width:700px){	
+	section{
+		width: 40%;
+	}
+	
+	section:nth-child(even){
+		margin-left: 7.5%;
+	}
+	
+	section,button,p:first-of-type{
+		font-size: 90%;
+	}
+}
+
+@media only screen and (min-width:800px){	
+	section,button,p:first-of-type{
+		font-size: 100%;
+	}
+	
+	section{
+		height: 330px;
+		width: 35%;
+	}	
+	
+	section:nth-child(even){
+		margin-left: 15%;
+	}
+}
+
+@media only screen and (min-width:1020px){
+	section{
+		margin: 0 auto;
+		width: 350px;
+	} 
+	
+	section:nth-child(even){
+		margin-left: 100px;
+	}
+	
+	section>ol{
+		width: 180px;
+	}
+
+	section>ul{
+		float: left;
+		list-style-type: none;
+		margin-top: 5px;
+		text-align: left;
+		width: 100px;
+	}
 }
 
 section>h1{
@@ -93,37 +132,15 @@ section>h1{
 	margin: 10px auto;
 }
 
-section>button{
-	border: 3px solid rgb(0,0,0);
-	border-radius: 3px;
-	font-family: "Maindra GD", cursive;
-	font-weight: bold;
-	clear: both;
-	cursor: pointer;
-	display: block;
-	margin: 10px auto;
-}
-
-section>ol{
-	width: 200px;
-	float: left;
-	margin-left: 50px;
-	margin-top: 5px;
-}
-
-section>ul{
-	list-style-type: none;
-	text-align: left;
-	width: 300px;
-}
-
 p:first-of-type{
 	background-color: rgb(0,0,255);
-	height: 30px;
-	left: 500px;
+	height: 25px;
 	padding: 5px;
 	position: absolute;
-	width: 300px;
+}
+
+li.shiftLeft{
+	margin-left: -5px;
 }
 
 section, p:first-of-type{
@@ -131,6 +148,6 @@ section, p:first-of-type{
 	border-radius: 10px;
 }
 
-footer{
+section>button,footer{
 	clear: both;
 }

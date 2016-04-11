@@ -100,12 +100,18 @@ function gameplay(e){
 	
 	function showClue(){
 		var $determineClass;
+		var $x;
+		
 		if ($eventTargetID>=0 && $eventTargetID<5){
 			$eventTarget.css('font-size','75%');
-			$determineClass='category';
+			$determineClass1='magnifiedCategory';
+			$determineClass2='category';
+			$x='X';
 		} else {
 			$eventTarget.css('font-size','55%');
-			$determineClass='clue';
+			$determineClass1='magnifiedClue';
+			$determineClass2='clue';
+			$x='';
 		}
 			
 		var $category0='RECONSTRUCTION';
@@ -179,20 +185,19 @@ function gameplay(e){
 					$2000reconstructionClue, $2000supremeCourtClue, $2000progressiveEraClue, $2000coldWarClue, $2000greatDepressionClue
 		];
 		
-		$eventTarget.html('<p>'+$clues[$eventTargetID]+'</p>');			
-		var $htmlMarkup='<div class="magnified"><p class='+'"'+$determineClass+'">'+$clues[$eventTargetID]+'</p></div>';
+		$eventTarget.html('<p>'+$clues[$eventTargetID]+'</p>');	
+		var $htmlMarkup='<div class="'+$determineClass1+'">'+'<span>'+$x+'</span><p class='+'"'+$determineClass2+'"'+'>'+$clues[$eventTargetID]+'</p></div>';
 		$('body').append($htmlMarkup);
-		$('.magnified').addClass('fadeIntoView');
+		$('.'+$determineClass1).addClass('fadeIntoView');
 		
 		function fadeAndRemove(){
-			$('.magnified').removeClass('fadeIntoView').addClass('fadeFromView');
-			
+			$('.'+$determineClass1).removeClass('fadeIntoView').addClass('fadeFromView');
 			function removeElement(){
-				$('.magnified').remove();
+				$('.'+$determineClass1).remove();
 			}
 			setTimeout(removeElement,2000);
 		}
-		$('.magnified').find('span').eq(0).one('click',fadeAndRemove);
+		$('.'+$determineClass1).first().on('click',fadeAndRemove);
 	}
 	
 	function startCountingTime(){
@@ -365,14 +370,16 @@ function gameplay(e){
 			}
 
 			function fadeAndRemoveAndCheckGameProgress(){
+				$('.magnifiedClue').removeClass('fadeIntoView').addClass('fadeFromView');
 				$('#answer').removeClass('fadeIntoView').addClass('fadeFromView');
 				
 				function removeElement(){
+					$('.magnifiedClue').remove();
 					$('#answer').remove();
 				}
 				setTimeout(removeElement,2000);
 				
-				checkDoubleJeopardyGameProgress();
+				setTimeout(checkDoubleJeopardyGameProgress,2000);
 			}
 			$('#answer').find('span').eq(0).one('click',fadeAndRemoveAndCheckGameProgress);
 		}
@@ -394,7 +401,7 @@ function gameplay(e){
 		}
 		console.info('COUNT VARIABLE VALUE: '+$count);
 		
-		if ($count===25){
+		if ($count===1){
 			//Overall game stats
 			var $totalPrize=Number(localStorage.getItem('totalPrize'));
 			var $totalCorrect=Number(localStorage.getItem('totalCorrect'));

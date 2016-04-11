@@ -32,19 +32,20 @@
 							console.log($allObservations.length);
 							//Only keep the top 10 values and delete the rest.
 							//Start deleting from the element with an index number of 9 (but not including this element).
-							
+														
 							var $dynamicallyGeneratedNameList=''; //Will be used to hold dynamically generated <li> elements containing top 10 players' names.
 							var $dynamicallyGeneratedStatList='';//Will be used to hold dynamically generated <li> elements containing top 10 observations for that statistic.
 							//Construct the list of the top 10 values using a for-loop.
-							
-							var $dollarSign='';
-							if ($k<=2){
-								$dollarSign='$';
-							}
+														
 							for (var $i=0;$i<$allObservations.length;$i++){
-								$dynamicallyGeneratedStatList+='<li>'+$dollarSign+$allObservations[$i]+'</li>';
 								var $originalIndexPosition=$allObservations.indexOf($allObservations[$i]);
 								$dynamicallyGeneratedNameList+='<li>'+$playerNames[$originalIndexPosition]+'</li>';
+								if ($allObservations[$i]<0){
+									$allObservations[$i]=$allObservations[$i]*(-1);
+									$dynamicallyGeneratedStatList+='<li class="shiftLeft">-$'+$allObservations[$i]+'</li>';
+								} else {
+									$dynamicallyGeneratedStatList+='<li>$'+$allObservations[$i]+'</li>';	
+								}
 							}
 							
 							var $htmlMarkupForNameList='<ol class="fadeIntoView">'+$dynamicallyGeneratedNameList+'</ol>';
@@ -68,7 +69,7 @@ function respondToClickEvent(e){
 	var $eventTargetID=$(e.target).attr('id');
 	
 	function displayMessage(){
-		var $cssTopValue=$eventTarget.offset().top+10; //Ensure that the loading message always appears in the window by finding the event target's top coordinate value.
+		var $cssTopValue=$eventTarget.offset().top-10; //Ensure that the loading message always appears in the window by finding the event target's top coordinate value.
 		$('body').append('<p>DATA UPDATED!</p>');
 		$('body').find('p').addClass('fadeIntoView').css('top',$cssTopValue);
 	
@@ -107,17 +108,16 @@ function respondToClickEvent(e){
 		var $dynamicallyGeneratedNameList=''; 
 		var $dynamicallyGeneratedStatList='';
 								
-		var $dollarSign='';
-		if ($eventTargetID<=2){
-			$dollarSign='$';
-		}
-							
 		for (var $i=0;$i<$allObservations.length;$i++){
-			$dynamicallyGeneratedStatList+='<li class="fadeIntoView">'+$dollarSign+$allObservations[$i]+'</li>';
+			if ($allObservations[$i]<0){
+				$allObservations[$i]=$allObservations[$i]*(-1);
+				$dynamicallyGeneratedStatList+='<li class="fadeIntoView shiftLeft">-$'+$allObservations[$i]+'</li>';
+			} else {
+				$dynamicallyGeneratedStatList+='<li class="fadeIntoView">$'+$allObservations[$i]+'</li>';	
+			}
 			var $originalIndexPosition=$allObservations.indexOf($allObservations[$i]);
 			$dynamicallyGeneratedNameList+='<li class="fadeIntoView">'+$playerNames[$originalIndexPosition]+'</li>';
-		}
-												
+		}												
 		$('body').find('section').eq($eventTargetID).find('ol').html($dynamicallyGeneratedNameList);
 		$('body').find('section').eq($eventTargetID).find('ul').html($dynamicallyGeneratedStatList);
 	}

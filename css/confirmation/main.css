@@ -10,11 +10,41 @@ body{
 	text-align: center;
 }
 
+@media only screen and (min-width:287px){
+	p,button,footer{
+		font-size:70%;
+	}
+	button{
+		width: 200px;
+	}
+}
+
+@media only screen and (min-width:500px){
+	p,button,footer{
+		font-size:80%;
+	}
+}
+
+@media only screen and (min-width:700px){
+	p,button,footer{
+		font-size:90%;
+	}
+	button{
+		width: 300px;
+	}
+}
+
+@media only screen and (min-width:1020px){
+	p,button,footer{
+		font-size:100%;
+	}
+}
+
 #wrapper{
 	border: 5px solid rgb(0,0,0);
 	border-radius: 10px;
 	margin: 20px auto;
-	width: 800px;
+	width: 80%;
 }
 
 #wrapper, #incomplete{
@@ -23,12 +53,8 @@ body{
 }
 
 #wrapper>p{
-	margin-left: 100px;
-	width: 600px;
-}
-
-#wrapper>p:nth-of-type(2){
-	margin-top: 40px;
+	margin: 40px auto;
+	width: 75%;
 }
 
 button{
@@ -53,72 +79,6 @@ button:active{
 footer{
 	margin-bottom: 20px;
 	margin-top: 80px;
-}
-
-@-webkit-keyframes fadeFromView{
-	from {
-		opacity: 1;
-	} 
-	to {
-		opacity: 0;
-	}
-}
-
-@-moz-keyframes fadeFromView{
-	from {
-		opacity: 1;
-	} 
-	to {
-		opacity: 0;
-	}
-}
-
-@keyframes fadeFromView{
-	from {
-		opacity: 1;
-	} 
-	to {
-		opacity: 0;
-	}
-}
-
-.fadeFromView{
-	-moz-animation: fadeFromView 3s 1;
-	-webkit-animation: fadeFromView 3s 1;
-	animation: fadeFromView 3s 1;
-}
-
-@-webkit-keyframes fadeIntoView{
-	0% {
-		opacity: 0;
-	} 
-	100% {
-		opacity: 1;
-	}
-}
-
-@-moz-keyframes fadeIntoView{
-	0% {
-		opacity: 0;
-	} 
-	100% {
-		opacity: 1;
-	}
-}
-
-@keyframes fadeIntoView{
-	0% {
-		opacity: 0;
-	} 
-	100% {
-		opacity: 1;
-	}
-}
-
-.fadeIntoView{
-	-moz-animation: fadeIntoView 3s 1;
-	-webkit-animation: fadeIntoView 3s 1;
-	animation: fadeIntoView 3s 1;
 }
 
 #incomplete>span{

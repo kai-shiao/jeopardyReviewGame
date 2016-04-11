@@ -98,14 +98,18 @@ function gameplay(e){
 	
 	function showClue(){
 		var $determineClass;
+		var $x;
+		
 		if ($eventTargetID>=0 && $eventTargetID<5){
 			$eventTarget.css('font-size','75%');
 			$determineClass1='magnifiedCategory';
 			$determineClass2='category';
+			$x='X';
 		} else {
 			$eventTarget.css('font-size','55%');
 			$determineClass1='magnifiedClue';
 			$determineClass2='clue';
+			$x='';
 		}
 			
 		var $category0='ANTEBELLUM ERA';
@@ -179,7 +183,7 @@ function gameplay(e){
 		];
 		
 		$eventTarget.html('<p>'+$clues[$eventTargetID]+'</p>');	
-		var $htmlMarkup='<div class="'+$determineClass1+'">'+'<span>X</span><p class='+'"'+$determineClass2+'"'+'>'+$clues[$eventTargetID]+'</p></div>';
+		var $htmlMarkup='<div class="'+$determineClass1+'">'+'<span>'+$x+'</span><p class='+'"'+$determineClass2+'"'+'>'+$clues[$eventTargetID]+'</p></div>';
 		$('body').append($htmlMarkup);
 		$('.'+$determineClass1).addClass('fadeIntoView');
 		
@@ -300,7 +304,7 @@ function gameplay(e){
 				localStorage.setItem('jeopardyCorrect',$updateCorrectCount);
 				console.info('TOTAL CORRECT:'+$updateCorrectCount);
 			} else {
-				$result='<p class="fadeIntoView negative">INCORRECT!</p><p class="fadeIntoView">THE CORRECT ANSWER IS</p>';
+				$result='<p class="fadeIntoView negative">INCORRECT!</p><p class="fadeIntoView negative">THE CORRECT ANSWER IS</p>';
 				$result+='<p class="fadeIntoView negative">'+'\''+$answers[$eventTargetID]+'\'.</p>';
 			}
 			
@@ -339,14 +343,7 @@ function gameplay(e){
 			var $update='<p class="fadeIntoView" >CURRENT GAME STATS:</p><ul class="fadeIntoView"><li>TOTAL PRIZE WINNINGS:<span>'+$sign+'$'+$displayScore+'</span></li>';
 			    $update+='<li>TOTAL ANSWERED THIS ROUND: '+'<span>'+$updatedAnsweredCount+'</span>'+'</li>';
 				$update+='<li>REMAINING UNANSWERED: '+'<span>'+$remainingUnanswered+'</span>'+'</li>';
-			
-			$('.magnified').removeClass('fadeIntoView').addClass('fadeFromView');
-			
-			function removeElement(){
-				$('.magnified').remove();
-			}
-			setTimeout(removeElement,2000);
-			
+						
 			console.log($totalPrize);
 			console.log($updatedAnsweredCount);
 			console.log($remainingUnanswered);
@@ -360,9 +357,11 @@ function gameplay(e){
 			}
 						
 			function fadeAndRemoveAndCheckGameProgress(){
+				$('.magnifiedClue').removeClass('fadeIntoView').addClass('fadeFromView');
 				$('#answer').removeClass('fadeIntoView').addClass('fadeFromView');
 				
 				function removeElement(){
+					$('.magnifiedClue').remove();
 					$('#answer').remove();
 				}
 				setTimeout(removeElement,2000);
@@ -389,7 +388,7 @@ function gameplay(e){
 			$i++;
 		}
 		console.info('COUNT VARIABLE VALUE: '+$count);
-		if ($count===25){
+		if ($count===1){
 			//The end of the first round means there is no more need for the array $jeopardyClueStatus, which means it will be deleted from localStorage.
 			localStorage.removeItem('jeopardyClueStatus');
 			
@@ -596,6 +595,11 @@ function welcomeTheContestant(){
 (function(){
 	$(document).ready(welcomeTheContestant);
 	$('table').on('click',gameplay);
+	
+	function giveInfo(){
+		console.log($(window).width());
+	}
+	$(window).on('resize',giveInfo);
 	//Notice that the if-else block here is not needed for the first round; this is because every time the player attempts to reload the page, he/she is
 	//forced to start over and all the game stats are automatically set to 0.
 })();

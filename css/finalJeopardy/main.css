@@ -1,86 +1,186 @@
-@import '../header-and-footer.css';
 @import '../reset.css';
+@import '../header-and-footer.css';
+@import '../animations.css';
 
-.hidden{
-	display: none;
-}
+@media only screen and (min-width:287px){
+	#startNewGame>p, #wagerBox>p,#wrapper>section,
+	#finalJeopardyInfo>p, #finalJeopardyInfo>ul, 
+	#showGameStats>section>ul, #showGameStats>form>p,
+	#showGameStats>form>button,#showGameStats>button:last-child,
+	#startNewGame>button, #wagerBox>button{
+		font-size: 70%;
+	}
+	
+	section>button{
+		margin: 10px auto;
+	}
+	
+	#showGameStats>form{
+		margin: 0 auto;
+		width: 80%;
+	}
+	
+	#showGameStats>form>button{
+		margin: 0 auto;
+	}
+	
+	#startNewGame>button, #wagerBox>button{	
+		margin: 1% auto;
+	}
+	
+	#finalJeopardyInfo>h1{
+		font-size: 100%;
+	}
 
-@-webkit-keyframes fadeFromView{
-	from {
-		opacity: 1;
-	} 
-	to {
-		opacity: 0;
+	#wagerBox,#finalJeopardyInfo,#showGameStats,#startNewGame{
+		top: -300px;
+	}
+	
+	#showGameStats>section{
+		margin: 0 auto;
+		width: 80%;
+	}
+	
+	#showGameStats>button:last-of-type{
+		margin: 10px auto;
+		width: 250px;
 	}
 }
 
-@-moz-keyframes fadeFromView{
-	from {
-		opacity: 1;
-	} 
-	to {
-		opacity: 0;
+@media only screen and (min-width:500px){
+	#showGameStats>section, #finalJeopardyInfo>p,#finalJeopardyInfo>ul,#showGameStats>section>ul>li, 
+	#showGameStats>form>p,#showGameStats>form>button,#showGameStats>button:last-child{
+		font-size: 80%;
+	}
+	
+	#finalJeopardyInfo>ul{
+		margin-left: 10%;
+		width: 70%;
+	}
+}
+@media only screen and (min-width:700px){
+	#wagerBox, #finalJeopardyInfo, #showGameStats{
+		left: 10%;
+		width: 80%;
+	}
+	
+	#wagerBox>p, #wagerBox>button, #finalJeopardyInfo>p,#finalJeopardyInfo>ul,
+	#showGameStats>section>ul,#showGameStats>form>p,#showGameStats>form>button,
+	#showGameStats>button:last-child{
+		font-size: 90%;
+	}
+	
+	#finalJeopardyInfo>ul{
+		width: 80%;
 	}
 }
 
-@keyframes fadeFromView{
-	from {
-		opacity: 1;
-	} 
-	to {
-		opacity: 0;
+@media only screen and (min-width:800px){
+	#startNewGame{
+		left: 10%;
+		width: 80%;
+	}
+	
+	#showGameStats>section, #startNewGame>p, #startNewGame>button{
+		font-size: 90%;
+	}
+	
+	#wagerBox, #finalJeopardyInfo, #showGameStats{
+		left: 20%;
+		width: 60%;
 	}
 }
 
-.fadeFromView{
-	-webkit-animation: fadeFromView 3s 1;
-	-moz-animation: fadeFromView 3s 1;
-	animation: fadeFromView 3s 1;
-}
+@media only screen and (min-width:1020px){	
+	#startNewGame{
+		left: 375px;
+		width: 600px;
+	}
+	
+	#wrapper>section, #startNewGame>p, #startNewGame>button{
+		font-size: 100%;
+	}
+	
+	#wagerBox, #finalJeopardyInfo, #showGameStats, #startNewGame{
+		top: -400px;
+	}
+	
+	#wagerBox{
+		height: 200px;
+		left: 425px;
+		width: 500px;
+	}
+	
+	#wagerBox>button{
+		margin-left: 225px;
+		margin-top: 5px;
+	}
+	
+	#wrapper>section{
+		height: 300px;
+		margin-left: 200px;
+		width: 600px;
+	}
 
-@-webkit-keyframes fadeIntoView{
-	0% {
-		opacity: 0;
-	} 
-	100% {
-		opacity: 1;
+	section>span:first-of-type{
+		margin-left: 2px;
+	}
+
+	section>p:first-child{
+		margin: 15px auto;
+		width: 500px;
+	}
+
+	section>p:nth-child(2){
+		margin-bottom: 0px;
+		margin-top: 15px;
+	}
+	
+	#finalJeopardyInfo{
+		height: 250px;
+		left: 375px;
+		width: 600px;
+	}
+	
+	#finalJeopardyInfo>ul{
+		margin-left: 20px;
+		width: 500px;
+	}
+	
+	#showGameStats{
+		height: 350px;
+		left: 375px;
+		width: 600px;
+	}
+
+	#showGameStats>section>ul{
+		width: 250px;
+	}
+
+	#showGameStats>section{
+		float: left;
+		width: 280px;
+	}
+	
+	#showGameStats>form{
+		margin: 0 auto;
+		width: 480px;
+	}
+	
+	#showGameStats>button:last-of-type{
+		left: 20px;
+		margin-bottom: 10px;
+		margin-top: 10px;
+		position: relative;
+	}
+	
+	section>button{
+		margin-left: 225px;
+		margin-top: 10px;
 	}
 }
 
-@-moz-keyframes fadeIntoView{
-	0% {
-		opacity: 0;
-	} 
-	100% {
-		opacity: 1;
-	}
-}
-
-@keyframes fadeIntoView{
-	0% {
-		opacity: 0;
-	} 
-	100% {
-		opacity: 1;
-	}
-}
-
-.fadeIntoView{
-	-webkit-animation: fadeIntoView 3s 1;
-	-moz-animation: fadeIntoView 3s 1;
-	animation: fadeIntoView 3s 1;
-}
-
-#startNewGame{
-	left: 375px;
-	width: 600px;
-}
-
-#startNewGame>button{
-	margin: 10px auto;
-}
-
-#wagerBox>button:active, section>button:active, #startNewGame>button:active, #showGameStats>button:active{
+#wagerBox>button:active, #answer>button:active, section>button:active, #startNewGame>button:active, #showGameStats>button:active{
 	-ms-transform: translate(2.5px,2.5px); /* IE vendor prefix*/
     -webkit-transform: translate(2.5px,2.5px); /* Chrome, Safari, Opera vendor prefixes*/
     transform: translate(2.5px,2.5px); 
@@ -98,13 +198,7 @@
 }
 
 #startNewGame, #wagerBox, #finalJeopardyInfo, #showGameStats{
-	position: absolute;
-}
-
-#wagerBox{
-	height: 200px;
-	left: 425px;
-	width: 500px;
+	position: relative;
 }
 
 #wagerBox>p:first-of-type{
@@ -113,13 +207,6 @@
 
 #wagerBox>span:nth-of-type(2){
 	color: rgb(255,215,0);
-}
-
-#finalJeopardyInfo{
-	height: 250px;
-	left: 375px;
-	top: 150px;
-	width: 600px;
 }
 
 #finalJeopardyInfo>span:first-of-type,#wagerBox>span:first-of-type{
@@ -133,75 +220,17 @@
 	cursor: pointer;
 }
 
-#finalJeopardyInfo>h1{
-	font-size: 150%;
-}
-
 #finalJeopardyInfo>ul, #showGameStats>section>ul{
+	margin-bottom: 10px;
 	text-align: left;
-}
-
-#finalJeopardyInfo>ul{
-	margin-left: 20px;
-	width: 500px;
-}
-
-#showGameStats{
-	height: 300px;
-	left: 375px;
-	width: 600px;
-}
-
-#showGameStats>section>ul{
-	width: 250px;
 }
 
 #showGameStats>h1{
 	font-size: 150%;
 }
 
-#showGameStats>section{
-	float: left;
-	width: 280px;
-}
-
 #showGameStats>section>h1{
 	font-size: 120%;
-}
-
-#showGameStats>form{
-	margin: 0 auto;
-	width: 480px;
-}
-
-#showGameStats>form>button{
-	margin-left: 10px;
-}
-
-#showGameStats>button:last-of-type{
-	left: 130px;
-	position: absolute;
-	top: 250px;
-}
-
-#wrapper>section{
-	height: 300px;
-	margin-left: 200px;
-	width: 600px;
-}
-
-section>span:first-of-type{
-	margin-left: 2px;
-}
-
-section>p:first-child{
-	margin: 15px auto;
-	width: 500px;
-}
-
-section>p:nth-child(2){
-	margin-bottom: 0px;
-	margin-top: 15px;
 }
 
 section>span:nth-of-type(2), .positive{
@@ -220,9 +249,8 @@ section>span:nth-of-type(2), .positive{
 input{
 	margin:0;
 	text-align: center;
-	width: 250px;
+	width: 200px;
 }
-
 
 input, button{
 	border: 3px solid rgb(0,0,0);
@@ -239,16 +267,6 @@ input:focus{
 button{
 	cursor: pointer;
 	display: block;
-}
-
-#wagerBox>button{
-	margin-left: 225px;
-	margin-top: 5px;
-}
-
-section>button{
-	margin-left: 225px;
-	margin-top: 10px;
 }
 
 footer{

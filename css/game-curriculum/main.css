@@ -1,71 +1,6 @@
-@import '../header-and-footer.css';
 @import '../reset.css';
-
-@-webkit-keyframes fadeFromView{
-	from {
-		opacity: 1;
-	} 
-	to {
-		opacity: 0;
-	}
-}
-
-@-moz-keyframes fadeFromView{
-	from {
-		opacity: 1;
-	} 
-	to {
-		opacity: 0;
-	}
-}
-
-@keyframes fadeFromView{
-	from {
-		opacity: 1;
-	} 
-	to {
-		opacity: 0;
-	}
-}
-
-.fadeFromView{
-	-webkit-animation: fadeFromView 3s 1;
-	-moz-animation: fadeFromView 3s 1;
-	animation: fadeFromView 3s 1;
-}
-
-@-webkit-keyframes fadeIntoView{
-	0% {
-		opacity: 0;
-	} 
-	100% {
-		opacity: 1;
-	}
-}
-
-@-moz-keyframes fadeIntoView{
-	0% {
-		opacity: 0;
-	} 
-	100% {
-		opacity: 1;
-	}
-}
-
-@keyframes fadeIntoView{
-	0% {
-		opacity: 0;
-	} 
-	100% {
-		opacity: 1;
-	}
-}
-
-.fadeIntoView{
-	-webkit-animation: fadeIntoView 3s 1;
-	-moz-animation: fadeIntoView 3s 1;
-	animation: fadeIntoView 3s 1;
-}
+@import '../header-and-footer.css';
+@import '../animations.css';
 
 header{
 	margin: 20px auto;
@@ -73,6 +8,81 @@ header{
 
 nav{
 	color: rgb(0,0,0);
+	left: 2.5%;
+	position: absolute;
+}
+
+@media only screen and (min-width:287px){
+	nav{
+		width: 90%;
+	}
+	
+	nav>ul>li:hover>ul>li{
+		margin-left: -20%;
+	}
+	
+	#wrapper>section{
+		margin: 0 auto;
+		width: 80%;
+	}
+	
+	table>tr:first-child>td{
+		font-size: 120%;
+	}
+	
+	table>tbody>tr:nth-child(n+2)>th,table>tbody>tr:nth-child(n+2)>td{
+		font-size: 80%;
+	}
+	
+	table>tbody>th,table>tbody>td{
+		height: 30px;
+		overflow: scroll;
+	}
+	
+	footer{
+		margin-top: 50%;
+	}
+}
+
+@media only screen and (min-width:400px){
+	nav>ul>li:hover>ul>li{
+		margin-left: 10%;
+	}
+	
+	footer{
+		margin-top: 40%;
+	}
+}
+
+@media only screen and (min-width:500px){
+	nav>ul>li:hover>ul>li{
+		margin-left: 20%;
+	}
+	
+	footer{
+		margin-top: 30%;
+	}
+}
+
+@media only screen and (min-width:700px){
+	nav>ul>li:hover>ul>li{
+		margin-left: 50%;
+	}
+	
+	table>tbody>tr:nth-child(n+2)>th,table>tbody>tr:nth-child(n+2)>td{
+		font-size: 90%;
+	}
+	
+	footer{
+		margin-top: 20%;
+	}
+
+}
+
+@media only screen and (min-width:900px){
+	table>tbody>tr:nth-child(n+2)>th,table>tbody>tr:nth-child(n+2)>td{
+		font-size: 100%;
+	}
 }
 
 nav>ul>li, nav>ul>li>ul>li{
@@ -96,8 +106,8 @@ nav>ul>li>ul>li{
 }
 
 nav>ul>li:hover>ul>li{
+	background-color: rgb(0,0,255);
 	display: block;
-	margin-left: 480px;
 	text-align: center;
 	width: 200px;
 }
@@ -120,37 +130,44 @@ a{
 	text-decoration: none;
 }
 
-section{
-	margin: 0 auto;
-	width: 600px;
+nav>ul>li:hover>ul>li>a:hover,a:hover{
+	color: rgb(255,255,255);
 }
 
-section>section>table{
+@media only screen and (min-width:1020px){
+	section{
+		width: 600px;
+	}
+}
+
+section>table{
 	border: 3px solid rgb(0,0,0);
 	border-collapse: collapse;
 	border-radius: 1px;
-	margin: 40px auto;
+	position: relative;
+	top: 150px;
 }
 
-section>section>table>tbody>tr:first-of-type>td{
+/*section>section>table>tbody>tr:first-of-type>td{
 	font-size: 150%;
 }
-
-section>section>table>tbody>tr{
+*/
+section>table>tbody>tr,section>table>tbody>tr>th:nth-child(2),section>table>tbody>tr>td:nth-child(2){
 	border: 3px solid rgb(0,0,0);
 	border-radius: 1px;
+	padding: 5px;
 }
 
-section>section>table>tbody>tr>th, section>section>table>tbody>tr>td{
-	padding-bottom: 15px;
-	padding-top: 15px;	
+/*section>section>table>tbody>tr>th, section>section>table>tbody>tr>td{
+	padding-bottom: 5px;
+	padding-top: 5px;	
 }
 
 section>section>table>tbody>tr>th:nth-child(2), section>section>table>tbody>tr>td:nth-child(2){
 	border-left: 3px solid rgb(0,0,0);
-	padding-left: 10px;
-	padding-right: 10px;
-}
+	padding-left: 5px;
+	padding-right: 5px;
+}*/
 
 section>section>table>tbody>tr>td:nth-child(2){
 	text-align: left;

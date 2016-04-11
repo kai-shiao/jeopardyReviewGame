@@ -1,243 +1,30 @@
-.hidden{
-	display: none;
-}
-
-@-webkit-keyframes fadeFromView{
-	from {
-		opacity: 1;
-	} 
-	to {
-		opacity: 0;
-	}
-}
-
-@-moz-keyframes fadeFromView{
-	from {
-		opacity: 1;
-	} 
-	to {
-		opacity: 0;
-	}
-}
-
-@keyframes fadeFromView{
-	from {
-		opacity: 1;
-	} 
-	to {
-		opacity: 0;
-	}
-}
-
-.fadeFromView{
-	-webkit-animation: fadeFromView 3s 1;
-	-moz-animation: fadeFromView 3s 1;
-	animation: fadeFromView 3s 1;
-}
-
-@-webkit-keyframes fadeIntoView{
-	0% {
-		opacity: 0;
-	} 
-	100% {
-		opacity: 1;
-	}
-}
-
-@-moz-keyframes fadeIntoView{
-	0% {
-		opacity: 0;
-	} 
-	100% {
-		opacity: 1;
-	}
-}
-
-@keyframes fadeIntoView{
-	0% {
-		opacity: 0;
-	} 
-	100% {
-		opacity: 1;
-	}
-}
-
-.fadeIntoView{
-	-webkit-animation: fadeIntoView 3s 1;
-	-moz-animation: fadeIntoView 3s 1;
-	animation: fadeIntoView 3s 1;
-}
-
-@media only screen and (min-width:320px){
-	header>h1{
-		font-size: 130%;
-	}
-	
-	header>h2{
-		font-size: 100%;		
-	}
-	
-	#startNewGame{
-		left: 5%;
-		width: 60%;
-	}
-	
-	#startNewGame>button{
-		margin: 1% auto;
-	}
-	
-	#nameBox{
-		height: 40%;
-		left: 20%;
-		top: 40%;
-		width: 60%;
-	}
-
-	#nameBox>button{
-		font-size: 70%;
-		margin-bottom: 2.5%;
-		margin-left: 12.5%;
-		margin-top: 2.5%;
-		width: 75%;
-	}
-	
-	#ruleBox{
-		top: 30%;
-	}
-	
-	#ruleBox>p{
-		font-size: 80%;
-		margin: 2.5% auto;
-	}
-		
-	#ruleBox, #ruleBox>p, #ruleBox>ul:first-of-type{
-		margin: 15px auto;
-		width: 80%;
-	}
-	
-	.magnifiedCategory{
-		height: 120px;
-		left: 100px;
-		top: -300px;
-		width: 120px;
-	}
-	
-	.category{
-		line-height: 150%;
-		margin-top: 25%;
-		text-align: center;
-	}
-	
-	#dailyDouble>h1, #wagerRules>h1, #ruleBox>h1, #completedMessage>h1{
-		font-size: 110%;
-	}
-	
-	#nameBox, #ruleBox>ul:first-of-type .magnifiedCategory, #answer{
-		font-size: 90%;
-	}
-}
-
-@media only screen and (min-width:600px){
-	#dailyDouble>h1, #wagerRules>h1, #ruleBox>h1, #completedMessage>h1{
-		font-size: 130%;
-	}
-	
-	#ruleBox>p, #ruleBox>ul:first-of-type{
-		font-size: 110%;
-	}
-}
-
-@media only screen and (min-width:1020px){
-	#startNewGame{
-		left: 375px;
-		width: 600px;
-	}
-
-	#startNewGame>button{
-		margin: 10px auto;
-	}
-	
-	#nameBox{
-		height: 150px;
-		left: 250px;
-		top: 200px;
-		width: 500px;
-	}
-	
-	#ruleBox{
-		height: 375px;
-		left: 30%;
-		top: 150px;
-		width: 600px;
-	}
-}
-
-.absolute{
-	left: 500px;
+.absolute{ /*Used for setting appearance of the HTML footer element during gameplay.*/
 	position: absolute;
-	top: 400px;
+	top: 100%;
 }
 
-#dailyDouble{
-	height: 60px;
-	top: 200px;
-}
-
-#alreadySelectedWarning{
-	height: 100px;
-	top: 300px;
-}
-
-#wagerRules{
-	height: 150px;
-	left: 420px;
-	top: 200px;
-	width: 500px;	
-}
-
-#wagerBox{
-	height: 225px;
-	left: 420px;
-	top: 200px;
-	width: 500px;	
-}
-
-#completedMessage{
-	left: 425px;
-	height: 330px;
-	top: 150px;
-	width: 500px;
-}
-
-#dailyDouble, #alreadySelectedWarning{
-	left: 500px;
-	width: 200px;
-}
-
-#startNewGame, #nameBox, #ruleBox, #alreadySelectedWarning, #dailyDouble, #wagerRules, #wagerBox, .magnifiedCategory, #answer, #completedMessage{
+#startNewGame, #nameBox, #ruleBox, #alreadySelectedWarning, 
+#dailyDouble, #wagerRules, #wagerBox, .magnifiedCategory, #completedMessage{
 	background-color: rgb(0,0,255);
 	border: 5px solid rgb(0,0,0);
 	border-radius: 10px;
 	color: rgb(255,215,0); 
 	position: relative;
 }
-/*
-#nameBox, .magnifiedCategory, #answer{
-	font-size: 100%;
-}*/
 
-#alreadySelectedWarning, .magnifiedCategory, #answer{
+.magnifiedClue,
+#answer, 
+#dailyDouble{
+	background-color: rgb(0,0,255);
+	border: 5px solid rgb(0,0,0);
+	border-radius: 10px;
+	color: rgb(255,215,0); 
+}
+
+#alreadySelectedWarning, 
+.magnifiedCategory, 
+#answer{
 	padding: 5px;
-}
-
-#answer{
-	height: 300px;
-	top: 200px;
-	width: 300px;	
-}
-
-#answer{
-	right: 310px;
 }
 
 #dailyDouble>span:first-child, 
@@ -246,6 +33,7 @@
 #alreadySelectedWarning>span:first-child, 
 #wagerRules>span:first-child, 
 .magnifiedCategory>span:first-child, 
+.magnifiedClue>span:first-child, 
 #answer>span:first-child{
 	float: right;
 	margin-bottom: 20px;
@@ -258,46 +46,25 @@
 #alreadySelectedWarning>span:first-child:hover, 
 #wagerRules>span:first-child:hover,  
 .magnifiedCategory>span:first-child:hover, 
+.magnifiedClue>span:first-child:hover, 
 #answer>span:first-child:hover{
 	color: rgb(255,0,0);
 	cursor: pointer;
 }
 
-/*#dailyDouble>h1, #wagerRules>h1, #ruleBox>h1, #completedMessage>h1{
-	font-size: 150%;
-}*/
-
-div#ruleBox>ul:first-of-type, div#wagerRules>ul:first-of-type, div#answer>ul:first-of-type, div#completedMessage>section>ul:first-of-type{
+div#ruleBox>ul:first-of-type, 
+div#wagerRules>ul:first-of-type, 
+div#completedMessage>section>ul:first-of-type{
 	text-align: left;
-}
-
-#answer>ul:first-of-type{
-	margin-left: 20px;
-}
-
-/*div#ruleBox>ul:first-of-type{
-	margin-left: 25px;
-	width: 500px;
-}*/
-
-div#wagerRules>ul:first-of-type{
-	width: 450px;
 }
 
 #completedMessage>section{
 	float: left;
-	width: 240px;
+	width: 45%;
 }
 
-#completedMessage>section>h1{
-	font-size: 120%;
-}
-
-#completedMessage>section>#exception{
-	margin-top: 40px;
-}
-
-#completedMessage>section>ul>li>.positive,#completedMessage>section>ul>li>.negative{
+#completedMessage>section>ul>li>.positive,
+#completedMessage>section>ul>li>.negative{
 	margin-left: 5px;
 }
 
@@ -317,9 +84,13 @@ li{
 	margin: 5px auto;
 }
 
-#nameBox>button:active, #answer>button:active, #startNewGame>button:active, #completedMessage>button:active{ /*Make an animated button.*/
-	-ms-transform: translate(2.5px,2.5px); /* IE vendor prefix*/
-    -webkit-transform: translate(2.5px,2.5px); /* Chrome, Safari, Opera vendor prefixes*/
+/*Make an animated button.*/
+#nameBox>button:active, 
+#answer>button:active, 
+#startNewGame>button:active, 
+#completedMessage>button:active{ 
+	-ms-transform: translate(2.5px,2.5px); 
+    -webkit-transform: translate(2.5px,2.5px); 
     transform: translate(2.5px,2.5px); 
 }
 
@@ -328,15 +99,12 @@ as opposed to using advanced pseudo-classes as using p:first-of-type OR p:nth-ch
 the <p> elements used to display clue content from the <p> elements used to display category content. More importantly, this means
 that the different CSS rules would not be applied.
 */
-.magnifiedCategory>p.clue{
-	margin-top: 40px;
-}
 
 #answer>span:last-of-type{
 	margin-left: 3px;
 }
 
-#answer>p:first-of-type, #wagerBox>p:first-of-type{
+#wagerBox>p:first-of-type{
 	margin-top: 20px;
 }
 
@@ -352,7 +120,9 @@ that the different CSS rules would not be applied.
 	margin-left: 3px;
 }
 
-#answer>p:nth-of-type(5),#answer>ul>li:nth-child(2)>span,#answer>ul>li:nth-child(3)>span{
+#answer>p:nth-of-type(5),
+#answer>ul>li:nth-child(2)>span,
+#answer>ul>li:nth-child(3)>span{
 	color: rgb(0,0,0);
 }
 
@@ -374,37 +144,332 @@ button{
 	display: block;
 }
 
-#answer>input{
-	margin-top: 0px;
-	width: 200px;
-}
-
-#answer>button{
-	margin-left: 75px;
-	margin-top: 10px;
-}
-/*
-#nameBox>p{
-	margin: 10px auto;
-}
-
-#nameBox>input{
-	margin-left: -10px;
-	text-align: center;
-	width: 180px;
-}
-
-#nameBox>button{
-	margin-left: 75px;
-	margin-top: 10px;
-}*/
-
-#wagerBox>button{
-	margin-left: 200px;
-	margin-top: 10px;
-	width: 100px;
-}
-
 #alreadySelectedWarning>p{
 	margin-top: 20px;
+}
+
+@media only screen and (min-width:287px){
+	#nameBox, #ruleBox{
+		top: -40px;
+	}
+	
+	#nameBox>button{
+		margin: 2.5% auto;
+		width: 75%;
+	}
+	
+	#dailyDouble>h1, #wagerRules>h1, #ruleBox>h1, #completedMessage>h1, #completedMessage>section>h1{
+		font-size: 110%;
+	}
+	
+	.magnifiedCategory{
+		height: 120px;
+		left: 100px;
+		top: -300px;
+		width: 120px;
+	}
+	
+	.magnifiedClue{
+		position: absolute;
+		top: 15%;
+	}
+	
+	.magnifiedClue, #answer{
+		font-size: 90%;
+	}
+	
+	.magnifiedClue>.clue{
+		margin-top: 10%;
+	}
+
+	#answer>button{
+		margin: 2% auto;
+	}
+	
+	#answer{
+		top: -400px;
+		position: relative;
+	}
+	
+	#dailyDouble{
+		font-size: 70%;		
+		height: 40px;
+		top: -300px;
+	}
+	
+	#wagerRules, #wagerBox{
+		top: -300px;
+	}
+	
+	#wagerBox>button{
+		margin: 5px auto;
+	}
+		
+	#wagerBox>p, #ruleBox>p{
+		font-size: 80%;
+		margin: 2.5% auto;
+	}
+	
+	#startNewGame>p,#nameBox>button, #ruleBox>button, #wagerBox>button, #answer>button, #startNewGame>button{
+		font-size: 70%;
+	}
+	
+	#startNewGame>button{
+		margin: 1% auto;
+	}
+}
+
+@media only screen and (min-width:320px){	
+	#startNewGame{
+		top: -300px;
+	}
+
+	#nameBox{
+		left: 20%;
+		width: 60%;
+	}
+	
+	#ruleBox{
+		top: 40px;
+	}
+
+	#ruleBox>p, #ruleBox>ul:first-of-type{
+		margin: 15px auto;
+		width: 80%;
+	}
+	
+	#alreadySelectedWarning{
+		height: 100px;
+		top: -300px;
+	}
+
+	.category{
+		line-height: 150%;
+		margin-top: 25%;
+		text-align: center;
+	}
+	
+	#answer>p:first-of-type{
+		margin-top: 15px;
+	}
+	
+	#answer>input{
+		margin-left: 5%;
+		margin-top: -10px;
+		width: 70%;
+	}
+
+	#answer>ul:first-of-type{
+		text-align: left;
+	}
+	
+	#completedMessage{
+		top:-300px;
+	}
+		
+	#nameBox, #ruleBox>ul:first-of-type .magnifiedCategory, #answer{
+		font-size: 90%;
+	}
+	
+	.absolute{
+		left: 5%;
+		text-align: center;
+	}
+}
+
+@media only screen and (min-width:400px){
+	#nameBox>button{
+		margin: 10px auto;
+		width: 150px;
+	}
+}
+
+@media only screen and (min-width:500px){
+	.magnifiedClue{
+		left:10%;
+	}
+		
+	#answer{
+		left:50%;
+		top: 15%;
+		position: absolute;
+	}
+}
+
+@media only screen and (min-width:600px){
+	.magnifiedClue{
+		left: 7.5%;
+	}
+	
+	#answer{
+		left: 50%;
+	}
+	
+	.magnifiedClue, #answer{
+		height: 250px;
+		width: 250px;
+	}
+	
+	#dailyDouble{
+		font-size: 90%;
+		left: 10%;
+		height: 60px;
+		top: -400px;
+		width:80%;
+	}
+	
+	#ruleBox,#wagerRules, #wagerBox, #alreadySelectedWarning, #startNewGame{
+		left: 10%;
+		width: 80%;
+	}
+	
+	#dailyDouble>h1, #wagerRules>h1, #ruleBox>h1, #completedMessage>h1{
+		font-size: 130%;
+	}
+	
+	#ruleBox>p, #ruleBox>ul:first-of-type{
+		font-size: 110%;
+	}
+	
+	#startNewGame>p{
+		font-size: 90%;
+	}
+}
+
+@media only screen and (min-width:700px){
+	.magnifiedClue{
+		left: 12.5%;
+	}
+	
+	#answer{
+		left: 50%;
+	}
+	
+	.magnifiedClue, #answer{
+		height: 250px;
+		width: 250px;
+	}
+		
+	.absolute{
+		left: 25%;
+	}
+	
+	#completedMessage{
+		left: 20%;
+		width: 60%;
+	}
+	
+	#completedMessage>ul{
+		width: 80%;
+	}
+}
+
+@media only screen and (min-width:800px){	
+	.absolute{
+		left: 30%;
+	}
+}
+
+@media only screen and (min-width:900px){
+	.magnifiedClue{
+		left: 25%;
+	}
+	
+	#dailyDouble{
+		left: 20%;
+		width: 60%;
+	}
+	
+	#wagerRules,#wagerBox,#alreadySelectedWarning{
+		left: 15%;
+		width: 70%;		
+	}
+}
+
+@media only screen and (min-width:1020px){
+	#startNewGame{
+		left: 375px;
+		width: 600px;
+	}
+
+	#startNewGame>button{
+		margin: 10px auto;
+	}
+	
+	#nameBox{
+		font-size: 100%;
+		height: 150px;
+		left: 425px;
+		top: -300px;
+		width: 500px;
+	}
+	
+	#nameBox>button{
+		margin: 10px auto;
+	}
+	
+	#ruleBox{
+		height: 500px;
+		left: 350px;
+		top: -400px;
+		width: 600px;
+	}
+	
+	#dailyDouble{
+		height: 60px;
+		top: -300px;
+	}
+	
+	#wagerRules{
+		height: 150px;
+		left: 420px;
+		top: -400px;
+		width: 500px;	
+	}
+	
+	#wagerRules>ul:first-of-type{
+		width: 450px;
+	}
+
+	#wagerBox{
+		height: 225px;
+		left: 420px;
+		top: -400px;
+		width: 500px;	
+	}
+	
+	#wagerBox>button{
+		margin-left: 200px;
+		margin-top: 10px;
+		width: 100px;
+	}
+	
+	.magnifiedClue, #answer{
+		font-size: 100%;
+		height: 300px;
+		width: 300px;
+	}
+	
+	#answer{
+		left: 700px;
+	}
+	
+	#answer>button{
+		font-size: 100%;
+	}
+	
+	#alreadySelectedWarning{
+		height: 100px;
+		top: -300px;
+		width: 100px;
+	}
+	
+	#completedMessage{
+		left: 350px;
+		width: 600px;
+	}
+	
+	.absolute{
+		left: 500px;
+	}
 }

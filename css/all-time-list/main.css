@@ -1,5 +1,5 @@
-@import '../header-and-footer.css';
 @import '../reset.css';
+@import '../header-and-footer.css';
 @import '../animations.css';
 
 button:active{

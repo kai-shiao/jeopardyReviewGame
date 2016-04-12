@@ -401,7 +401,7 @@ function gameplay(e){
 		}
 		console.info('COUNT VARIABLE VALUE: '+$count);
 		
-		if ($count===1){
+		if ($count===25){
 			//Overall game stats
 			var $totalPrize=Number(localStorage.getItem('totalPrize'));
 			var $totalCorrect=Number(localStorage.getItem('totalCorrect'));

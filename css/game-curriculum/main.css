@@ -30,13 +30,25 @@ nav{
 		font-size: 120%;
 	}
 	
-	table>tbody>tr:nth-child(n+2)>th,table>tbody>tr:nth-child(n+2)>td{
+	table>tbody>tr:nth-child(n+2)>th,table>tbody>tr:nth-child(n+2)>td,p{
 		font-size: 80%;
 	}
 	
 	table>tbody>th,table>tbody>td{
 		height: 30px;
 		overflow: scroll;
+	}
+	
+	p{
+		top: 90%;
+	}
+	
+	p,.absolute{
+		left: 5%;
+	}
+	
+	.absolute{
+		top: 60%;
 	}
 	
 	footer{
@@ -49,6 +61,10 @@ nav{
 		margin-left: 10%;
 	}
 	
+	.absolute{
+		left: 15%;
+	}
+	
 	footer{
 		margin-top: 40%;
 	}
@@ -59,8 +75,23 @@ nav{
 		margin-left: 20%;
 	}
 	
+	.absolute{
+		left: 20%;
+	}
+	
 	footer{
 		margin-top: 30%;
+	}
+}
+
+@media only screen and (min-width:600px){
+	p{
+		left: 10%;
+		width: 80%;
+	}
+	
+	.absolute{
+		left: 25%;
 	}
 }
 
@@ -69,19 +100,42 @@ nav{
 		margin-left: 50%;
 	}
 	
-	table>tbody>tr:nth-child(n+2)>th,table>tbody>tr:nth-child(n+2)>td{
+	table>tbody>tr:nth-child(n+2)>th,table>tbody>tr:nth-child(n+2)>td,p{
 		font-size: 90%;
 	}
 	
 	footer{
 		margin-top: 20%;
 	}
+	
+	.absolute{
+		left: 25%;
+	}
+}
 
+@media only screen and (min-width:800px){
+	.absolute{
+		left: 25%;
+	}
 }
 
 @media only screen and (min-width:900px){
-	table>tbody>tr:nth-child(n+2)>th,table>tbody>tr:nth-child(n+2)>td{
+	table>tbody>tr:nth-child(n+2)>th,table>tbody>tr:nth-child(n+2)>td,p{
 		font-size: 100%;
+	}
+}
+
+@media only screen and (min-width:1020px){
+	section{
+		width: 600px;
+	}
+	
+	p{
+		top: 200px;
+	}
+	
+	.absolute{
+		left: 500px;
 	}
 }
 
@@ -134,12 +188,6 @@ nav>ul>li:hover>ul>li>a:hover,a:hover{
 	color: rgb(255,255,255);
 }
 
-@media only screen and (min-width:1020px){
-	section{
-		width: 600px;
-	}
-}
-
 section>table{
 	border: 3px solid rgb(0,0,0);
 	border-collapse: collapse;
@@ -148,39 +196,20 @@ section>table{
 	top: 150px;
 }
 
-/*section>section>table>tbody>tr:first-of-type>td{
-	font-size: 150%;
-}
-*/
 section>table>tbody>tr,section>table>tbody>tr>th:nth-child(2),section>table>tbody>tr>td:nth-child(2){
 	border: 3px solid rgb(0,0,0);
 	border-radius: 1px;
 	padding: 5px;
 }
 
-/*section>section>table>tbody>tr>th, section>section>table>tbody>tr>td{
-	padding-bottom: 5px;
-	padding-top: 5px;	
-}
-
 section>section>table>tbody>tr>th:nth-child(2), section>section>table>tbody>tr>td:nth-child(2){
 	border-left: 3px solid rgb(0,0,0);
 	padding-left: 5px;
 	padding-right: 5px;
-}*/
+}
 
 section>section>table>tbody>tr>td:nth-child(2){
 	text-align: left;
-}
-
-p{
-	left: 400px;
-	top: 250px;
-}
-
-.absolute{
-	left: 500px;
-	top: 400px;
 }
 
 p, .absolute{

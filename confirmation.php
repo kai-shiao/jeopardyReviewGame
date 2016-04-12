@@ -119,7 +119,7 @@ print <<<HERE
 <button>REVIEW THE CURRICULUM COVERED IN THIS GAME.</button>
 <button>PLAY AGAIN!</button>
 <button>VIEW ALL-TIME LIST</button>
-<footer>&copy;$currentYear. WESTON HILL. ALL RIGHTS RESERVED.</footer>
+<footer>&copy;$currentYear. KAI SHIAO. ALL RIGHTS RESERVED.</footer>
 HERE;
 ?>
 </div>

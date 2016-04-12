@@ -148,6 +148,10 @@ button{
 	margin-top: 20px;
 }
 
+#answer>ul:first-of-type{
+	text-align: left;
+}
+
 @media only screen and (min-width:287px){
 	#nameBox, #ruleBox{
 		top: -40px;
@@ -223,16 +227,16 @@ button{
 	#startNewGame{
 		top: -300px;
 	}
-
+	
+	#nameBox, #ruleBox{
+		top: -40px;
+	}
+	
 	#nameBox{
 		left: 20%;
 		width: 60%;
 	}
 	
-	#ruleBox{
-		top: 40px;
-	}
-
 	#ruleBox>p, #ruleBox>ul:first-of-type{
 		margin: 15px auto;
 		width: 80%;
@@ -257,10 +261,6 @@ button{
 		margin-left: 5%;
 		margin-top: -10px;
 		width: 70%;
-	}
-
-	#answer>ul:first-of-type{
-		text-align: left;
 	}
 	
 	#completedMessage{

@@ -1,7 +1,6 @@
 (function(){
 	function deliverContent(e){
 		e.preventDefault();
-		localStorage.setItem('gameComplete','true'); //temporary code while editing CSS.
 		if (localStorage.getItem('gameComplete')==='true'){
 			$('section').load(e.target.href).addClass('fadeIntoView');
 			

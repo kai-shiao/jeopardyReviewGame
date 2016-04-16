@@ -1,7 +1,7 @@
 body{
 	background-color: rgb(0,0,255);
 	color: rgb(255,215,0);
-	font-family: "Maiandra GD", serif;
+	font-family: "Maiandra GD", "Menlo Bold", serif;
 	font-weight: bold;
 	max-width: 100%;
 	text-align: center;

@@ -387,6 +387,13 @@ button{
 }
 
 @media only screen and (min-width:1020px){
+	.magnifiedCategory{
+		height: 120px;
+		left: 500px;
+		top: -700px;
+		width: 120px;
+	}
+	
 	#startNewGame{
 		left: 375px;
 		width: 600px;

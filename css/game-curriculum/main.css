@@ -155,10 +155,6 @@ nav>ul>li:nth-child(-n+2):after{
 	position: relative;
 }
 
-nav>ul>li>ul>li{
-	display: none;
-}
-
 nav>ul>li:hover>ul>li{
 	background-color: rgb(0,0,255);
 	display: block;

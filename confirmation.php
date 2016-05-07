@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-<meta charset="UTF-8">
-<meta name="description" content="Unlike conventional macaron bakeries, The Macaron Man 
-is dedicated to producing in-house, high end, and premium quality macarons using world renowned ingredients.">
-<meta name="keywords" content="macaron shop, patisserie, all-natural, premium, treats">
+	<meta charset="UTF-8">
 <?php
 print <<<HERE
 <link rel="icon" type="image/x-icon" href="multimedia/AmericanFlag.ico"/>
@@ -15,14 +12,14 @@ print <<<HERE
 <link href="css/animations.css" rel="stylesheet">
 HERE;
 ?>
-<title>CONFIRMATION OF SCORE ENTRY INTO DATABASE</title>
+	<title>CONFIRMATION OF SCORE ENTRY INTO DATABASE</title>
 </head>
 <body>
-<div id="wrapper">
-<header>
-	<h1>AP US HISTORY JEOPARDY REVIEW GAME!</h1>
-	<h2>CONFIRMATION OF SCORE ENTRY INTO DATABASE</h2>
-</header>
+	<div id="wrapper">
+		<header>
+			<h1>AP US HISTORY JEOPARDY REVIEW GAME!</h1>
+			<h2>CONFIRMATION OF SCORE ENTRY INTO DATABASE</h2>
+		</header>
 <?php
 #Save the newly received statistics sent to PHP from "finaljeopardy.html" via the POST method into the corresponding PHP variables. 
 $contestantName=filter_input(INPUT_POST,"contestantName");
@@ -122,7 +119,7 @@ print <<<HERE
 <footer>&copy;$currentYear. KAI SHIAO. ALL RIGHTS RESERVED.</footer>
 HERE;
 ?>
-</div>
+	</div>
 <?php
 print <<<HERE
 <script src="jquery/jquery-2.2.2.min.js"></script>

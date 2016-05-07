@@ -470,8 +470,6 @@ function gameplay(e){
 	} else { //Daily double tiles
 		if ($jeopardyClueStatus[$eventTargetID]==='TRUE'){
 			alreadySelectedWarning();
-		} else {
-			dailyDouble();
 		}
 	}
 }

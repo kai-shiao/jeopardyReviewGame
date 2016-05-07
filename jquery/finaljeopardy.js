@@ -200,7 +200,7 @@
 									}
 									
 									function redirect(){
-										location.href='game-curriculum.html';
+										location.href='http://www.apushreviewgame.com/game-curriculum';
 									}
 									
 									$('#showGameStats').find('button').eq(1).on('click',redirect);
@@ -232,7 +232,7 @@
 		$('body').append($htmlMarkup);
 		
 		function redirect(){
-			location.href='jeopardy.html';
+			location.href='http://www.apushreviewgame.com/jeopardy';
 		}
 		$('#startNewGame').find('button').on('click',redirect);
 	}

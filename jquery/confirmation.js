@@ -16,16 +16,16 @@ function redirectToGameCurriculum(){
 		
 		$('#incomplete').first().on('click',closeNotification);
 	} else {
-		location.href='game-curriculum.html';
+		location.href='http://www.apushreviewgame.com/game-curriculum';
 	}
 }
 
 function redirectToJeopardy(){
-	location.href='jeopardy.html';
+	location.href='http://www.apushreviewgame.com/jeopardy';
 }
 
 function redirectToAllTimeList(){
-	location.href='all-time-list.html';
+	location.href='http://www.apushreviewgame.com/all-time-list';
 }
 
 $('button').eq(0).on('click', redirectToGameCurriculum);

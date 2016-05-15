@@ -476,7 +476,7 @@ function gameplay(e){
 				$('footer').addClass('hidden');
 
 				function proceedToFinalJeopardy(){
-					location.href='finaljeopardy.html';
+					location.href='http://www.apushreviewgame.com/finaljeopardy';
 				}
 				$('#completedMessage').find('button').on('click',proceedToFinalJeopardy);
 			}
@@ -544,7 +544,7 @@ function gameplay(e){
 		$($captureFooterElement).addClass('absolute');
 		
 		function redirect(){
-			location.href='jeopardy.html';
+			location.href='http://www.apushreviewgame.com/jeopardy';
 		}
 		$('#startNewGame').find('button').on('click',redirect);
 	} 

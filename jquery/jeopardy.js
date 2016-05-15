@@ -434,7 +434,7 @@ function gameplay(e){
 			$('footer').addClass('hidden');
 			
 			function proceedToDoubleJeopardy(){
-				location.href='doublejeopardy.html';
+				location.href='http://www.apushreviewgame.com/doublejeopardy';
 			}
 			$('#completedMessage').find('button').on('click',proceedToDoubleJeopardy);
 		}
